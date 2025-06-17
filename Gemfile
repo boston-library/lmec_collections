@@ -9,6 +9,11 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem "cssbundling-rails"
 gem "jbuilder"
+gem "rsolr", ">= 1.0", "< 3"
+gem "bootstrap", "~> 5.3"
+gem "devise"
+gem "devise-guests", "~> 0.8"
+gem "openseadragon", "~> 1.0"
 
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
@@ -21,6 +26,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
+  gem "solr_wrapper", ">= 0.3"
 end
 
 group :development do
