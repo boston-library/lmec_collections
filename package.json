@@ -1,15 +1,23 @@
 {
-  "name": "app",
-  "private": "true",
+  "name": "bpl-app",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
     "@popperjs/core": "^2.11.8",
     "autoprefixer": "^10.4.21",
+    "blacklight-frontend": "8.11.0",
+    "blacklight-gallery": "5.0.0",
     "bootstrap": "^5.3.6",
     "bootstrap-icons": "^1.13.1",
+    "commonwealth-vlr-engine": "/Users/leshkacore/.rbenv/versions/3.4.4/lib/ruby/gems/3.4.0/bundler/gems/commonwealth-vlr-engine-91e1936a0e9d",
     "nodemon": "^3.1.10",
+    "openseadragon-rails": "^1.0.17",
     "postcss": "^8.5.4",
     "postcss-cli": "^11.0.1",
-    "sass": "^1.89.2"
+    "sass": "^1.89.2",
+    "universalviewer": "4.2.0"
   },
   "scripts": {
     "build:css:compile": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",
