@@ -1,0 +1,38 @@
+<div class="modal fade" id="modal-select-gallery-map">
+  <div class="modal-dialog modal-lg modal-gallery-select">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title h5">Add Another Layer</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <%= form_tag(show_gallery_map_set_path, method: 'get', remote: true, id: 'select-gallery-form') do %>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>
+                  Favorites List
+                  <select name="gallery_id" class="form-control">
+                    <%= options_from_collection_for_select(@galleries, :id, :name, selected: @gallery.id) %>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <input name="image_view" value="georeferenced" type="hidden">
+            <input name="modal_type" value="map" type="hidden">
+          <% end %>
+        </div>
+        <div id="repo-map-select">
+          <% geo_document_list = @document_list.select { |d| d[:georeferenced_bsi] } %>
+          <%= render "shared/show_gallery", :@document_list => geo_document_list,
+              :@desktop_counter => 'desktop_row_class_map',
+              :@device_counter => 'device_row_class_map',
+              :@image_view => 'georeferenced' %>
+        </div>
+      </div>
+      <div class="modal-footer text-left">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

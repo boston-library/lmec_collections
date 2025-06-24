@@ -1,0 +1,12 @@
+.page-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 2rem;
+  left: 0;
+
+  @media (max-width: $screen-sm-max) {
+    position: relative;
+    padding: 1rem;
+  }
+}

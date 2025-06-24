@@ -1,0 +1,265 @@
+/**
+ * Map Sets
+ */
+@import
+  "map-sets/header",
+  "map-sets/content-box",
+  "map-sets/action-buttons",
+  "map-sets/share-buttons",
+  "map-sets/editing-navigation",
+  "map-sets/edit-mode",
+  "map-sets/page-layout",
+  "map-sets/page-title",
+  "map-sets/page-footer",
+  "map-sets/page-cover",
+  "map-sets/page-toc",
+  "map-sets/page-list",
+  "map-sets/toolbar",
+  "map-sets/citations",
+  "map-sets/print";
+
+
+body.rearrange-pages {
+    padding: 0;
+
+    .navbar-default,
+    .navbar-default + header,
+    .map-set-navigation,
+    footer {
+        display: none;
+    }
+
+    .map-set.edit {
+        -webkit-transform: scale(.85);
+            -ms-transform: scale(.85);
+                transform: scale(.85);
+    }
+
+    .movable {
+        cursor: move;
+    }
+}
+
+#mapset-close-presentation-mode {
+  display: none;
+}
+
+.multi-maps {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.multi-selector {
+  position: absolute;
+  top: 15px;
+  right: 5px;
+  width: 250px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+  z-index: 1;
+
+  .bpl-repo-item & {
+    right: 20px;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    li > a.add-layer {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #054571;
+    }
+  }
+}
+
+.multi-selector-row {
+  overflow: hidden;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 10px;
+  list-style-type: none;
+  background: white;
+
+  &:last-child {
+    border-bottom: none;
+  }
+  &.show {
+    .layer-controls {
+      width: 100%;
+
+      .layer-title {
+        width: 100%;
+      }
+      .opacity .slider {
+        width: 143px;
+      }
+    }
+  }
+  .btn-link {
+    padding-left: 0;
+    padding-right: 0;
+    color: #000;
+  }
+  .layer-handle {
+    height: 76px;
+    margin-top: -60px;
+    margin-left: -6px;
+    padding-top: 0;
+  }
+  .layer-controls {
+    display: inline-block;
+    width: calc(100% - 25px);
+
+    .annotating {
+      display: block;
+      padding-bottom: 5px;
+
+      &:after {
+        border-radius: 3px;
+        padding: 3px;
+        background-color: #F2F1EA;
+        color: #000;
+        font-weight: 400;
+        content: 'Click to annotate';
+      }
+      &.active:after {
+        padding: 5px;
+        font-weight: 600;
+        background-color: #0763a2;
+        color: #fff;
+        content: 'Annotating';
+      }
+    }
+    .layer-title {
+      display: block;
+      width: 179px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-top: 4px;
+      font-weight: 500;
+    }
+    .remove {
+      &[disabled] i {
+        opacity: 0.5;
+      }
+      i {
+        color: #bf1914;
+      }
+    }
+    .opacity {
+      display: inline-block;
+      padding: 5px 15px 0 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+
+      label {
+        padding-right: 10px;
+      }
+      .slider {
+        width: 118px;
+      }
+    }
+  }
+  .fixed-row {
+    display: block;
+    width: 100%;
+
+    input[type="checkbox"] {
+      margin-right: 2px;
+    }
+  }
+}
+
+.map-set-preview.presentation-mode {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  z-index: 9999;
+  overflow: auto;
+  padding: 0;
+
+  .map-set-header {
+    display: none;
+  }
+
+  .share-links {
+    display: none;
+  }
+
+  #mapset-close-presentation-mode {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2px 4px;
+    background: white;
+    display: block;
+    z-index: 10;
+  }
+
+  .container {
+    -webkit-transform: scale(.95);
+        -ms-transform: scale(.95);
+            transform: scale(.95);
+    -webkit-transform-origin: top;
+        -ms-transform-origin: top;
+            transform-origin: top;
+  }
+
+  .map-set-content {
+    border-color: black;
+  }
+
+  .map-set-content {
+    height: 100vh;
+  }
+
+  .layout-single-row .image-preview,
+  .layout-single-row .page-content {
+    height: 80vh;
+  }
+
+  .page-content {
+    height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .text-content {
+    height: 100%;
+  }
+
+  .layout-double-row .row {
+    height: 40vh;
+    margin-bottom: 0;
+  }
+
+  .layout-double-row .image-preview, .layout-double-row .page-content {
+    height: 38vh;
+  }
+}
+
+img.map-set.image {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.page-toc {
+    overflow: auto;
+}

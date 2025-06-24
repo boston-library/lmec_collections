@@ -1,0 +1,25 @@
+.alerts {
+  position: absolute;
+  top: 90px;
+  z-index: 1000;
+  right: 20px;
+}
+
+#error_explanation {
+  @extend .alert;
+  @extend .alert-warning;
+  
+  h2 {
+    font-size: 1.6rem;
+    margin: 0;
+  }
+}
+
+.admin-alert {
+  border-radius: 0;
+  margin-bottom: 0;
+
+  h4 {
+    margin-top: 1rem;
+  }
+}

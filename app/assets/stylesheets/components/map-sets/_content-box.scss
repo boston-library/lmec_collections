@@ -1,0 +1,76 @@
+.map-set-content {
+    border: 1px solid #ddd;
+    padding: 1.5rem 4rem;
+    margin-top: -1px;
+    height: 881px;
+    position: relative;
+    background: #fff;
+    overflow-y: auto;
+
+  @media (max-width: $screen-md-max) {
+    height: auto;
+    min-height: 881px;
+  }
+
+
+
+    .media-preview {
+        margin-bottom: 3rem;
+    }
+}
+
+.map-set-content ~ .map-set-content  {
+    margin-top: 2rem;
+}
+
+.map-set-content.hidden ~ .map-set-content  {
+    margin-top: 0rem;
+}
+
+.page-overlay:not([disabled]) {
+    width: 50px;
+    height: 881px;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+
+    &:before {
+        @extend [class^="icon-"], :before;
+        border: 1px solid #054571;
+        padding: 55px 15px;
+        font-size: 30px;
+        border-radius: 5px;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.25s ease-in;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+        width: 45px;
+        margin: 0;
+        background: #054571;
+        color: white;
+    }
+
+    &:hover:before {
+        opacity: 1;
+    }
+
+    &.prev {
+        left: -20px;
+
+        &:before {
+            @extend .icon-left;
+        }
+    }
+    &.next {
+        right: -20px;
+
+        &:before {
+            @extend .icon-right;
+        }
+    }
+}

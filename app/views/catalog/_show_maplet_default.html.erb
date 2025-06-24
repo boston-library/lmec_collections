@@ -1,0 +1,9 @@
+<% # map for catalog#show view %>
+<div id="blacklight-show-map-container">
+    <% if @document[:subject_geojson_facet_ssim] || (!blacklight_config.maps.nil? && @document[blacklight_config.maps.coordinates_field.to_sym]) %>
+        <% geojson_features = serialize_geojson(@document) %>
+        <%= blacklight_map_tag('blacklight-show-map',
+                               {data:{initialzoom:12,
+                                      singlemarkermode:false}}) %>
+    <% end %>
+</div>

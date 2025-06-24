@@ -1,0 +1,14 @@
+#img_show_zoom_cue {
+    font-size: 25px;
+    position: absolute;
+    top: 25px;
+    left: 35px;
+    z-index: 100;
+}
+
+.carousel-control:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}

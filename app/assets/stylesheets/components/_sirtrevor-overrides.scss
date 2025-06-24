@@ -1,0 +1,281 @@
+.st-blocks {
+  overflow: visible;
+}
+
+.st-block__inner {
+  margin: 20px;
+}
+
+.st-block[data-type="quote"] .st-block__inner {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.st-block-replacer {
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+  top: -20px;
+  left: 0;
+}
+
+.st-block-replacer__button {
+  background: #fff;
+  border-radius: 100%;
+}
+
+.st-block-controls__button {
+  .st-icon {
+    margin: auto;
+  }
+}
+
+.bpl-repo-block .bpl-repo-item .delete {
+  line-height: 1;
+  padding: 3px 1px;
+}
+
+/* Work-around GeoBlacklight messing up Sir-Trevor's icon CSS*/
+.st-outer [data-icon]:before {
+    content: none;
+}
+
+.editable-title {
+    background: none;
+    border: none;
+    width: 100%;
+
+    &:hover, &:focus, &:active {
+        box-shadow: 0 0 0 2px $lmc-blue;
+    }
+}
+
+.st-block[data-type="bpl_repo"] {
+    /* Hide the built-in delete button*/
+    .st-block-ui-btn__delete {
+        display: none;
+    }
+}
+
+.st-block .bpl-repo-block {
+
+  .bpl-repo-item {
+    border: 1px solid #bbbaa5;
+    margin: 5px;
+    padding: 5px;
+  }
+}
+
+.bpl-repo-block {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-bottom: 10px;
+  min-height: 250px;
+
+  @media (max-width: $screen-xs) {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+  @media (max-width: $screen-sm) {
+    min-height: auto !important;
+  }
+
+  .bpl-repo-item {
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    padding-right: 10px;
+    padding-left: 10px;
+    position: relative;
+    word-wrap: break-word;
+    min-height: inherit;
+
+    @media (min-width: $screen-xs + 1) {
+      margin: 0 5px;
+    }
+    
+    @media (max-width: $screen-xs) {
+      -webkit-flex: none;
+          -ms-flex: none;
+              flex: none;
+      width: 50%;
+      margin-bottom: 10px;
+
+      /* If only one item in a row*/
+      &:first-child:last-child {
+        width: 100%;
+      }
+    }
+
+
+    .repo-item-col {
+      margin-top: 25px;
+      height: calc(100% - 105px);
+
+      > .btn {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+        padding: 2px;
+        border-radius: 2px;
+      }
+      &.change-image {
+        > .btn {
+          position: absolute;
+          bottom: -45px;
+          & + .btn {
+              bottom: -85px;
+          }
+        }
+        > img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translateX(-50%) translateY(-50%);
+              -ms-transform: translateX(-50%) translateY(-50%);
+                  transform: translateX(-50%) translateY(-50%);
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+    }
+
+    .st-text-block {
+      min-height: 55px;
+      height: calc(100% - 25px);
+      overflow: auto;
+    }
+    .delete:hover + .st-text-block {
+      box-shadow: 0 0 0 2px #4883a3;
+    }
+    a[data-add] {
+      display: none;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translate(0,-50%);
+          -ms-transform: translate(0,-50%);
+              transform: translate(0,-50%);
+
+      &:hover .st-block-addition__button {
+        opacity: 1;
+      }
+    }
+    &:first-child {
+
+      > a:first-child {
+        display: block;
+        left: -35px;
+      }
+    }
+    &:last-child {
+
+      > a:last-child {
+        display: block;
+        right: -35px;
+      }
+    }
+    .change-image {
+      position: relative;
+    }
+    .delete {
+      display: block;
+      border-radius: 2px;
+      padding: 0px;
+      margin-bottom: 10px;
+      position: absolute;
+      right: 10px;
+      left: 10px;
+      z-index: 1;
+    }
+  }
+  .st__content-block--image {
+    height: 100%;
+
+    > a {
+      height: 100%;
+
+      > img {
+        max-width: 100%;
+        max-height: 100%;
+
+        @media (max-width: $screen-sm) {
+          display: block;
+          margin: auto;
+        }
+        @media (min-width: $screen-sm + 1) {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translateX(-50%) translateY(-50%);
+              -ms-transform: translateX(-50%) translateY(-50%);
+                  transform: translateX(-50%) translateY(-50%);
+        }
+      }
+    }
+  }
+}
+
+.st-block-addition-top__button {
+  left: 0;
+}
+
+.st-block-addition-top__icon {
+  padding: 0;
+  left: -15px;
+
+  svg.st-icon {
+    background: #fff;
+    border-radius: 100%;
+  }
+}
+
+.st-block-addition-top:before {
+  left: 40px;
+  right: 40px;
+}
+
+.st-text-block--quote {
+  margin-bottom: 0;
+}
+
+.st-block input[type="text"] {
+  display: block;
+  width: 100%;
+}
+
+.st-block--dragging {
+  background: #fff;
+  box-shadow: 0 0 3px;
+
+  .st-text-block p:last-of-type {
+    margin: 0;
+  }
+}
+
+.st-block-ui-btn__reorder {
+  right: 0;
+}
+
+.st-drag-element {
+  position: relative;
+}
+
+.st-block[data-type="ordered_list"] .st-block-ui-btn__delete {
+    display: none;
+}
+
+.st-block:last-child:not(.st-block--controls-active) {
+    &.st-block--textable, &.st-block--empty {
+        .st-block-addition {
+            display: block;
+        }
+    }
+}
+
+.bpl-repo-item .map {
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+}

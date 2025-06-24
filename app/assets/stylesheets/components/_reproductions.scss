@@ -1,0 +1,21 @@
+.reproductions_form_wrapper {
+
+  .reproductions_form_thumbnail {
+    padding-bottom: 10px;
+  }
+
+  .reproduction_input {
+    padding-top: 7px;
+
+    input {
+      &[type='radio'] {
+        margin-right: 10px;
+        vertical-align: top;
+      }
+    }
+  }
+
+  #other_size_wrapper {
+    display: none;
+  }
+}

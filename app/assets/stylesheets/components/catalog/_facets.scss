@@ -1,0 +1,230 @@
+.facets-heading {
+  @extend .h4;
+}
+
+.facet_limit.panel {
+  background-color: $lmc-offwhite;
+  margin-bottom: 2rem;
+
+  .panel-heading {
+    padding: 13px;
+  }
+
+  .panel-title {
+    font-size: 16px;
+    font-family: 'Fira Sans', sans-serif;
+    color: #4A4A38;
+    
+    /* Mimics fontello icon-down */
+    &:after {
+      float: right;
+      content: '\e801';
+      font-family: "fontello";
+      font-style: normal;
+      font-weight: normal;
+      speak: none;
+      display: inline-block;
+      text-decoration: inherit;
+      width: 1em;
+      margin-right: .2em;
+      text-align: center;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    > a {
+      font-weight: 400;
+    }
+  }
+
+  .facet-label {
+    display: inline-block;
+    font-size: 13px;
+    width: 80%;
+    display: inline-block;
+    margin-bottom: 6px;
+    vertical-align: middle;
+    position: relative;
+
+    .selected {
+      padding-left: 15px;
+    }
+
+    a.remove {
+      position: absolute;
+      left: -2px;
+      top: 1px;
+    }
+  }
+
+  .facet-count {
+    display: inline-block;
+    width: 20% !important;
+    vertical-align: top;
+    text-align: right;
+  }
+
+  .facet-select {
+    font-weight: 400;
+  }
+
+  a.more_facets_link {
+    @extend .btn;
+    @extend .btn-secondary;
+    padding-left: 15px;
+    padding-right: 15px;
+    float: right;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 1;
+    border-radius: 5px;
+    border: none;
+  }
+}
+
+.blacklight-advanced-facet-select {
+  margin-top: 8px;
+
+  .facet-label {
+    margin-left: 8px;
+  }
+  
+  .facet-count {
+    padding: 0px 8px;
+    display: inline-block;
+    background: $lmc-blue;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2rem;
+    margin-left: 8px;
+  }
+
+}
+
+
+.modal {
+  .facet-values {
+    li {
+      padding: 2px 10px;
+      border: 1px solid #ddd;
+      margin-bottom: -1px;
+    }
+
+    .facet-count {
+      float: right;
+      background: $off-white;
+      min-width: 35px;
+      text-align: center;
+      border-radius: 5px;
+    }
+
+    .facet-label {
+      width: 85%;
+      display: inline-block;
+    }
+  }
+
+  .facet-pagination {
+    margin-bottom: 10px;
+    .btn {
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+  }
+}
+
+.range_limit {
+
+  .form-control {
+
+    &.range_begin,
+    &.range_end {
+      width: 60px;
+    }
+  }
+}
+
+.limit_content.range_limit {
+
+  form {
+    text-align: center;
+
+    .form-control {
+      width: 60px;
+    }
+
+    .btn.submit {
+      padding: 3px 10px;
+    }
+  }
+
+  .range.slider_js {
+    margin: 0 0 -12px;
+    z-index: 11;
+    position: relative;
+
+    .slider.slider-horizontal {
+      width: auto !important;
+      margin-left: 11px !important;
+      margin-right: 5px !important;
+      margin-top: 13px !important;
+    }
+
+    .slider-track {
+      height: 10px;
+      width: 100%;
+      margin-top: -4px;
+      top: 50%;
+      left: 0;
+      background: #545454;
+      border-radius: 0;
+      border-top: 2px solid #535353;
+
+      .slider-selection {
+        background: #efe6d7;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+
+    .slider-handle {
+      background: $brand-secondary;
+      border-radius: 4px;
+
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        color: white;
+        border-left: 1px solid #fff;
+        border-right: 1px solid #fff;
+        width: 4px;
+        height: 12px;
+        box-shadow: 2px 0 0 #006688, 3px 0 0 white;
+        top: 50%;
+        left: 0;
+        -webkit-transform: translate(6px, -50%);
+            -ms-transform: translate(6px, -50%);
+                transform: translate(6px, -50%);
+      }
+    }
+  }
+
+  .distribution canvas {
+    min-width: 231px;
+  }
+
+  ul.missing {
+    margin: 0;
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px solid #ddd;
+
+    .facet-label {
+      width: 78%;
+    }
+  }
+}

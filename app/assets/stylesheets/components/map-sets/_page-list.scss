@@ -1,0 +1,36 @@
+.map-set-section {
+    margin-top: 2rem;
+}
+
+.map-set {
+    counter-reset: page;
+}
+
+.page-list {
+    &:empty {
+        height: 75px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border: 1px dashed #ddd;
+
+        &:before {
+            content: 'No pages';
+            text-align: center;
+            display: block;
+            padding: 25px;
+        }
+    }
+
+    .list-group-item-order {
+        counter-increment: page;
+
+        &:before {
+            content: counter(page);
+        }
+    }
+
+    > .list-group-item:first-child {
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+    }
+}

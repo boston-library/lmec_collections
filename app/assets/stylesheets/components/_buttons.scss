@@ -1,0 +1,167 @@
+.btn {
+  font-size: 1.6rem;
+}
+
+.btn-xs,
+.btn-sm {
+  font-size: 1.4rem;
+}
+
+.input-group .form-control {
+  height: 42px;
+}
+
+a.btn-default {
+  color: $text-color;
+}
+
+.btn-secondary {
+  @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+}
+
+.btn-facebook {
+  background-color: $facebook;
+  color: #fff;
+
+  &:focus,
+  &.focus {
+    background-color: darken($facebook, 15%);
+  }
+
+  &:hover {
+    background-color: darken($facebook, 5%);
+  }
+}
+
+.btn-twitter {
+  background-color: $twitter;
+  color: #fff;
+
+  &:focus,
+  &.focus {
+    background-color: darken($twitter, 15%);
+  }
+
+  &:hover {
+    background-color: darken($twitter, 5%);
+  }
+}
+
+.btn-gplus {
+  background-color: $gplus;
+  color: #fff;
+
+  &:focus,
+  &.focus {
+    background-color: darken($gplus, 15%);
+  }
+
+  &:hover {
+    background-color: darken($gplus, 5%);
+  }
+}
+
+
+@mixin button-ghost($color, $border) {
+  color: $color;
+  background-color: transparent;
+  border-color: $border;
+  border-width: 1px;
+
+  &:focus,
+  &.focus {
+    color: $color;
+    background-color: transparent;
+        border-color: darken($border, 25%);
+  }
+  &:hover {
+    color: $color;
+    background-color: transparent;
+        border-color: darken($border, 12%);
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $color;
+    background-color: transparent;
+        border-color: darken($border, 12%);
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: $color;
+      background-color: transparent;
+          border-color: darken($border, 25%);
+    }
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: transparent;
+          border-color: $border;
+    }
+  }
+}
+
+// Outlined buttons with no background
+.btn-ghost-primary {
+	@include button-ghost($btn-primary-color, $btn-primary-border);
+}
+
+.btn-ghost-secondary {
+	@include button-ghost($btn-secondary-color, $btn-secondary-border);
+}
+
+.btn-ghost-default {
+	@include button-ghost(#fff, $btn-default-border);
+}
+
+.btn-ghost-success {
+	@include button-ghost($btn-success-color, $btn-success-border);
+}
+
+.btn-ghost-info {
+	@include button-ghost($btn-info-color, $btn-info-border);
+}
+
+.btn-ghost-warning {
+	@include button-ghost($btn-warning-color, $btn-warning-border);
+}
+
+.btn-ghost-danger {
+	@include button-ghost($btn-danger-color, $btn-danger-border);
+}
+
+// An unordered list of buttons
+.button-list {
+
+  li ~ li {
+    margin-top: 1rem;
+  }
+
+  a {
+    display: block;
+    position: relative;
+    background: $off-white;
+    font-weight: 400;
+    padding: 1rem;
+    border-radius: 5px;
+
+    &:hover {
+      text-decoration: none;
+      background: darken($off-white, 5%);
+    }
+  }
+}
+
+.btn-success {
+  color: black;
+}

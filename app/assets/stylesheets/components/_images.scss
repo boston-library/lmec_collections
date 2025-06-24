@@ -1,0 +1,181 @@
+.img-thumbnail {
+    margin-bottom: 1.5rem;
+}
+
+.image-preview {
+  display: block;
+  position: relative;
+  background: $lmc-offwhite;
+  padding: 1rem;
+  transition: 150ms ease-in-out box-shadow;
+
+  > img {
+    display: block;
+    width: auto;
+    max-width: 98%;
+    max-height: 98%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+
+  .change-image {
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    -webkit-transform: translate(-50%);
+        -ms-transform: translate(-50%);
+            transform: translate(-50%);
+  }
+
+  .zoom-toggle {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+  &:hover {
+    box-shadow: inset 0px 0px 4px;
+  }
+}
+
+a.image-preview {
+  cursor: pointer;
+}
+
+.leaflet-draw-toolbar {
+    .leaflet-draw-draw-text {
+        background-image: none !important;
+
+        &:after {
+            content: 'A';
+            font-weight: 600;
+        }
+    }
+    .leaflet-draw-draw-color {
+        background-image: image-url("leaflet-draw/draw-color-icon.png") !important;
+        background-size: 14px;
+    }
+}
+
+.leaflet-marker-pane .text-annotation-icon {
+    width: auto !important;
+    height: auto !important;
+
+    /* Makes an icon to make the 
+    resizability of textareas more
+    apparent */
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 5px;
+        right: 0;
+        background-image: image-url("icon/icon-resize-box.png");
+        background-size: 16px;
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        width: 16px;
+        height: 16px;
+        pointer-events: none;
+        cursor: nwse-resize;
+    }
+    /* IE9 and IE10 rule sets go here.
+       Since pointer-events isnt supported
+       we remove the after so resize does
+       not break */
+    @media screen and (min-width:0\0) {
+        &:after {
+            display: none !important;
+        }
+    }
+
+    textarea {
+        color: #000;
+        background: rgba(255, 255, 255, 0.25);
+        overflow: auto;
+        color: black;
+        font-size: $font-size-base;
+        border: 2px dashed $brand-primary;
+
+        &:focus {
+            background: rgba(255, 255, 255, 0.76);
+        }
+
+        &.color-black {
+            color: black !important;
+        }
+        &.color-white {
+            color: white !important;
+            text-shadow: 0 0px 2px rgba(0, 0, 0, 0.75);
+        }
+        &.color-red {
+            color: red !important;
+        }
+        &.size-small {
+            font-size: $font-size-small;
+        }
+        &.size-base {
+            font-size: $font-size-base;
+        }
+        &.size-large {
+            font-size: $font-size-large;
+        }
+    }
+
+    &.leaflet-edit-marker-selected textarea {
+        cursor: pointer;
+    }
+}
+
+.blacklight-exhibits-show, .map-set:not(.edit) {
+    .leaflet-marker-pane .text-annotation-icon textarea {
+        background: none;
+        border: none;
+        resize: none;
+        &:focus {
+            outline: none;
+        }
+
+    }
+    
+    .leaflet-marker-pane .text-annotation-icon:after {
+        display: none !important;
+    }
+
+    .leaflet-text-format {
+        .button-bar {
+            .btn {
+                background-color: #FFF;
+            }
+            input[type="radio"] {
+                position: absolute;
+                opacity: 0;
+            }
+        }
+        .color-black {
+            background-color: black;
+            color: white;
+        }
+        .color-white {
+            background-color: white;
+            color: black;
+        }
+        .color-red {
+            background-color: red;
+            color: white;
+        }
+        .size-small {
+            font-size: $font-size-small;
+        }
+        .size-base {
+            font-size: $font-size-base;
+        }
+        .size-large {
+            font-size: $font-size-large;
+        }
+    }
+}

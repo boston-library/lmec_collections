@@ -1,0 +1,18 @@
+<%# copy (with some changes) of blacklight-gallery/app/views/catalog/_index_gallery %>
+
+<%= content_tag :div, class: 'document col-xs-6 col-sm-4 col-md-4 ' +
+    cycle('new_row', '', '', name: 'desktop_row_class') + ' ' +
+    cycle('new_row_device', '', name: 'device_row_class') , data: {
+    layer_id: document.id, bbox: document.bounding_box_as_wsen } do %>
+
+  <%# Our item markup differs from the Blacklight standard. The `bbox`
+      attribute is added to both the `.document` element and its first
+      child element so that Geoblacklight JS functions for highlighting
+      on hover and calculating total extent on load both work. %>
+  <div class="thumbnail" data-bbox="<%= document.bounding_box_as_wsen %>">
+    <%= render_thumbnail_tag(document, {}, :counter => document_counter_with_offset(document_counter)) %>
+    <div class="caption">
+      <%= render_document_partials document, blacklight_config.view_config(:gallery).partials, :document_counter => document_counter %>
+    </div>
+  </div>
+<% end %>

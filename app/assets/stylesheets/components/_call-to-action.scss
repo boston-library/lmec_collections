@@ -1,0 +1,12 @@
+.call-to-action {
+	background: $lmc-grey-dark;
+	text-align: center;
+
+	h4 {
+		display: inline-block;
+	}
+
+	h4 + .btn {
+		margin-left: 1rem;
+	}
+}

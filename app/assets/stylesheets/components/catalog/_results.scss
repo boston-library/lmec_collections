@@ -1,0 +1,260 @@
+.document {
+
+  .thumbnail {
+    background-color: $lmc-offwhite;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+
+    > a {
+      display: block;
+      height: 20rem;
+      overflow: hidden;
+      position: relative;
+      
+      &:before,
+      &:after {
+        display: block;
+        z-index: 1;
+        position: absolute;
+        opacity: 0;
+      }
+
+      &:before {
+        background: rgba(0, 0, 0, 0.32);
+        content: '';
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: .35s ease-in-out opacity;
+      }
+
+      &:after {
+        content: 'view';
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%,-70%);
+            -ms-transform: translate(-50%,-70%);
+                transform: translate(-50%,-70%);
+        padding: .5rem 2rem;
+        border: 1px solid white;
+        color: white;
+        border-radius: 10px;
+      }
+
+      > img {
+        min-width: 100%;
+        min-height: 100%;
+        max-width: initial;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+      }
+    }
+
+    > a:active {
+      
+      &:after {
+        background-color: white;
+        color: $lmc-blue;
+      }
+    }
+  }
+
+  .thumbnail.select {
+    
+    > a:after {
+      content: 'select';
+    }
+  }
+
+  .caption {
+    padding: 1rem;
+
+    .favorite-document {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 30px;
+      z-index: 1;
+
+      > a {
+        background: $lmc-offwhite;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border-radius: 100%;
+        display: block;
+      }
+    }
+  }
+
+  .document-title-heading {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 1.3rem;
+
+    > a {
+      color: $lmc-grey;
+      font-weight: 400;
+    }
+  }
+
+  .thumbnail:hover {
+
+    > a {
+      
+      &:before,
+      &:after {
+        opacity: 1;
+      }
+
+      &:after {
+        transition: .75s ease-in-out opacity, .5s ease-in-out transform;
+        -webkit-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+                transform: translate(-50%,-50%);
+      }
+    }
+  }
+
+  &.more_like_this_document.col-sm-6:nth-child(odd) {
+    clear: left;
+  }
+
+  @media (min-width: 768px) {
+    &.new_row {
+      clear: both;
+    }
+  }
+
+  @media (max-width: 767px) {
+    &.col-xs-6:nth-child(odd) {
+      clear: both;
+    }
+  }
+}
+
+.documents-georeferencable {
+  margin-top: 20px;
+
+  .document .thumbnail {
+    background: white;
+  }
+
+  .document .document-title-heading {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.map-view-thumbnails .thumbnail {
+  width: 90%;
+  min-height: 6rem;
+  
+  > a {
+    height: 6rem;
+    width: 6rem;
+    position: absolute;
+
+    &:before, 
+    &:after {
+      display: none !important;
+    }
+  }
+
+  .caption {
+    padding: 1rem;
+    padding-left: 7rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (max-width: 989px) {
+  .map-view-thumbnails {
+    padding-top: 320px;
+
+    ~ div[data-map="index"],
+    ~ div[data-map="index"].fixed {
+      position: absolute !important;
+      top: 62px !important;
+      left: 15px !important;
+      height: 300px !important;
+      width: 85% !important;
+    }
+  }
+}
+
+@media (max-width: 550px) { 
+  .map-view-thumbnails {
+
+    .thumbnail {
+      width: 100%;
+    }
+
+    ~ div[data-map="index"],
+    ~ div[data-map="index"].fixed {
+      top: 92px !important;
+      width: auto !important;
+      left: 20px !important;
+      right: 20px !important;
+    }
+  }
+}
+
+.search-results-container {
+
+  [data-map="index"].fixed {
+    position: fixed !important;
+    width: 425px;
+    left: calc(50vw + 138px);
+    top: 60px;
+
+    @media (min-width: 1200px) and (max-width: 1300px) {
+      left: calc(50vw + 138px);
+    }
+
+    @media (min-width: 990px) and (max-width: 1199px) {
+      left: calc(50vw + 113px);
+      width: 350px;
+    }
+
+    @media (max-width: 989px) {
+      position: relative !important;
+      width: 90%;
+      top: inherit;
+      left: inherit;
+    }
+    
+    @media (min-width: 990px) {
+      &.fixed-bottom {
+        position: absolute !important;
+        top: inherit;
+        right: 15px;
+        left: inherit;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+/* When map is adjusted and produces no results
+   these styles will be applied
+   to center the map and no results message */
+.col-sm-9 .no-search-results {
+  right: 17.5%;
+  position: relative;
+}
+
+.col-sm-9 .no-search-results ~ #map {
+  right: 17.5%;
+  height: 200px;
+  position: relative !important;
+  width: 100%;
+}

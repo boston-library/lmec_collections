@@ -1,0 +1,31 @@
+.map-set-details {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  background-color: #fff;
+
+  .metadata {
+    margin-top: 1.5rem;
+  }
+}
+
+.map-set-title {
+  margin-top: 1rem;
+}
+
+.map-set-header {
+	border: 1px solid #ddd;
+	padding: 1.5rem 4rem;
+	background: #fff;
+
+	.btn-ghost-secondary {
+		color: $brand-secondary;
+	}
+
+	.btn-group + .btn-group {
+		margin-left: 1rem;
+	}
+}
+
+.map-set-preview {
+  padding-top: 1rem;
+}

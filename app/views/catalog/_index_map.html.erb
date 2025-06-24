@@ -1,0 +1,14 @@
+<%# Copied from
+    https://github.com/projectblacklight/blacklight-maps/blob/0f3fa0bd143fe7c4326f77bdc4e2422e3b7716cd/app/views/catalog/_index_mapview.html.erb
+
+    Moved the embedded JavaScript search.js, and replaced it with a
+    script tag that sets templated values on window.app %>
+
+<%= blacklight_map_tag('blacklight-index-map',
+                       {data:{searchcontrol: true,
+                              catalogpath: search_action_url,
+                              placenamefield: blacklight_config.view.maps.placename_field,
+                              clustercount:'hits',
+                              searchresultsview: default_document_index_view_type
+                       }}) %>
+<%= javascript_tag "window.app = window.app || {}; window.app.geojsonFeatures = #{geojson_features};" %>

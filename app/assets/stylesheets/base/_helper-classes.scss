@@ -1,0 +1,71 @@
+.bg-white {
+	background-color: #fff !important;
+}
+
+.bg-offwhite {
+	background-color: $off-white !important;
+}
+
+.bg-primary {
+	background-color: $brand-primary !important;
+}
+
+.bg-secondary {
+	background-color: $brand-secondary !important;
+}
+
+.bg-tertiary {
+	background-color: $brand-tertiary !important;
+}
+
+.bg-grey {
+	background-color: $lmc-grey !important;
+}
+
+.bg-grey-dark {
+	background-color: $lmc-grey-dark !important;
+}
+
+.text-white {
+	color: #fff !important;
+}
+
+.text-offwhite {
+	color: $off-white !important;
+}
+
+.text-primary {
+	color: $brand-primary !important;
+}
+
+.text-secondary {
+	color: $brand-secondary !important;
+}
+
+.text-tertiary {
+	color: $brand-tertiary !important;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.inline {
+	display: inline;
+}
+
+.block {
+	display: block;
+}
+
+.text-overflow {
+	@include text-overflow;
+}
+
+.font-italic {
+	font-style: italic;
+}
+
+.font-bold {
+	font-weight: bold;
+}

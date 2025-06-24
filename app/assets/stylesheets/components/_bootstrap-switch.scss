@@ -1,0 +1,30 @@
+.bootstrap-switch {
+	//border-radius: 0;
+
+	&.bootstrap-switch-focused {
+		border-color: transparent;
+	}
+
+	&.bootstrap-switch-on, 
+	&.bootstrap-switch-inverse.bootstrap-switch-off,
+	&.bootstrap-switch-off,
+	&.bootstrap-switch-inverse.bootstrap-switch-on {
+
+		.bootstrap-switch-label {
+			//border-radius: 0;
+		}
+	}
+
+	.bootstrap-switch-container {
+		//border-radius: 0;
+	}
+
+	.bootstrap-switch-handle-on,
+	.bootstrap-switch-handle-off {
+//		border-radius: 0;
+
+		&.bootstrap-switch-primary {
+			background: $brand-primary;
+		}
+	}
+}

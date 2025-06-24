@@ -1,0 +1,116 @@
+<%# ** HEADER ** %>
+<header class="main-header main-header-small home-header">
+  <div id="home-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <%# ** Wrapper for carousel images ** %>
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <%= image_tag("headers/header-Bunting-1581.jpg") %>
+        <div class="item-citation">
+          Bünting, Heinrich, <i>Die gantze Welt in ein Kleberblat</i> (1581)
+        </div>
+      </div>
+      <div class="item">
+        <%= image_tag("headers/commonwealth-9g54xj66d.jpg") %>
+        <div class="item-citation">
+          Fries, Lorenz, ca. 1490-1531, Ptolemy,  Grüninger, Johann, d. 1532?, Pirckheimer, Willibald, and Regiomontanus, Joannes. <i>The World</i>  (1525)
+        </div>
+      </div>
+      <div class="item">
+        <%= image_tag("headers/header-Williams-Dury-1775.jpg") %>
+        <div class="item-citation">
+          Williams, Richard, <i>A plan of Boston and its environs</i> (1775)
+      </div>
+        </div>
+      <div class="item">
+        <%= image_tag("headers/header-Page-1776.jpg") %>
+        <div class="item-citation">
+          Page, Thomas Hyde, <i>A plan of the Action at Bunkers Hill, on the 17th of June 1775...</i> (1778)
+      </div>
+      </div>
+      <div class="item">
+        <%= image_tag("headers/commonwealth-x633fc72t.jpg") %>
+        <div class="item-citation">
+          O.H. Bailey & Co.  <i>View of Springfield, Mass.</i> (1875)
+      </div>
+      </div>
+      <div class="item">
+        <%= image_tag("headers/commonwealth-1257bc79t.jpg") %>
+        <div class="item-citation">
+          Walling, Henry Francis.  <i>Map of the town of Concord</i> (1852)
+      </div>
+      </div>
+    </div>
+    <%# ** Wrapper for carousel images ** %>
+  </div>
+
+  <div class="container">
+    <div class="panel panel-search">
+      <div class="panel-heading">
+        <%= link_to main_app.root_path, class: "panel-brand" do %>
+          <%= image_tag("logo/MC-portal-logo-inverse.png", alt: "Norman B. Leventhal Map & Education Center at the boston public library – Digital Collections") %>
+        <% end %>
+      </div>
+      <div class="panel-body">
+        <h1 class="h2 text-white"><%= t('home.tagline') %></h1>
+        <%= link_to 'Advanced Search', blacklight_advanced_search_engine.advanced_search_path %>
+      </div>
+    </div>
+  </div>
+</header>
+<%# ** HEADER ** %>
+
+<%# ** MAIN CONTENT ** %>
+<section class="bg-offwhite">
+  <div class="container">
+
+    <%# ** THREE BLOCKS ** %>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="home-panels">
+          <%= link_to '', main_app.root_path, class: 'panel-link', title: 'Go to exhibitions' %>
+          <%= image_tag("showrooms.jpg") %>
+          <div class="caption">
+            <h2>
+              <%= t('home.exhibitions') %>
+            </h2>
+            <p><%= t('home.exhibitionsdesc') %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="home-panels">
+          <%= link_to '', 'https://www.leventhalmap.org/projects/digital-projects/georeferencing/', class: 'panel-link', title: 'Go to georeferencing', target: '_blank' %>
+          <%= image_tag("georeferenced-map.jpg") %>
+          <div class="caption">
+            <h2>
+               <%= t('home.georeferencing') %>
+            </h2>
+            <p> <%= t('home.georeferencingdesc') %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="home-panels">
+          <%= image_tag("tools-for-teachers.jpg") %>
+          <div class="caption">
+            <h2>
+              <%= t('home.foreducators') %>
+            </h2>
+            <p><%= t('home.foreducatorsdesc') %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%# ** THREE BLOCKS ** %>
+    <br>
+    <%# ** COLLECTIONS ** %>
+    <div class="text-center">
+      <h3><%= t('home.featuredcollections') %></h3>
+      <div class="row">
+      </div>
+    </div>
+    <%# ** COLLECTIONS ** %>
+
+  </div>
+</section>
+<%# ** MAIN CONTENT ** %>

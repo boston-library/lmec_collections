@@ -1,0 +1,45 @@
+ul.check-list {
+  padding-left: 0;
+
+  > li {
+    list-style-type: none;
+    display: inline-block;
+    position: relative;
+    padding-left: 4rem;
+
+    &:before {
+      font-family: "fontello";
+      font-style: normal;
+      font-weight: normal;
+      display: inline-block;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      content: '\e813'; //the same content as .icon-check
+      position: absolute;
+      left: 1rem;
+      -webkit-transform: translate(0, -50%);
+          -ms-transform: translate(0, -50%);
+              transform: translate(0, -50%);
+      top: 50%;
+      color: $lmc-blue-dark;
+      font-size: 1.8rem;
+    }
+  }
+}
+
+ul .download_list_item {
+  padding: 7px 0px;
+  display: list-item;
+  margin-left: 20px;
+  line-height: 1.2;
+  list-style: disc;
+
+  a {
+    padding: 0;
+
+    &:hover {
+      background: none;
+      text-decoration: underline;
+    }
+  }
+}

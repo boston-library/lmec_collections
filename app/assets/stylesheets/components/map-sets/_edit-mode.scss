@@ -1,0 +1,27 @@
+.map-set-canvas {
+  padding-top: 3rem;
+}
+
+/* Map sets while in edit mode*/
+.map-set.edit {
+  /*transform: scale(.9);*/
+  -webkit-transform-origin: top center;
+      -ms-transform-origin: top center;
+          transform-origin: top center;
+  transition: .3s ease-in-out all;
+}
+
+.map-set.edit.image {
+    position: relative;
+}
+
+.modal-gallery-select {
+  @media (min-width: $screen-sm) {
+    width: 90%;
+  }
+  @media (min-width: $screen-md) {
+    .img-view-btn-group {
+      margin-top: 24px;
+    }
+  }
+}

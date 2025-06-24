@@ -1,0 +1,46 @@
+// map set content cover pages
+.table-of-contents {
+
+	ul {
+		padding-left: 40px;
+	}
+
+	li {
+		@extend .clearfix;
+		//border-bottom: 1px solid #ddd;
+		margin-bottom: 1rem;
+		position: relative;
+
+		&:before {
+			position: relative;
+		  top: 25px;
+		  border-bottom: 1px solid #ddd;
+		  width: 100%;
+		}
+	}
+
+	.page-name {
+		padding-right: 1rem;
+		font-weight: 600;
+	}
+
+	.page-number {
+		float: right;
+		padding-left: 1rem;
+	}
+
+	.page-name, .page-number {
+		position: relative;
+		top: 3px;
+		background: #fff;
+	}
+
+	ul ul {
+		margin-top: 10px;
+		border: none;
+
+		.page-name {
+			font-weight: 400;
+		}		
+	}
+}

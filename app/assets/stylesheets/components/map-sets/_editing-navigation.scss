@@ -1,0 +1,61 @@
+/* Map Set navigation*/
+.map-set-navigation {
+  background: $lmc-offwhite;
+  border-top: 1px solid $lmc-tan;
+  border-bottom: 1px solid $lmc-tan;
+
+  .nav-pills>li.active>a {
+    background: $lmc-tan;
+    color: #000;
+  }
+
+  .nav-pills {
+
+    @media (max-width: $screen-md) and (min-width: $screen-sm) {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      width: 100%;
+      border-bottom: 1px solid $lmc-tan;
+      margin-bottom: -1px;
+
+      > li {
+        text-align: center;
+        -webkit-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      width: 100%;
+
+      > li {
+        display: block;
+        float: none;
+      }
+    }
+
+
+
+    > li {
+      border-radius: 0;
+      border-right: 1px solid $lmc-tan;
+      border-left: 1px solid $lmc-tan;
+    }
+
+    li + li {
+      margin-left: -1px;
+    }
+
+    .btn {
+      font-size: 1.4rem;
+      border: none;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: darken($brand-primary, 5%);
+    }
+  }
+}

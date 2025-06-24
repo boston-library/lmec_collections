@@ -1,0 +1,45 @@
+.sidebar {
+
+  .top-panel-heading {
+    position: relative;
+
+    .catalog_startOverLink {
+      position: absolute;
+      top: -5px;
+      right: 0;
+      display: block;
+      z-index: 1;
+    }
+  }
+
+  .search-results-total {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .active-search-filter {
+    display: block;
+    position: relative;
+
+    .constraint-value {
+      font-size: 1.3rem;
+      width: 80%;
+      display: inline-block;
+      margin-bottom: 0;
+      vertical-align: top;
+      font-weight: 600;
+    }
+
+    .remove {
+      display: inline-block;
+      width: 2rem;
+      text-align: right;
+      font-size: 1.3rem;
+      float: right;
+    }
+
+    ~ .active-search-filter {
+      margin-top: .5rem;
+    }
+  }
+}

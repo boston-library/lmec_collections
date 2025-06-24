@@ -16,3 +16,91 @@ $fa-font-path: ".";
 
 @import 'commonwealth-vlr-engine/app/assets/stylesheets/commonwealth-vlr-engine/commonwealth-vlr-engine';
 @import "universalviewer/dist/esm/index";
+
+/**
+ * Vendors
+ */
+@import
+  "vendors/bs/bootstrap",
+  "vendors/toastr",
+  "vendors/dragula",
+  "vendors/trix",
+  "vendors/sir-trevor",
+  "vendors/leaflet.draw",
+  "bootstrap-switch",
+  "fontello",
+  "animation";
+//   "bootstrap-slider",
+//   "blacklight_maps";
+
+/**
+ * Utils
+ */
+@import
+  "utils/bs-variables",
+  "utils/lmc-variables";
+
+/**
+ * Base
+ */
+@import
+  "base/base",
+  "base/helper-classes";
+
+/**
+ * Layout
+ */
+@import
+  "layout/navigation",
+  "layout/header",
+  "layout/section",
+  "layout/footer";
+
+/**
+ * Components
+ */
+@import
+  "components/animations",
+  "components/alerts",
+  "components/typography",
+  "components/call-to-action",
+  "components/contenteditable",
+  "components/decoration",
+  "components/images",
+  "components/form",
+  "components/table",
+  "components/panel",
+  "components/gallery",
+  "components/list-group",
+  "components/buttons",
+  "components/well",
+  "components/navs",
+  "components/pager",
+  "components/metadata",
+  "components/media-preview",
+  "components/bootstrap-switch",
+  "components/helper",
+  "components/featured-collection",
+  "components/search-header",
+  "components/map-editor-tools",
+  "components/map-sets",
+  "components/catalog",
+  "components/sirtrevor-overrides",
+  "components/leaflet-map",
+  "components/external-image",
+  "components/reproductions",
+  "components/show_sidebar";
+
+/**
+ * Pages
+ */
+@import
+  "pages/user_auth",
+  "pages/home",
+  "pages/mapset",
+  "pages/dashboard",
+  "pages/collection",
+  "pages/educators",
+  "pages/exhibits",
+  "pages/curriculum_materials",
+  "pages/map_layers";

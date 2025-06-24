@@ -1,0 +1,28 @@
+<%= form_tag search_action_url,
+             :method => :get,
+             :id => 'home_page_search_form' do %>
+    <%= render_hash_as_hidden_fields(params_for_search().except(:q, :qt, :page, :f, :sort)) %>
+
+    <div class="form-group">
+      <label for="q_basic" class="sr-only">
+        <%= t('blacklight.search.form.search.label') %>
+      </label>
+      <div class="btn-group btn-group-justified">
+        <%= text_field_tag :q,
+                       nil,
+                       :placeholder => t('blacklight.search.basic_search.form.q'),
+                       :class => 'form-control',
+                       :id => 'q_basic',
+                       :autofocus => should_autofocus_on_search_box? %>
+        <div class="btn-group">
+          <button type="submit" class="btn btn-secondary" id="search">
+            <i class="icon-search"></i>
+            <span class="sr-only">
+              <%= t('blacklight.search.form.submit') %>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+<% end %>

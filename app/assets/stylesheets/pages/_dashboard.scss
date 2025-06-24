@@ -1,0 +1,43 @@
+.dashboard-header {
+	border-bottom: 1px solid #ddd;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+
+	.username {
+		margin: 5px 0;
+		vertical-align: middle;
+		display: inline-block;
+	}
+
+	.edit-user {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.nav-pills {
+		@media (min-width: $screen-md) {
+			text-align: right;
+		}
+	}
+
+	.nav-pills > li {
+		float: none;
+		display: inline-block;
+		@media (max-width: $screen-sm) {
+			margin-bottom: .5rem;
+		}
+	}
+
+	.nav-pills > li > a {
+	  border: 1px solid;
+	  border-radius: 4px;
+	}
+}
+
+.dashboard-meta {
+	margin-bottom: 1rem;
+
+	h1 {
+		margin-top: 0;
+	}
+}

@@ -1,0 +1,51 @@
+<nav class="nav-offcavas" role="navigation">
+  <button type="button" class="nav-offcavas-toggle btn">
+    <span class="sr-only"><%= t('navbar.sr.togglenavigation') %></span>
+    <span class="icon">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </span>
+    <span class="text">Menu</span>
+  </button>
+
+  <div class="nav-offcavas-container home-navigation">
+    <div class="nav-offcavas-search">
+      <%= form_tag search_action_url,
+          method: :get,
+          id: 'navbar_search_form',
+          role: 'search' do %>
+          <%= render_hash_as_hidden_fields(params_for_search().except(:q, :qt, :page, :f, :sort)) %>
+          <i class="icon-search"></i>
+          <%= text_field_tag :q,
+              nil,
+              placeholder: t('navbar.search') ,
+              class: 'form-control' %>
+      <% end %>
+    </div><!-- /.navbar-search -->
+    <ul class="nav nav-pills nav-stacked">
+      <li><%= link_to 'Advanced Search', blacklight_advanced_search_engine.advanced_search_path %></li>
+      <li><%= link_to t('navbar.lmec_home'), 'https://www.leventhalmap.org' %></li>
+      <li><%= link_to t('navbar.exhibits'), exhibits_path %></li>
+      <li><%= link_to t('navbar.georeference'),
+                      'https://www.leventhalmap.org/projects/digital-projects/georeferencing/',
+                      target: '_blank' %></li>
+      <li><%= link_to t('navbar.educators'), educators_path %></li>
+      <li><%= link_to t('navbar.collections'), main_app.collections_path %></li>
+      <% unless current_user %>
+        <li><%= link_to t('navbar.galleries'), galleries_path %></li>
+      <% end %>
+      <% if current_user %>
+        <li><%= link_to t('navbar.account'), current_user %></li>
+        <li><%= link_to t('blacklight.header_links.logout'), destroy_user_session_path %></li>
+      <% else %>
+        <% if has_user_authentication_provider? %>
+          <li><%= link_to t('blacklight.header_links.login'), new_user_session_path %></li>
+        <% end %>
+      <% end %>
+
+    </ul>
+  </div><!-- /.navbar-collapse -->
+
+  <div class="nav-offcavas-overlay"></div>
+</nav>

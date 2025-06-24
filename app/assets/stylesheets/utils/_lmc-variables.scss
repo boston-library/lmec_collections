@@ -1,0 +1,34 @@
+/* 
+ * LMC Variables
+ * If overridng bootstrap please place inside _bs-variables.scss
+ */
+
+// Colors:
+$lmc-blue: #054571;
+$lmc-blue-dark: #033150;
+$lmc-secondary: #006688;
+$lmc-secondary-dark: #168fb6;
+$lmc-offwhite: #F2F1EA;
+$lmc-tan: #bbbaa5;
+$lmc-grey: #2f3841;
+$lmc-grey-dark: #0b122d;
+$lmc-base: #4A4A38;
+
+$brand-secondary: $lmc-secondary;
+$brand-tertiary: $lmc-tan;
+$brand-dark: $lmc-grey-dark;
+
+$off-white: $lmc-offwhite;
+
+// Social Media Colors
+$facebook: #41599C;
+$twitter: #76ADE1;
+$gplus: #D34D3B;
+
+// Sections
+$section-padding: 60px;
+
+// Buttons
+$btn-secondary-color:              #fff;
+$btn-secondary-bg:                 $brand-secondary;
+$btn-secondary-border:             darken($btn-secondary-bg, 5%);

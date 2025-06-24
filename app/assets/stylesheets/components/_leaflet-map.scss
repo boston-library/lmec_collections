@@ -1,0 +1,68 @@
+div[data-map="index"] {
+    height: 480px;
+    margin-bottom: 20px;
+}
+
+.leaflet-control-container .btn-primary {
+    font-size: 14px;
+    line-height: 1.4;
+    border-radius: inherit;
+    color: #fff;
+}
+
+#blacklight-index-map {
+    height: 550px;
+    margin: 10px 0;
+}
+
+.leaflet-control.search-control .btn ~ label {
+  padding: 5px 7px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.leaflet-draw-actions a {
+  background-color: #464646;
+  color: #fff;
+}
+
+.leaflet-text-format {
+  background-color: #fff;
+  position: absolute;
+  left: 45px;
+  top: 10px;
+  -webkit-transform: scale(0.95);
+      -ms-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-transform-origin: top right;
+      -ms-transform-origin: top right;
+          transform-origin: top right;
+  margin: 0 !important;
+
+  .btn-group {
+    display: block;
+    border-bottom: 1px solid #ccc;
+
+    .btn {
+      display: block;
+      float: none;
+      padding: 5px;
+      border-radius: 0;
+      margin: 0
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  img {
+    width: 25px;
+  }
+}
+
+.bpl-repo-item .leaflet-text-format {
+  top: 10px;
+}
