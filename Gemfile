@@ -2,7 +2,6 @@ source "https://rubygems.org"
 
 gem "rails", "~> 7.2.2", ">= 7.2.2.1"
 gem "propshaft"
-gem "sqlite3", ">= 1.4"
 gem 'pg', '~> 1.5', '>= 1.5.9'
 gem "puma", ">= 5.0"
 gem "importmap-rails"

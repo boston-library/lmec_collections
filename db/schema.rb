@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.2].define(version: 2025_06_10_132259) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
     t.string "message_id", null: false
@@ -58,7 +61,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_10_132259) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "bookmarks", force: :cascade do |t|
+  create_table "bookmarks", id: :serial, force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "user_type"
     t.string "document_id"
@@ -70,7 +73,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_10_132259) do
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
-  create_table "carousel_slides", force: :cascade do |t|
+  create_table "carousel_slides", id: :serial, force: :cascade do |t|
     t.integer "sequence"
     t.string "object_pid"
     t.string "image_pid"
@@ -83,7 +86,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_10_132259) do
     t.string "size"
   end
 
-  create_table "searches", force: :cascade do |t|
+  create_table "searches", id: :serial, force: :cascade do |t|
     t.binary "query_params"
     t.integer "user_id"
     t.string "user_type"
