@@ -8,8 +8,8 @@ class GalleriesController < CatalogController
 
   copy_blacklight_config_from(CatalogController)
 
-  before_action :set_gallery, only: [:edit, :update, :destroy, :add_item, :remove_item]
-  before_action :set_galleries, only: [:index, :set_galleries_modal]
+  before_action :set_gallery, only: [ :edit, :update, :destroy, :add_item, :remove_item ]
+  before_action :set_galleries, only: [ :index, :set_galleries_modal ]
 
   # GET /galleries
   # GET /galleries.json
@@ -27,7 +27,7 @@ class GalleriesController < CatalogController
     set_gallery
   rescue ActiveRecord::RecordNotFound
     respond_to do |format|
-      format.html { redirect_to action: 'index' }
+      format.html { redirect_to action: "index" }
       format.json { render :index }
     end
   end
@@ -49,7 +49,7 @@ class GalleriesController < CatalogController
 
     respond_to do |format|
       if @gallery.save
-        format.html { redirect_to @gallery, notice: 'Favorites list was successfully created.' }
+        format.html { redirect_to @gallery, notice: "Favorites list was successfully created." }
         format.json { render :show, status: :created, location: @gallery }
       else
         format.html { render :new }
@@ -63,7 +63,7 @@ class GalleriesController < CatalogController
   def update
     respond_to do |format|
       if @gallery.update(gallery_params)
-        format.html { redirect_to @gallery, notice: 'Favorites list was successfully updated.' }
+        format.html { redirect_to @gallery, notice: "Favorites list was successfully updated." }
         format.json { render :show, status: :ok, location: @gallery }
       else
         format.html { render :edit }
@@ -77,7 +77,7 @@ class GalleriesController < CatalogController
   def destroy
     @gallery.destroy
     respond_to do |format|
-      format.html { redirect_to galleries_url, notice: 'Favorites list was successfully destroyed.' }
+      format.html { redirect_to galleries_url, notice: "Favorites list was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -89,7 +89,7 @@ class GalleriesController < CatalogController
     @gallery.add_item(@type, @item_id)
     @gallery.save
     respond_to do |format|
-      format.js {}
+      format.js { }
     end
   end
 
@@ -100,7 +100,7 @@ class GalleriesController < CatalogController
     @gallery.remove_item(@type, @item_id)
     @gallery.save
     respond_to do |format|
-      format.js {}
+      format.js { }
     end
   end
 
@@ -108,7 +108,7 @@ class GalleriesController < CatalogController
     @item_id = params[:item_id]
     @type = params[:type]
     respond_to do |format|
-      format.html { render partial: 'set_galleries_modal' }
+      format.html { render partial: "set_galleries_modal" }
     end
   end
 

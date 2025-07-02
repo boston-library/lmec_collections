@@ -582,6 +582,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-session_store (~> 2.2)
+  blacklight (~> 8.11)
   bootsnap
   brakeman
   byebug

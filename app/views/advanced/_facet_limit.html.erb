@@ -1,0 +1,13 @@
+<ul class="facet-values list-unstyled blacklight-advanced-facet-select">
+  <% display_facet.items.each do |item| -%>
+      <% q_type = facet_field[:query] ? 'f' : 'f_inclusive' %>
+      <li>
+        <span class="label-and-count">
+            <%= label_tag "#{q_type}_#{solr_field}_#{item.value.parameterize}" do %>
+              <%= check_box_tag "#{q_type}[#{solr_field}][]", item.value.to_sym, facet_value_checked?(solr_field, item.value), :id => "#{q_type}_#{solr_field}_#{item.value.parameterize}"%>
+              <%= render_facet_value(solr_field, item, :suppress_link => true) %>
+            <% end %>
+        </span>
+      </li>
+  <% end %>
+</ul>

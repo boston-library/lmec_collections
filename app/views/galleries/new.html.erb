@@ -1,0 +1,23 @@
+<section>
+  <div class="container">
+    <div class="dashboard-meta">
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="h3">New Favorites List</h1>
+        </div>
+        <div class="col-md-6 text-right">
+          <%= link_to 'Back to Favorites Lists', galleries_path, class: 'btn btn-default btn-sm' %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-push-3">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= render 'form' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

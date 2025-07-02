@@ -1,0 +1,17 @@
+<div class="document col-xs-6 col-sm-4 col-md-4 <%= cycle('new_row', '', '', name: 'curriculum_material_desktop_row_class') %> <%= cycle('new_row_device', '', name: 'curriculum_material_device_row_class') %>">
+  <div class="thumbnail">
+    <%= link_to curriculum_material_path(curriculum_material) do %>
+      <% unless curriculum_material.display_image_url.empty? %>
+        <% image_tag curriculum_material.display_image_url, alt: curriculum_material.title %>
+      <% end %>
+    <% end %>
+    <div class="caption">
+      <div class="documentHeader row">
+        <h5 class="index_title document-title-heading col-md-12">
+          <%= link_to (curriculum_material_counter + 1).to_s + '. ' +  curriculum_material.title, curriculum_material_path(curriculum_material) %>
+        </h5>
+        <%= galleries_toggle(@galleries, 'curriculum_material', curriculum_material.id, show_tooltip: true) %>
+      </div>
+    </div>
+  </div>
+</div>

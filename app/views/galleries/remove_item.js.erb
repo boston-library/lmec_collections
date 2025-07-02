@@ -1,0 +1,11 @@
+(function() {
+    var $icon = $('[data-item-id="<%= @item_id %>"][data-type="<%= @type %>"][data-gallery-id="<%= @gallery.id %>"]');
+
+    if ($icon.hasClass('icon-star')) {
+        $icon.addClass('icon-star-empty').removeClass('icon-star');
+        $icon.parents('.favorite-document').attr('data-original-title', 'Add to favorites list');
+    } else {
+        $icon.addClass('add-gallery').removeClass('remove-gallery');
+    }
+    $icon.parent('a').attr('href', '<%= add_item_gallery_path(@gallery, type: @type, item_id: @item_id) %>');
+})();

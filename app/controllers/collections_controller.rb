@@ -22,7 +22,7 @@ class CollectionsController < CatalogController
     cod_q_params << ' AND +curator_model_suffix_ssi:"Collection"'
     solr_resp = Blacklight.default_index.search(q: cod_q_params,
                                                 rows: 50,
-                                                sort: 'title_info_primary_ssort asc')
+                                                sort: "title_info_primary_ssort asc")
     solr_resp.documents
   end
 

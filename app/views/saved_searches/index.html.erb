@@ -1,0 +1,85 @@
+<% @page_title = 'Saved Searches' %>
+
+<header class="bg-white dashboard-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <%= link_to(t('blacklight.users.account_heading'), current_user, class: "btn btn-link") %>
+      </div>
+      <div class="col-md-8">
+        <ul class="nav nav-pills">
+          <li role="presentation"><%= link_to 'Favorites', galleries_path %></li>
+          <li role="presentation"><%= link_to t('navbar.mapsets'), main_app.map_sets_path %></li>
+          <li role="presentation"><%= link_to 'Search History', blacklight.search_history_path %></li>
+          <li role="presentation"><%= link_to 'Edit My Account', edit_user_registration_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="dashboard-meta">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="h3"><%= t('blacklight.saved_searches.title') %></h1>
+          <p><%= t('blacklight.saved_searches.intro') %></p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-9" id="searches_content">
+
+      <%- if current_or_guest_user.blank? -%>
+
+          <h4><%= t('blacklight.saved_searches.need_login') %></h4>
+
+      <%- elsif @searches.blank? -%>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div id="empty_saved_searches">
+              <h4><%= t('blacklight.saved_searches.no_searches') %></h4>
+              <p>To save a search, click the "Save Search" link on the search results page.</p>
+            </div>
+          </div>
+        </div>
+
+      <%- else -%>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3>
+              <%= t('blacklight.saved_searches.list_title') %>
+              <small>
+                [<%= link_to t('blacklight.saved_searches.clear.action_title'),
+                             blacklight.clear_saved_searches_path,
+                            :class => 'clear_all',
+                            :method => :delete,
+                            :data => { :confirm => t('blacklight.saved_searches.clear.action_confirm') } %>]
+              </small>
+            </h3>
+            <table class="table">
+              <%- @searches.each do |search| -%>
+                  <tr>
+                    <td><%= link_to_previous_search(search.query_params) %></td>
+                    <td><%# button_to content_tag(:i, '', :class => 'icon-remove'),
+                                      blacklight.forget_search_path(search.id) %>
+                        <%= link_to(content_tag(:span, '',
+                                                :class => 'glyphicon glyphicon-remove'),
+                                    blacklight.forget_search_path(search.id),
+                                    :class => 'delete_search',
+                                    :method => 'post',
+                                    :title => t('blacklight.saved_searches.delete'))
+                        %>
+                    </td>
+                  </tr>
+              <%- end -%>
+            </table>
+          </div>
+        </div>
+
+      <%- end -%>
+      </div>
+    </div>
+  </div>
+</section>

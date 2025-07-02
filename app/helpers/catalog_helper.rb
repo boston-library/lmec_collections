@@ -74,9 +74,9 @@ module CatalogHelper
 
     gallery_action_path = if favorited
                             remove_item_gallery_path(gallery, params)
-                          else
+    else
                             add_item_gallery_path(gallery, params)
-                          end
+    end
 
     with_tooltip(opts[:show_tooltip], favorited) do
       link_to gallery_action_path, method: :post, remote: true do
@@ -90,14 +90,14 @@ module CatalogHelper
   end
 
   def render_argo_info?(document)
-    document[:destination_site_ssim].include?('argo')
+    document[:destination_site_ssim].include?("argo")
   end
 
   def iiif_manifest_url(document)
     manifest_uri = document[:identifier_iiif_manifest_ss]
     return nil if manifest_uri.blank?
 
-    return manifest_uri unless manifest_uri.include?('ark:/50959')
+    return manifest_uri unless manifest_uri.include?("ark:/50959")
 
     "#{solr_document_url(document)}/manifest"
   end
@@ -105,18 +105,16 @@ module CatalogHelper
   private
 
   def icon_class_for(favorited, type = nil)
-    if type == 'plus'
-      favorited ? 'gallery-name remove-gallery' : 'gallery-name add-gallery'
+    if type == "plus"
+      favorited ? "gallery-name remove-gallery" : "gallery-name add-gallery"
     else
-      favorited ? 'icon-star' : 'icon-star-empty'
+      favorited ? "icon-star" : "icon-star-empty"
     end
   end
 
   def favorited?(gallery, type, item_id)
-    if type == 'repo_object'
+    if type == "repo_object"
       gallery.repo_objects.include?(item_id)
-    elsif type == 'curriculum_material'
-      gallery.curriculum_materials.include?(item_id.to_i)
     else
       raise
     end
@@ -126,25 +124,16 @@ module CatalogHelper
     link = yield
     if show
       title = if favorited
-                'Remove from favorites list'
-              else
-                'Add to favorites list'
-              end
-      content_tag(:div, class: ['favorite-document'], title: title,
-                        'data-toggle' => 'tooltip', 'data-placement' => 'left') do
+                "Remove from favorites list"
+      else
+                "Add to favorites list"
+      end
+      content_tag(:div, class: [ "favorite-document" ], title: title,
+                        "data-toggle" => "tooltip", "data-placement" => "left") do
         link
       end
     else
       link
-    end
-  end
-
-  def link_to_last_edited_map_set
-    if session[:last_edited_map_set_id]
-      map_set = MapSet.find(session[:last_edited_map_set_id])
-      content_tag(:div, class: ['bottom-right-panel']) do
-        link_to 'Back to editing your map set', edit_map_set_path(map_set)
-      end
     end
   end
 end
