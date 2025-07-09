@@ -1,0 +1,63 @@
+<header class="bg-white dashboard-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <%= link_to(t('blacklight.users.account_heading'), current_user, class: "btn btn-link") %>
+      </div>
+      <div class="col-md-8">
+        <ul class="nav nav-pills">
+          <li role="presentation" class="active"><%= link_to 'Favorites', galleries_path %></li>
+          <li role="presentation"><%= link_to t('navbar.mapsets'), main_app.map_sets_path %></li>
+          <li role="presentation"><%= link_to 'Search History', blacklight.search_history_path %></li>
+          <li role="presentation"><%= link_to 'Edit My Account', edit_user_registration_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="dashboard-meta">
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="h3">Favorites Lists</h1>
+        </div>
+        <div class="col-md-6 text-right">
+          <%= link_to 'New Favorites List', new_gallery_path, class: 'btn btn-default btn-sm' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>List</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @galleries.each do |gallery| %>
+              <tr>
+                <td><%= link_to gallery.name, gallery %></td>
+                <td></td>
+                <td class="text-right">
+                  <%= link_to 'Edit', edit_gallery_path(gallery), class: 'btn btn-link btn-xs' %>
+                  &nbsp;
+                  <%= link_to ("<i class='icon-trash'></i> Delete").html_safe,
+                      gallery,
+                      method: :delete,
+                      data: { confirm: 'Are you sure you want to permanently delete this favorites list?' },
+                      class: 'btn btn-danger btn-xs' %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+<section>
+  <div class="container">
+    <div class="col-md-7 col-md-push-2">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">Forgot your password?</h2>
+        </div>
+        <div class="panel-body">
+          <p>Enter your email address below and we'll send you a message with instructions on how to reset your password.</p>
+          <%= form_for(resource,
+              as: resource_name,
+              url: password_path(resource_name),
+              :html => { method: :post,
+          id: 'password_reset_request',
+          role: 'form' }) do |f| %>
+          <%= devise_error_messages! %>
+
+            <div class="form-group">
+              <label class="control-label" for="user_email">Email</label>
+              <%= f.text_field :email, autofocus: true, class: 'form-control' %>
+            </div>
+            <%= f.submit 'Send password reset instructions', :class => 'btn btn-primary' %>
+
+          <% end %>
+        </div>
+      </div>
+      <div class="text-center">
+        <%= link_to "Back to account log in", user_session_path %>
+      </div>
+
+      <%# render "devise/shared/links" %>
+    </div>
+
+  </div>
+</section>

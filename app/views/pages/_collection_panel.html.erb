@@ -1,0 +1,12 @@
+<div class="col-md-3">
+  <div class="collection-panel">
+    <%# link_to_document document, remove_cod_text(render_title(document)), class: 'panel-link' %>
+    <%= link_to '', collection_path(document.id),  class: 'panel-link', :title => render_title(document) %>
+    <div class="panel-img">
+      <%= iiif_image_tag(document['exemplary_image_ssi'], {:size => 'pct:10', :alt => render_title(document)}) %>
+    </div>
+    <div class="caption noTruncate">
+      <h4><%= remove_cod_text(render_title(document)) %></h4>
+    </div>
+  </div>
+</div>

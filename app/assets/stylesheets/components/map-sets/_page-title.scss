@@ -1,0 +1,18 @@
+.page-title {
+    color: $lmc-secondary;
+    text-transform: uppercase;
+
+    small {
+        color: darken($brand-primary, 15%);
+    }
+}
+
+input[type="text"].page-title {
+    width: calc(100% - 60px);
+
+    & + .btn {
+        position: absolute;
+        top: 36px;
+        right: 40px;
+    }
+}

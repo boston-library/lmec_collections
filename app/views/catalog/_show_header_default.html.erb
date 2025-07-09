@@ -1,0 +1,20 @@
+<h3 itemprop="name"><%= document_heading(document) %></h3>
+<div class="row">
+  <%# TODO: These are commented out because the fields are part of
+      the default GeoBlacklight schema but do not exist in the current
+      Solr index. %>
+  <%# geoblacklight_icon(document['layer_geom_type_s']) %>
+  <%# geoblacklight_icon(document['dct_provenance_s']) %>
+  <%# geoblacklight_icon(document['dc_rights_s']) %>
+  <div class="col-sm-6">
+    <%# GEOREFERENCING FUNCTIONALITY DISABLED DURING DIGITAL REPOSITORY MIGRATION %>
+    <%# Don't show a warper link for multi-image items or already warped items %>
+    <%# unless has_image_files?(@object_files) && @object_files[:images].length > 1 or @document.georeferenced? %>
+      <%# link_to_warper_detail @document[:id] %>
+    <%# end %>
+  </div>
+  <div class="col-sm-6 text-right">
+    <%= galleries_toggle(@galleries, 'repo_object', @document[:id], text: t('gallery.save'), show_tooltip: false) %>
+  </div>
+</div>
+<br>

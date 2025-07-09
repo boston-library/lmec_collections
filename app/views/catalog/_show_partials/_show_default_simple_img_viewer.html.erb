@@ -1,0 +1,26 @@
+<%# Copied from
+    https://github.com/boston-library/commonwealth-vlr-engine/blob/b034f668367f0d8b40fca7d850c7fb949e6b77d4/app/views/catalog/_show_partials/_show_default_simple_img_viewer.html.erb
+
+    Moved the embedded JavaScript show.js, and replaced it with a
+    script tag that sets templated values on window.app %>
+
+<%# this partial creates the OpenSeadragon image viewer modal %>
+<div id="img_viewer_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="<%= object_title.gsub(/\'/,'') %>" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title" id="img_viewer_title"><%= object_title.gsub(/\'/,'') %></h4>
+      </div>
+      <div class="modal-body" id="img_viewer_osd"></div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_tag "window.app = window.app || {};
+                    window.app.navImages = #{osd_nav_images('commonwealth-vlr-engine/openseadragon').html_safe};
+                    window.app.tileSources = ['#{ IIIF_SERVER['url'] + image_key.split('/').last + '/info.json' }'];" %>

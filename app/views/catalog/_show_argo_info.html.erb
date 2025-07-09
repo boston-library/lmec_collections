@@ -1,0 +1,14 @@
+<% if render_argo_info?(document) %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div id="argo_info_text">
+        <%= t('argo.info') %>
+      </div>
+      <div id="argo_info_link_wrapper">
+        <%= link_to t('argo.link'),
+                    "https://www.argomaps.org/maps/#{document[:id]}",
+                    { id: 'argo_info_link', target: '_blank' } %>
+      </div>
+    </div>
+  </div>
+<% end %>

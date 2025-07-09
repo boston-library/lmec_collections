@@ -1,0 +1,69 @@
+<% @page_title = t('blacklight.users.account_heading') + " - " + application_name %>
+<header class="bg-white dashboard-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <%= link_to(t('blacklight.users.account_heading'), current_user, class: "btn btn-link") %>
+      </div>
+      <div class="col-md-8">
+        <ul class="nav nav-pills">
+          <li role="presentation"><%= link_to 'Favorites', galleries_path %></li>
+          <li role="presentation"><%= link_to t('navbar.mapsets'), main_app.map_sets_path %></li>
+          <li role="presentation"><%= link_to 'Search History', blacklight.search_history_path %></li>
+          <li role="presentation"><%= link_to 'Edit My Account', edit_user_registration_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="dashboard-meta">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="h3"><%= t('blacklight.users.account_heading') %></h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-9">
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <ul id="user_account_links_list">
+              <li>
+                <h4><%= link_to t('navbar.galleries'), main_app.galleries_path %></h4>
+                <p>View and edit your favorites</p>
+              </li>
+              <li>
+                <h4><%= link_to t('navbar.mapsets'), main_app.map_sets_path %></h4>
+                <p>View and edit your Map Sets</p>
+                </li>
+              <li>
+                <h4><%= link_to 'Saved Searches', blacklight.saved_searches_path %></h4>
+                <p><%= t('blacklight.saved_searches.intro') %></p>
+              </li>
+              <li>
+                <h4><%= link_to 'Search History', blacklight.search_history_path %></h4>
+                <p><%= t('blacklight.search_history.intro') %></p>
+              </li>
+              <li>
+                <h4><%= link_to t('devise.registrations.edit'), edit_user_registration_path %></h4>
+                <p>Change your email or password, or cancel your account.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="well sidebar-right">
+          <ul class="list-unstyled">
+            <li><%= link_to t('blacklight.header_links.logout'), destroy_user_session_path, :class => 'btn btn-default' %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,54 @@
+.featured-collection {
+  position: relative;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.featured-collection-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  > img {
+    width: 33.333%;
+    min-height: 100%;
+    float: left;
+  }
+}
+
+.featured-collection-image {
+  @extend .featured-collection-images;
+
+  > img {
+    min-width: 100%;
+    min-height: 100%;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+  }
+}
+
+.featured-collection-content {
+  text-align: center;
+  background: rgba(white, .9);
+  padding: 2rem 4rem;
+  max-width: 80rem;
+  margin: auto;
+  box-shadow: 0 10px 10px 0 rgba(black, .2);
+  position: relative;
+}
+
+/* This class is only used on a class if the intent is to make entire featured collection linked */
+.featured-collection-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}

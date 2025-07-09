@@ -1,0 +1,53 @@
+<% if @gallery.no_items? %>
+  <h4 class="text-center">Oh no, this favorites list is empty.</h4>
+  <p class="text-center">Try selecting another favorites list above in order to add an item to this map set, or
+    <b><%= link_to 'search the digital collections', search_catalog_path, data: { save_before: true } %></b>
+    and add some items to your favorites list.
+  </p>
+<% else %>
+  <p class="text-center">
+    <% if @image_view == 'georeferenced' %>
+      If you do not see your item in this list, it has not yet been
+      georeferenced. Maps may be georeferenced using the Georeference
+      this map link on the map's detail page.
+    <% else %>
+      If you do not see the item you want to add try selecting another
+      favorites list above or <b><%= link_to 'search the digital collections',
+      search_catalog_path, data: { save_before: true } %></b> and add some
+      items to a favorites list.
+    <% end %>
+  </p>
+  <div class="row gallery">
+    <%= render_documents_as_gallery(@document_list, 'map_sets/index_gallery') %>
+  </div>
+
+  <% unless @curriculum_materials.blank? %>
+    <div id="curriculum-materials" class="row gallery">
+      <h3 class="text-center"><%= t('educators.curriculumssubhead') %></h3>
+      <% @curriculum_materials.each_with_index.map do |object, index| %>
+        <div class="document col-xs-6 col-sm-4 col-md-4 <%= cycle('new_row', '', '', name: 'desktop_row_class') %> <%= cycle('new_row_device', '', name: 'device_row_class') %>">
+          <div class="thumbnail select">
+            <a class="curriculum-material-select"
+               href="javascript:;"
+               data-id="<%= object.id %>"
+               data-default-image="<%= object.display_image_url %>" >
+               <img src="<%= object.display_image_url %>">
+            </a>
+            <div class="caption">
+              <div class="documentHeader row">
+                <h5 class="index_title document-title-heading col-md-12">
+                  <a class="curriculum-material-select-select"
+                     href="javascript:;"
+                     data-id="<%= object.id %>"
+                     data-default-image="<%= object.display_image_url %>">
+                    <%= object.title %>
+                  </a>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

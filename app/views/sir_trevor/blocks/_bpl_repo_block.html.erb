@@ -1,0 +1,34 @@
+<%# We set min-height instead of height so that content does not
+    overlap vertically at narrow screen sizes %>
+<div class="content-block bpl-repo-block" style="min-height: <%= bpl_repo_block.height %>px;">
+  <% bpl_repo_block.each_items do |item| %>
+    <div class="bpl-repo-item" data-content>
+      <% if item['hasText'] %>
+        <div class="st__content-block st__content-block--text">
+          <%= sir_trevor_format item['text'], format: :html %>
+        </div>
+      <% elsif item['has_maps'] %>
+        <input type="hidden" value="<%= item['x'] %>" name="content[][x]">
+        <input type="hidden" value="<%= item['y'] %>" name="content[][y]">
+        <input type="hidden" value="<%= item['zoom'] %>" name="content[][zoom]">
+
+        <div class="multi-maps" data-show="true"></div>
+        <%= render 'shared/multi_layer_selector_show', mustache: {
+            renderid: item['renderid'], show_present: item['show_present'],
+            maps: item['maps']
+        } %>
+      <% elsif !item['image'].blank? %>
+        <figure class="st__content-block st__content-block--image">
+          <a href="<%= item['href'] %>" target="_blank">
+            <% if !item['imageId'].blank? %>
+              <div class="map" data-color="<%= item['color'] %>" data-iiif-url="<%= IIIF_SERVER['url'] + item['imageId'] %>/info.json"></div>
+            <% end %>
+            <%= image_tag item['image'], :data => {
+                :show => true, :x => item['x'], :y => item['y'], :zoom => item['zoom'],
+                'is-zoomable' => item['isZoomable'], :annotations => item['annotations'], :annotations_readonly => true } %>
+          </a>
+        </figure>
+      <% end %>
+    </div>
+  <% end %>
+</div>

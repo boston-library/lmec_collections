@@ -1,0 +1,23 @@
+.bottom-right-panel {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 10;
+
+    a {
+        padding: 20px;
+        display: block;
+        border: 1px solid $lmc-blue;
+        background-color: rgba(#fff, .95);
+        border-radius: 10px;
+        transition: .2s ease-in-out all;
+
+        &:hover {
+            box-shadow: 0 2px 5px -3px $lmc-blue;
+            background-color: rgba(#fff, 1);
+            -webkit-transform: scale(1.01);
+                -ms-transform: scale(1.01);
+                    transform: scale(1.01);
+        }
+    }
+}

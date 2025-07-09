@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
+  # routes for CommonwealthVlrEngine
+  mount CommonwealthVlrEngine::Engine => '/'
+
   # TODO: this bookmarks stuff should be in bpluser generator?
   # bookmarks item actions
   # this has to be in local app for bookmark item actions to work

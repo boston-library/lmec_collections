@@ -1,0 +1,18 @@
+.external-image {
+
+  .btn-group {
+
+    .form-control {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      font-size: 1.6rem;
+      height: auto;
+      border-right: none;
+    }
+
+    > .btn-group {
+      width: 65px;
+    }
+  }
+
+}

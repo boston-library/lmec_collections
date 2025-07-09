@@ -1,0 +1,41 @@
+#sidebar {
+
+  #iiif_manifest_link {
+    display: inline-block;
+    padding-right: 5px;
+
+    #iiif-logo {
+      width: 20px;
+      height: 20px;
+      vertical-align: top;
+      margin-bottom: 0px;
+    }
+
+  }
+
+  #iiif_manifest_link_copy {
+    display: inline-block;
+    padding-left: 0px;
+    cursor: pointer;
+  }
+
+  #georef_wrapper {
+
+    #georef_loading {
+      text-align: center;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    ul .georef_link_list_item {
+      display: list-item;
+      margin-left: 20px;
+      line-height: 1.2;
+      list-style: disc;
+    }
+  }
+
+}

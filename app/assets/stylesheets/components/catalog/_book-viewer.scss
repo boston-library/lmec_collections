@@ -1,0 +1,14 @@
+// These come from https://github.com/boston-library/commonwealth-vlr-engine/blob/54c9c7d/app/assets/stylesheets/commonwealth-vlr-engine/cmmnwlth_defaults.scss
+$lighter_gray: #E6E6E6;
+$very_light_gray: #F1F1F1;
+$bootstrap_text: #333333;
+$bl_link: #428BCA;
+$bl_link_hover: #005580;
+$viewer_bg: #111111;
+$search_highlight: yellow;
+
+.blacklight-image_viewer-book_viewer {
+    footer {
+        padding: 0;
+    }
+}

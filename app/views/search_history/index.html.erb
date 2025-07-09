@@ -1,0 +1,81 @@
+<% @page_title = 'Search History' %>
+
+<header class="bg-white dashboard-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <%= link_to(t('blacklight.users.account_heading'), current_user, class: "btn btn-link") %>
+      </div>
+      <div class="col-md-8">
+        <ul class="nav nav-pills">
+          <li role="presentation"><%= link_to 'Favorites', galleries_path %></li>
+          <li role="presentation"><%= link_to t('navbar.mapsets'), main_app.map_sets_path %></li>
+          <li role="presentation" class="active"><%= link_to 'Search History', blacklight.search_history_path %></li>
+          <li role="presentation"><%= link_to 'Edit My Account', edit_user_registration_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="dashboard-meta">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="h3"><%=t('blacklight.search_history.title')%></h1>
+          <p><%= t('blacklight.search_history.intro') %></p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-9" id="search_history_content">
+
+      <%- if @searches.blank? -%>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div id="empty_search_history">
+              <h4><%=t('blacklight.search_history.no_history')%></h4>
+              <p>Search for items by entering keywords in the search bar at the top right.</p>
+            </div>
+          </div>
+        </div>
+      <%- else -%>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3>
+              <%=t('blacklight.search_history.recent')%>
+              <small>
+                [<%= link_to t('blacklight.search_history.clear.action_title'),
+                             blacklight.clear_search_history_path,
+                             :id => 'clear_search_history',
+                             :method => :delete,
+                             :data => { :confirm => t('blacklight.search_history.clear.action_confirm') } %>]
+              </small>
+            </h3>
+            <table id="searches_list" class="table search_history">
+              <%-  @searches.each_with_index do |search,index| -%>
+                  <%= content_tag :tr, :id => "document_#{index + 1}" do %>
+                      <td class="query"><%= link_to_previous_search(search.query_params) %></td>
+                      <%- if has_user_authentication_provider? -%>
+                          <td class="actions">
+                            <%- if current_or_guest_user && search.saved? -%>
+                                <%# button_to t('blacklight.search_history.forget'), blacklight.forget_search_path(search.id), :class => 'btn btn-default' %>
+                                 <%= content_tag(:span, '', :class => 'glyphicon glyphicon-ok') %>
+                                 In your <%= link_to t('blacklight.saved_searches.title'),
+                                                     blacklight.saved_searches_path %>
+                            <%- else -%>
+                                <%= button_to t('blacklight.search_history.save'), blacklight.save_search_path(search.id), :method => :put, :class => 'btn btn-default' %>
+                            <%- end -%>
+                          </td>
+                      <%- end -%>
+                  <% end #content_tag %>
+              <%- end -%>
+            </table>
+          </div>
+        </div>
+      <%- end -%>
+      </div>
+    </div>
+  </div>
+</section>

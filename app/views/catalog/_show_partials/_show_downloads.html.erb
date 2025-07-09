@@ -1,0 +1,22 @@
+<%# Based on https://github.com/boston-library/commonwealth-vlr-engine/blob/73015d2749e83bd668b07663379f4688a8ce8ec3/app/views/catalog/_show_partials/_show_downloads.html.erb %>
+
+<div class="panel panel-default" id="sidebar-downloads">
+  <div class="panel-heading">
+    <%= t('blacklight.downloads.title') %>
+  </div>
+
+  <div class="panel-body">
+    <ul class="nav nav-list">
+      <% create_download_links(document, object_files).each do |link| %>
+        <li class="download_list_item"><%= link %></li>
+      <% end %>
+      <% if document.georeferenced? %>
+        <li class="download_list_item">
+          <%= link_to_warper_detail document.id, 'Export_tab' do %>
+            See more downloads (Warped PNG, KML, WMS, Tile URL)
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

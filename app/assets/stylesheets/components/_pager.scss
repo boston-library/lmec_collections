@@ -1,0 +1,48 @@
+.pager {
+	margin: 0;
+	padding: 0;
+	border: 1px solid #ddd;
+	border-radius: $border-radius-base;
+
+	.previous,
+	.next {
+		z-index: 1;
+		position: relative;
+	}
+
+	.previous button {
+       border-radius: 0;
+		border-right: 1px solid #ddd;
+	}
+
+	.next button {
+       border-radius: 0;
+		border-left: 1px solid #ddd;
+	}
+
+	li {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	li > a {
+		border-radius: 0;
+		font-size: 1.6rem;
+		border: none;
+		min-height: 40px;
+		color: $text-color;
+	}
+
+	.form-group {
+		margin: 0;
+		display: inline-block;
+	}
+
+	.form-control {
+		border-radius: 0;
+		box-shadow: none;
+		min-width: 50px;
+		max-width: 175px;
+		border: none;
+	}
+}

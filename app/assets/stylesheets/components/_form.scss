@@ -1,0 +1,49 @@
+label {
+	font-size: 1.3rem;
+	font-weight: 600;
+	color: $lmc-blue;
+}
+
+.form-control {
+	font-size: 1.4rem;
+}
+
+select.form-control {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+}
+
+select.form-control:not([multiple="multiple"]) {
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-image: image-url('select-dropdown.png');
+  padding-right: 3rem;
+
+  // IE 10+ hack
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    background: none;
+    padding-right: 1rem;
+  }
+}
+
+.radio label, .checkbox label {
+	text-transform: none;
+}
+
+.form-horizontal .form-group {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.inline-control {
+  display: inline-block;
+  width: auto;
+}
+
+.help-block {
+  color: #555555;
+  line-height: 1.2;
+  font-size: 1.3rem;
+}

@@ -1,0 +1,68 @@
+<div class="modal fade" id="modal-select-gallery-item">
+  <div class="modal-dialog modal-lg modal-gallery-select">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title h5">Choose An Item</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="external-image">
+              <div class="formgroup">
+                <div>
+                  <label for="external-url">Enter the URL of an image</label>
+                  <input data-id="external-url" id="external-url" class="form-control" type="text" placeholder="Image URL"/>
+                </div>
+                <div>
+                  <label for="external-href">Enter the URL to link to <span>(leave this blank to link directly to the image)</span></label>
+                  <input data-id="external-href" id="external-href" class="form-control" type="text" placeholder="Link URL"/>
+                </div>
+                <div>
+                  <button type="submit" class="btn btn-secondary" data-id="load-external-url">
+                    <span>Load</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr/>
+        <div class="row">
+          <%= form_tag(show_gallery_map_set_path, method: 'get', remote: true, id: 'select-gallery-form') do %>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>
+                  Favorites List
+                  <select name="gallery_id" class="form-control">
+                    <%= options_from_collection_for_select(@galleries, :id, :name, selected: @gallery.id) %>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="pull-right btn-group img-view-btn-group">
+                <label class="btn btn-default active img-view-btn" for="gallery-image-view-all">
+                  <span class="glyphicon glyphicon-th-large"></span>
+                  <span class="caption">All Items</span>
+                </label>
+                <label class="btn btn-default img-view-btn" for="gallery-image-view-geo">
+                  <span class="glyphicon glyphicon-maps view-icon-maps"></span>
+                  <span class="caption">Georeferenced Items</span>
+                </label>
+              </div>
+              <input class="hidden" id="gallery-image-view-all" name="image_view" value="all" type="radio">
+              <input class="hidden" id="gallery-image-view-geo" name="image_view" value="georeferenced" type="radio">
+            </div>
+          <% end %>
+        </div>
+        <div id="repo-item-select">
+          <%= render partial: "shared/show_gallery" %>
+        </div>
+      </div>
+      <div class="modal-footer text-left">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

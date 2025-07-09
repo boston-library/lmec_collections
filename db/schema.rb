@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_06_10_132259) do
+ActiveRecord::Schema[7.2].define(version: 2025_07_01_194602) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
     t.string "message_id", null: false
@@ -58,7 +61,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_10_132259) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "bookmarks", force: :cascade do |t|
+  create_table "bookmarks", id: :serial, force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "user_type"
     t.string "document_id"
@@ -70,7 +73,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_10_132259) do
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
-  create_table "carousel_slides", force: :cascade do |t|
+  create_table "carousel_slides", id: :serial, force: :cascade do |t|
     t.integer "sequence"
     t.string "object_pid"
     t.string "image_pid"
@@ -83,13 +86,85 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_10_132259) do
     t.string "size"
   end
 
-  create_table "searches", force: :cascade do |t|
+  create_table "galleries", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "user_id", null: false
+    t.string "repo_objects", default: [], null: false, array: true
+    t.integer "map_sets", default: [], null: false, array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_galleries_on_user_id"
+  end
+
+  create_table "institutions", force: :cascade do |t|
+    t.string "name"
+    t.string "pid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "institutions_users", id: false, force: :cascade do |t|
+    t.bigint "institution_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["institution_id", "user_id"], name: "index_institutions_users_on_institution_id_and_user_id"
+    t.index ["institution_id"], name: "index_institutions_users_on_institution_id"
+    t.index ["user_id", "institution_id"], name: "index_institutions_users_on_user_id_and_institution_id"
+    t.index ["user_id"], name: "index_institutions_users_on_user_id"
+  end
+
+  create_table "polaris_lookups", force: :cascade do |t|
+    t.string "item_id"
+    t.string "bib_id"
+    t.string "horizon_id"
+    t.string "barcode_id"
+    t.string "archive_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["archive_id"], name: "index_polaris_lookups_on_archive_id"
+    t.index ["barcode_id"], name: "index_polaris_lookups_on_barcode_id", unique: true
+    t.index ["bib_id"], name: "index_polaris_lookups_on_bib_id", unique: true
+    t.index ["horizon_id"], name: "index_polaris_lookups_on_horizon_id", unique: true
+    t.index ["item_id"], name: "index_polaris_lookups_on_item_id", unique: true
+  end
+
+  create_table "redirects", force: :cascade do |t|
+    t.string "drupal_id"
+    t.string "repository_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roles_users", id: false, force: :cascade do |t|
+    t.bigint "role_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["role_id", "user_id"], name: "index_roles_users_on_role_id_and_user_id"
+    t.index ["role_id"], name: "index_roles_users_on_role_id"
+    t.index ["user_id", "role_id"], name: "index_roles_users_on_user_id_and_role_id"
+    t.index ["user_id"], name: "index_roles_users_on_user_id"
+  end
+
+  create_table "searches", id: :serial, force: :cascade do |t|
     t.binary "query_params"
     t.integer "user_id"
     t.string "user_type"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.index ["user_id"], name: "index_searches_on_user_id"
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.string "session_id", null: false
+    t.text "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
+    t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -101,10 +176,24 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_10_132259) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "guest", default: false
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.string "username"
+    t.string "provider"
+    t.string "display_name"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "uid"
+    t.boolean "staff", default: false, null: false
+    t.index ["email"], name: "index_users_on_email"
+    t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["uid", "provider"], name: "index_users_on_uid_and_provider"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "galleries", "users", on_delete: :cascade
+  add_foreign_key "institutions_users", "institutions"
+  add_foreign_key "institutions_users", "users"
+  add_foreign_key "roles_users", "roles"
+  add_foreign_key "roles_users", "users"
 end

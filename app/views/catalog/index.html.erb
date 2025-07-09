@@ -1,0 +1,28 @@
+<!-- ** HEADER ** -->
+<header class="search-header search-header-small">
+  <div class="container">
+    <h1 class="h2"><%= t('search.heading') %></h1>
+    <%= render 'search_form' %>
+    <%= link_to 'Advanced Search', blacklight_advanced_search_engine.advanced_search_path,
+            :class => 'advanced-search-link' %>
+  </div>
+</header>
+<!-- ** HEADER ** -->
+
+<div class="container search-results-container">
+  <div class="row">
+    <div id="sidebar" class="col-sm-3">
+      <%= render 'search_sidebar' %>
+    </div>
+    <%- if @response.empty? %>
+      <div class="col-md-8 col-md-pull-1">
+        <%= render "zero_results" %>
+      </div>
+    <%- else %>
+      <div id="content" class="<%= main_content_classes %>">
+        <%= render 'search_results' %>
+      </div>
+    <%- end %>
+  </div>
+  <%= render 'results_pagination' %>
+</div>

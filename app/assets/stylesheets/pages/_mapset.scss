@@ -1,0 +1,16 @@
+.main-mapset-header {
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    background-image: image-url("map-sets-header.jpg");
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+
+    > .container {
+        position: relative;
+    }
+}
+
+.btn.active {
+    box-shadow: none;
+}

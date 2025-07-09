@@ -2,7 +2,6 @@
 
 # Blacklight controller that handles searches and document requests
 class CatalogController < ApplicationController
-
   include Blacklight::Catalog
   # CatalogController-scope behavior and configuration for CommonwealthVlrEngine
   include CommonwealthVlrEngine::ControllerOverride
@@ -23,7 +22,7 @@ class CatalogController < ApplicationController
     # SearchBuilder contains logic for adding search params to Solr
     config.search_builder_class = CommonwealthSearchBuilder
 
-    config.fetch_many_document_params = { fl: '*' }
+    config.fetch_many_document_params = { fl: "*" }
 
     # limit Advanced Search facets to this institution (uncomment if needed)
     # can't call SearchBuilder.institution_limit because it's an instance method, not a class method
@@ -32,10 +31,10 @@ class CatalogController < ApplicationController
 
     # configuration for Blacklight IIIF Content Search
     config.iiif_search = {
-      full_text_field: 'ocr_tsiv',
-      object_relation_field: 'is_file_set_of_ssim',
-      page_model_field: 'curator_model_suffix_ssi',
-      supported_params: %w(q page)
+      full_text_field: "ocr_tsiv",
+      object_relation_field: "is_file_set_of_ssim",
+      page_model_field: "curator_model_suffix_ssi",
+      supported_params: %w[q page]
     }
 
     config.view.gallery(document_component: Blacklight::Gallery::DocumentComponent, icon: Blacklight::Gallery::Icons::GalleryComponent)
@@ -63,15 +62,15 @@ class CatalogController < ApplicationController
     # config.raw_endpoint.enabled = false
 
     ## Default parameters to send to solr for all search-like requests. See also SearchBuilder#processed_parameters
-    
+
 
     # solr path which will be added to solr base url before the other solr params.
-    #config.solr_path = 'select'
-    #config.document_solr_path = 'get'
-    #config.json_solr_path = 'advanced'
+    # config.solr_path = 'select'
+    # config.document_solr_path = 'get'
+    # config.json_solr_path = 'advanced'
 
     # items to show per page, each number in the array represent another option to choose from.
-    #config.per_page = [10,20,50,100]
+    # config.per_page = [10,20,50,100]
 
     # solr field configuration for search results/index views
     #    config.index.thumbnail_field = 'thumbnail_path_ss'
@@ -92,8 +91,8 @@ class CatalogController < ApplicationController
     config.add_results_collection_tool(:per_page_widget)
     config.add_results_collection_tool(:view_type_group)
 
-    config.add_nav_action(:bookmark, partial: 'blacklight/nav/bookmark', if: :render_bookmarks_control?)
-    config.add_nav_action(:search_history, partial: 'blacklight/nav/search_history')
+    config.add_nav_action(:bookmark, partial: "blacklight/nav/bookmark", if: :render_bookmarks_control?)
+    config.add_nav_action(:search_history, partial: "blacklight/nav/search_history")
 
     # solr field configuration for document/show views
     # config.show.title_field = 'title_tsim'
@@ -183,7 +182,7 @@ class CatalogController < ApplicationController
 
     # Configuration for autocomplete suggester
     config.autocomplete_enabled = true
-    config.autocomplete_path = 'suggest'
+    config.autocomplete_path = "suggest"
     # if the name of the solr.SuggestComponent provided in your solrconfig.xml is not the
     # default 'mySuggester', uncomment and provide it below
     # config.autocomplete_suggester = 'mySuggester'

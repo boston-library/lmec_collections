@@ -1,0 +1,26 @@
+<%= link_to(img,
+            book_viewer_path(document.id),
+            :title => t('blacklight.book_viewer.link_to_reader'),
+            :rel => 'nofollow',
+            :class => 'img_show') %>
+<div id="book_actions_links_wrap">
+  <ul id="book_actions_links" class="list-inline">
+    <li id="book_viewer_link_wrap">
+      <%= link_to(book_viewer_path(document.id),
+                  :class => 'book_viewer_link btn btn-primary',
+                  :rel => 'nofollow') do %>
+          <i class="fa fa-book"></i> <%= t('blacklight.book_viewer.link_to_reader') %>
+      <% end %>
+    </li>
+    <% if has_searchable_text?(document) %>
+        <li id="search_inside_link_wrap">
+          <%= link_to(ocr_search_path,
+                      :class => 'search_inside_link btn btn-default',
+                      :rel => 'nofollow',
+                      :data => {:ajax_modal => 'trigger'}) do %>
+              <i class="fa fa-search"></i> <%= t('blacklight.ocr.search.link') %>
+          <% end %>
+        </li>
+    <% end %>
+  </ul>
+</div>

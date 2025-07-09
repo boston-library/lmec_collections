@@ -1,0 +1,26 @@
+.map-set-sidebar {
+	width: 25%;
+  display: block;
+  float: left;
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 53px;
+  background: $brand-dark;
+
+  .panel {
+  	margin: 0;
+  	background: #0A0A29;
+  	border: 0;
+  }
+
+  li > a {
+  	font-size: 1.4rem;
+  	color: #fff;
+		background: $brand-dark;;
+
+  	&:not(.collapsed) {
+	  	background: lighten($brand-dark, 5%);
+  	}
+  }
+}

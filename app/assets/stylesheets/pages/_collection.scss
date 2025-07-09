@@ -1,0 +1,112 @@
+.collection-header {
+  padding-bottom: 5.5rem;
+
+  @media (max-width: 1024px) {
+    overflow: hidden;
+  }
+
+  .container {
+    z-index: 1;
+  }
+
+  .collection_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 0;
+
+    @media (max-width: 1024px) {
+      position: static;
+      overflow: visible;
+    }
+
+    img {
+      position: absolute;
+      min-width: 100%;
+      min-height: 100%;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+    }
+  }
+
+  .collection_img_caption {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 0 5px;
+    font-size: 1.3rem;
+
+    @media (max-width: 1024px) {
+      position: relative;
+      margin-top: 30px;
+      margin-bottom: -35px;
+      max-width: 95%;
+      margin: 30px auto -35px;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: underline;
+    }
+  }
+}
+
+.collections-list {
+  .document-counter {
+    display: none;
+  }
+  .document .document-title-heading > a {
+    font-weight: 600;
+  }
+}
+
+.item_az_links {
+
+  .az_label {
+    display: block;
+  }
+
+  .az_link,
+  .az_nolink,
+  .az_active {
+    padding: 2px 7px;
+    background: white;
+    border: 1px solid #ddd;
+    margin-right: -5px;
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+
+  .az_active {
+    background-color: $lmc-secondary;
+    border-color: $lmc-secondary;
+    color: #fff;
+  }
+}
+
+.show-document .pagination-search-widgets {
+  padding: 10px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: -30px 0 10px;
+  min-height: 47px;
+}
+
+#page_sequence_wrapper,
+#thumbnail_list_wrapper  {
+  padding: 10px;
+  background-color: #fff;
+}
+
+#page_sequence_pagination {
+  display: inline-block;
+}

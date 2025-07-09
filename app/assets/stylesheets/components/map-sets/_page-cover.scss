@@ -1,0 +1,52 @@
+/* map set content cover pages*/
+.map-set-content.page-cover {
+	padding: 0;
+	overflow: hidden;
+
+  h1, h5, p {
+  	color: #fff;
+	  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  h5 {
+  	line-height: 2;
+  }
+
+	.cover-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		min-width: 100%;
+	  max-width: initial;
+		min-height: 100%;
+		z-index: 0;
+	}
+
+	.title-section {
+		position: absolute;
+	  width: 100%;
+	  height: 100%;
+	  background: rgba(0, 0, 0, 0.24);
+	  top: 0;
+	  right: 0;
+	  text-align: center;
+	}
+
+	.title-section-content {
+	  width: 100%;
+	  padding: 0 8rem;
+	  position: absolute;
+	  top: 50%;
+	  -webkit-transform: translate(0, -50%);
+	      -ms-transform: translate(0, -50%);
+	          transform: translate(0, -50%);
+	}
+
+	.title-section-footer {
+	  position: absolute;
+	  bottom: 4rem;
+	  width: 100%;
+	  padding: 0 8rem;
+	  color: #fff;
+	}
+}

@@ -1,0 +1,31 @@
+.map-editor-tools {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    bottom: 1rem;
+
+    #edit-buttons {
+        display: block;
+        position: absolute;
+        right: 0;
+        margin-top: 1rem;
+    }
+}
+
+.layer-panel {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    width: 250px;
+
+    .list-group {
+        margin: 0;
+    }
+}
+
+#zoom-buttons {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}

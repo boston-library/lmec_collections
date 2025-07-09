@@ -1,0 +1,12 @@
+<div class="panel panel-default" id="sidebar-georef">
+  <div class="panel-heading">
+    <%= t('home.georeferencing') %>
+  </div>
+
+  <div class="panel-body" id="georef_wrapper">
+    <%# content will be updated via updateGeorefLinks(); %>
+    <div id="georef_loading">
+      <%= image_tag('commonwealth-vlr-engine/loading.gif', id: 'loading', alt: 'Loading...') %>
+    </div>
+  </div>
+</div>
