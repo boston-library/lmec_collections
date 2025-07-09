@@ -1,5 +1,8 @@
 <%# ** HEADER ** %>
 <header class="main-header main-header-small home-header">
+  
+  <%= render "shared/home_navbar" %>
+  
   <div id="home-carousel" class="carousel slide carousel-fade" data-ride="carousel">
     <%# ** Wrapper for carousel images ** %>
     <div class="carousel-inner" role="listbox">
@@ -52,6 +55,7 @@
       </div>
       <div class="panel-body">
         <h1 class="h2 text-white"><%= t('home.tagline') %></h1>
+        <%= render 'catalog/home_search_form' %>
         <%= link_to 'Advanced Search', blacklight_advanced_search_engine.advanced_search_path %>
       </div>
     </div>
@@ -67,7 +71,7 @@
     <div class="row">
       <div class="col-md-4">
         <div class="home-panels">
-          <%= link_to '', main_app.root_path, class: 'panel-link', title: 'Go to exhibitions' %>
+          <%= link_to '', collections_path, class: 'panel-link', title: 'Go to exhibitions' %>
           <%= image_tag("showrooms.jpg") %>
           <div class="caption">
             <h2>
@@ -91,6 +95,7 @@
       </div>
       <div class="col-md-4">
         <div class="home-panels">
+          <%= link_to '', collections_path, class: 'panel-link', title: 'Go to tools for educators' %>
           <%= image_tag("tools-for-teachers.jpg") %>
           <div class="caption">
             <h2>
@@ -106,8 +111,6 @@
     <%# ** COLLECTIONS ** %>
     <div class="text-center">
       <h3><%= t('home.featuredcollections') %></h3>
-      <div class="row">
-      </div>
     </div>
     <%# ** COLLECTIONS ** %>
 
