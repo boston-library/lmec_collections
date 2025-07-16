@@ -1,5 +1,6 @@
 module CatalogHelper
-  include CommonwealthVlrEngine::CatalogHelper
+  include Blacklight::CatalogHelperBehavior
+  include CommonwealthVlrEngine::CatalogHelperBehavior
 
   def link_to_warper_detail(item_id, tab = nil)
     url = "//#{WARPER_HOST_NAME}/maps/from_uuid/#{item_id}"

@@ -21,7 +21,6 @@ gem "deep_cloneable", "~> 3.2", ">= 3.2.1"
 gem "jquery-rails", "~> 4.6"
 
 gem "activerecord-session_store", "~> 2.2"
-gem "devise_cas_authenticatable", "~> 2.0", ">= 2.0.2"
 gem "omniauth-polaris", "~> 1.0"
 
 gem "kaminari", "~> 1.2", ">= 1.2.2"

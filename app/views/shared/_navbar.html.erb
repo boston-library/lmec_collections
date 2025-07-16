@@ -17,13 +17,11 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t('navbar.lmec_home'), 'https://www.leventhalmap.org' %></li>
-        <li><%= link_to t('navbar.exhibits'), main_app.exhibits_path %></li>
         <li <% if current_user %>class="hidden-md"<% end %>>
             <%= link_to t('navbar.georeference'),
                         'https://www.leventhalmap.org/projects/digital-projects/georeferencing/',
                         target: '_blank' %>
         </li>
-        <li><%= link_to t('navbar.educators'), main_app.educators_path %></li>
         <li><%= link_to t('navbar.collections'), main_app.collections_path %></li>
         <% unless current_user %>
           <li><%= link_to t('navbar.galleries'), main_app.galleries_path %></li>
@@ -38,7 +36,7 @@
             id: 'navbar_search_form',
             class: 'navbar-form',
             role: 'search' do %>
-                <%= render_hash_as_hidden_fields(params_for_search().except(:q, :qt, :page, :f, :sort)) %>
+                <%# <%= render_hash_as_hidden_fields(params_for_search().except(:q, :qt, :page, :f, :sort)) %> %>
                 <div class="search-field">
                   <label for="q" class="sr-only">Search the map portal</label>
                   <%= text_field_tag :q,
@@ -53,7 +51,6 @@
                 </button>
                 <ul class="dropdown-menu">
                   <li><a href="<%= main_app.search_catalog_url %>" data-search-action data-search-name="q"><%= t('navbar.mapcollection') %></a></li>
-                  <li><a href="<%= main_app.search_educators_url %>" data-search-action data-search-name="search[keyword]"><%= t('navbar.mapsets') %></a></li>
                 </ul>
               </div>
             </div>

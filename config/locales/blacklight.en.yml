@@ -1,43 +1,132 @@
 # this file contains site-specific values
 en:
+  home:
+    tagline: 'Discover the digital collections of the Leventhal Map & Education Center and partners'
+    
+    exhibitions: 'Exhibitions'
+    exhibitionsdesc: 'View over a dozen map-related exhibitions by the
+    Leventhal Map & Education Center, produced from 2004 to present.'
+    exhibitionslink: 'Go'
+
+    georeferencing: 'Georeferencing'
+    georeferencingdesc: 'Overlay historic maps on modern-day maps. Search and browse georeferenced maps. Help enhance our digital collections.'
+    georeferencinglink: 'Go'
+
+    foreducators: 'For Educators'
+    foreducatorsdesc: 'Search and create map-related educational materials for use in the classroom.'
+    foreducatorslink: 'Go'
+
+    featuredcollections: 'Collections of Distinction'
+    viewallcollections: 'View all Digital Collections'
+
+    featuredexhibition: 'Featured Exhibition'
+
+    about: 'About'
+    aboutsubhead: ''
+    aboutbody: 'The Center has a particular interest in developing innovative uses of maps and geographic materials to engage young people’s curiosity about the world, thereby enhancing their understanding of geography, history, world cultures, and citizenship.'
+    aboutlink: 'Learn More'
+
+  search:
+    heading: 'Search'
+    facetsheading: 'My Search'
+    viewinwarper: 'Georeference This Map'
+
+  navbar:
+    lmec_home: 'LMEC Home'
+    exhibits: 'Exhibitions'
+    educators: 'Tools for Teachers'
+    mapsets: 'Map Sets'
+    galleries: 'My Favorites'
+    search: 'Search Collections'
+    mapcollection: 'Map Collection'
+    georeference: 'Georeferencing'
+    account: 'My Account'
+    collections: 'Collections'
+    sr:
+      togglenavigation: 'Toggle navigation'
+
+  gallery:
+    save: 'Add to My Favorites'
+
+  pager:
+    prevpage: 'Prevous page'
+    nextpage: 'Next page'
 
   blacklight:
 
     application_name: 'Totally Awesome Library Digital Collections'
     application_desc: 'This site provides access to materials of historical interest from this totally awesome library.'
 
+    advanced_search:
+      page_title: 'Advanced Search'
+
+    citation:
+          chicago: ''
+
+    collections:
+      index:
+        cod_title: 'Collections of Distinction'
+        title: 'Digital Partner Collections'
+        page_title: 'Digital Collections - Norman B. Leventhal Map & Education Center'
+      browse:
+        all: 'Browse the Collection'
+
     email:
-          reply_to: 'reply_to_email_address@exmaple.org'
+          reply_to: 'info@leventhalmap.org'
           record_mailer:
-            name: 'Totally Awesome Library'
-            email: 'reply_to_email_address@exmaple.org'
+            name: 'Leventhal Map & Education Center'
+            email: 'info@leventhalmap.org'
           text:
-            subject: 'Totally Awesome Library E-mail: link to item'
+            subject: 'Leventhal Map & Education Center: link to item'
 
     feedback:
           text:
-            subject: 'Totally Awesome Library Digital Collections: contact email'
+            subject: 'Leventhal Map & Education Center: contact email'
 
     footer:
-          address: '123 Main Street, Anywhere, MA 01234'
+          address: '700 Boylston St, Copley Square, Boston MA 02116'
+          phone: '617-859-2387'
 
     home:
           banner:
-            center_text: 'Explore historical collections from this totally awesome library.'
+            center_text: 'Leventhal Map & Education Center Digital Collections'
           browse:
             maps:
               enabled: true
             collections:
               enabled: true
             institutions:
-              enabled: true
+              enabled: false
             formats:
               enabled: true
-          about:
-            title: 'About This Site'
-            text: 'This site provides access to materials of historical interest from this totally awesome library.'
-          news:
-            title: 'News & Announcements'
-            rss_link: 'http://awesomelibrary.org/blog?feed=rss2'
-            blog_title: 'This Awesome Library Blog'
-            blog_url: 'https://awesomelibrary.org/blog'
+          context:
+            about:
+              title: 'About This Site'
+              text: 'This site provides access to the digital collections of the Leventhal Map & Education Center and partners.'
+
+    metadata_display:
+          fields:
+            referenced_by: 'Catalog Record'
+
+    search:
+      facets:
+        title: 'Filter your Search'
+      form:
+        submit: 'Search All Digital Collections'
+
+      view:
+        split: 'map view'
+        gallery: 'grid view'
+
+    tools:
+      title: 'Share'
+      buy: 'Buy a Reproduction'
+      iiif_manifest:
+        link: 'IIIF Manifest'
+        copy: 'Copy IIIF manifest URL to the clipboard'
+
+    more_like_this:
+      more_mlt_link: 'Find More Like This'
+
+    downloads:
+      credit: 'Please include the credit line: “Map reproduction courtesy of the Norman B. Leventhal Map & Education Center at the Boston Public Library” or “Map reproduction courtesy of [NAME OF COLLECTION]” if the map is from a partner institution.'

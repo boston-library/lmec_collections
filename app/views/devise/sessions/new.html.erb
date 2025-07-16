@@ -1,0 +1,59 @@
+<section>
+  <div class="container">
+    <div class="col-md-7 col-md-push-1">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">Sign in</h2>
+        </div>
+        <div class="panel-body">
+
+          <div id="signin_wrapper">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="form-group">
+                <%= f.label :email, class: 'control-label' %>
+                <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :password, class: 'control-label' %>
+                <%= f.password_field :password, class: 'form-control' %>
+                <span class="help-block">
+                  <%= link_to 'Forgot your password?', new_user_password_path %>
+                </span>
+              </div>
+
+              <% if devise_mapping.rememberable? %>
+                <div class="checkbox">
+                  <label>
+                    <%= f.check_box :remember_me %> Remember me on this computer
+                  </label>
+                </div>
+              <% end %>
+
+              <div class="actions">
+                <%= f.submit 'Sign in', class: 'btn btn-primary' %>
+              </div>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-md-push-1" id="why_log_in">
+      <div class="well">
+        <h4>Why sign in?</h4>
+        <ul>
+          <li>Create customized collections of your favorite items</li>
+          <li>Save important searches</li>
+          <li>Keep track of your search history</li>
+        </ul>
+      </div>
+      <div class="well">
+        <h4>Sign Up</h4>
+        Don't have an account?
+        <%= link_to 'Sign up.', new_user_registration_path %>
+      </div>
+    </div>
+  </div>
+</section>

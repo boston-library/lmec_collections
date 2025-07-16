@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-
   root to: 'pages#home'
+
+  concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
 
   # routes for CommonwealthVlrEngine
   mount CommonwealthVlrEngine::Engine => '/'
@@ -10,21 +11,17 @@ Rails.application.routes.draw do
   # this has to be in local app for bookmark item actions to work
   put 'bookmarks/item_actions', to: 'folder_items_actions#folder_item_actions', as: 'selected_bookmarks_actions'
 
-  concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
+  # Begin Blacklight routing
+  mount Blacklight::Engine => '/'
 
   concern :iiif_search, BlacklightIiifSearch::Routes.new
-  mount Blacklight::Engine => '/'
-  # root to: "catalog#index"
   concern :searchable, Blacklight::Routes::Searchable.new
+  concern :exportable, Blacklight::Routes::Exportable.new
 
   resource :catalog, only: [], as: 'catalog', path: '/search', controller: 'catalog' do
     concerns :searchable
     concerns :range_searchable
-
   end
-  devise_for :users
-
-  concern :exportable, Blacklight::Routes::Exportable.new
 
   resources :solr_documents, only: [:show], path: '/search', controller: 'catalog' do
     concerns :exportable
@@ -38,7 +35,32 @@ Rails.application.routes.draw do
       delete 'clear'
     end
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # end Blacklight routing
+
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
+  }
+
+  devise_scope :user do
+    get 'login', to: 'devise/sessions#new'
+    delete 'sign_out', to: 'devise/sessions#destroy'
+  end
+
+  resources :galleries, path: 'favorites' do
+    member do
+      post 'add-item' => 'galleries#add_item', as: :add_item
+      post 'remove-item' => 'galleries#remove_item', as: :remove_item
+    end
+
+    collection do
+      get 'set-galleries-modal' => 'galleries#set_galleries_modal', as: :set_modal
+    end
+  end
+
+  resources :users, only: [:show]
+
+  resources :redirects, only: [:show]
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
@@ -46,8 +68,5 @@ Rails.application.routes.draw do
 
   # Render dynamic PWA files from app/views/pwa/*
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-  get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-
-  # Defines the root path route ("/")
-  # root "posts#index"
+  get '/manifest.json', to: 'pwa#manifest', defaults: { format: :json } 
 end

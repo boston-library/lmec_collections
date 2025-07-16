@@ -1,7 +1,7 @@
 <%= form_tag search_action_url,
              :method => :get,
              :id => 'home_page_search_form' do %>
-    <%= render_hash_as_hidden_fields(params_for_search().except(:q, :qt, :page, :f, :sort)) %>
+    <%# <%= render_hash_as_hidden_fields(params_for_search().except(:q, :qt, :page, :f, :sort)) %> %>
 
     <div class="form-group">
       <label for="q_basic" class="sr-only">
