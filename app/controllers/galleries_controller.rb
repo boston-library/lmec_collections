@@ -2,7 +2,7 @@ class GalleriesController < CatalogController
   # Give Galleries access to the CatalogController configuration
   # Needed to be able to fetch documents from the Solr index
   include Blacklight::Configurable
-  include Blacklight::SearchHelper
+  include Blacklight::SearchContext
 
   include GalleryFilters
 
@@ -117,8 +117,6 @@ class GalleriesController < CatalogController
   # Use callbacks to share common setup or constraints between actions.
   def set_gallery
     @gallery = Gallery.owned_by(current_or_guest_user).find(params[:id])
-    @curriculum_materials = CurriculumMaterial.find(@gallery.curriculum_materials)
-    (@response, @document_list) = fetch @gallery.repo_objects, rows: GALLERY_ITEM_LIMIT
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

@@ -11,7 +11,7 @@
 
   <div class="nav-offcavas-container home-navigation">
     <div class="nav-offcavas-search">
-      <%= form_tag search_action_url,
+      <%= form_tag search_catalog_path,
           method: :get,
           id: 'navbar_search_form',
           role: 'search' do %>
@@ -26,7 +26,6 @@
     <ul class="nav nav-pills nav-stacked">
       <li><%= link_to 'Advanced Search', blacklight_advanced_search_engine.advanced_search_path %></li>
       <li><%= link_to t('navbar.lmec_home'), 'https://www.leventhalmap.org' %></li>
-      <li><%= link_to t('navbar.exhibits'), collections_path %></li>
       <li><%= link_to t('navbar.georeference'),
                       'https://www.leventhalmap.org/projects/digital-projects/georeferencing/',
                       target: '_blank' %></li>

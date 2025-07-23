@@ -20,13 +20,6 @@
           <div id="documents" class="row gallery">
             <%= render_documents_as_gallery %>
           </div>
-
-          <% unless @curriculum_materials.empty? %>
-            <h3><%= t('educators.curriculumssubhead') %></h3>
-            <div id="curriculum-materials" class="row gallery">
-              <%= render partial: "gallery_curriculum_material", collection: @curriculum_materials, as: "curriculum_material" %>
-            </div>
-          <% end %>
         <% end %>
       </div>
     </div>

@@ -16,7 +16,7 @@ class Gallery < ActiveRecord::Base
   # empty? is a special method in Rails and overriding it generated
   # validation errors, so we use an alternate name.
   def no_items?
-    repo_objects.empty? && curriculum_materials.empty?
+    repo_objects.empty?
   end
 
   def add_item(type, item_id)
