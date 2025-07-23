@@ -232,6 +232,8 @@
 .navbar-nav {
   margin: ($navbar-padding-vertical / 2) (-$navbar-padding-horizontal);
 
+  flex-direction: row;
+
   > li > a {
     padding-top:    10px;
     padding-bottom: 10px;

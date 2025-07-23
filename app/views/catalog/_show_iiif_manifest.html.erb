@@ -1,7 +1,0 @@
-<%= link_to image_tag('iiif-logo.svg',
-                      alt: t('blacklight.tools.iiif_manifest.link'),
-                      id: 'iiif-logo') + ' ' + t('blacklight.tools.iiif_manifest.link'),
-            iiif_manifest_url(@document),
-            { id: 'iiif_manifest_link', rel: 'nofollow', target: '_blank' } %>
-
-<a id="iiif_manifest_link_copy" class="text-tertiary" title="<%= t('blacklight.tools.iiif_manifest.copy') %>">copy link</a>

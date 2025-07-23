@@ -1,10 +1,7 @@
 <!-- ** HEADER ** -->
 <header class="search-header search-header-small">
   <div class="container">
-    <h1 class="h2"><%= t('search.heading') %></h1>
-    <%= render 'search_form' %>
-    <%= link_to 'Advanced Search', blacklight_advanced_search_engine.advanced_search_path,
-            :class => 'advanced-search-link' %>
+    <%= render 'basic_search' %>
   </div>
 </header>
 <!-- ** HEADER ** -->

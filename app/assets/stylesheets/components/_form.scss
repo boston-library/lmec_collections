@@ -18,7 +18,7 @@ select.form-control {
 select.form-control:not([multiple="multiple"]) {
   background-repeat: no-repeat;
   background-position: right 1rem center;
-  background-image: image-url('select-dropdown.png');
+  background-image: url('select-dropdown.png');
   padding-right: 3rem;
 
   // IE 10+ hack

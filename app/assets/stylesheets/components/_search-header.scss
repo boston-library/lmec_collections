@@ -6,7 +6,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  background-image: image-url("search-header.jpg");
+  background-image: url("search-header.jpg");
 
   &.search-header-small {
     padding-top: 2rem;
@@ -20,7 +20,7 @@
 }
 
 .search-header-alt {
-  background-image: image-url("search-header-alt.jpg");
+  background-image: url("search-header-alt.jpg");
 }
 
 .search-header-form {

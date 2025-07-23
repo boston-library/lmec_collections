@@ -8,7 +8,6 @@
       <div class="col-md-8">
         <ul class="nav nav-pills">
           <li role="presentation"><%= link_to 'Favorites', galleries_path %></li>
-          <li role="presentation"><%= link_to t('navbar.mapsets'), main_app.map_sets_path %></li>
           <li role="presentation"><%= link_to 'Search History', blacklight.search_history_path %></li>
           <li role="presentation"><%= link_to 'Edit My Account', edit_user_registration_path %></li>
         </ul>
@@ -36,13 +35,6 @@
                 <h4><%= link_to t('navbar.galleries'), main_app.galleries_path %></h4>
                 <p>View and edit your favorites</p>
               </li>
-              <li>
-                <h4><%= link_to t('navbar.mapsets'), main_app.map_sets_path %></h4>
-                <p>View and edit your Map Sets</p>
-                </li>
-              <li>
-                <h4><%= link_to 'Saved Searches', blacklight.saved_searches_path %></h4>
-                <p><%= t('blacklight.saved_searches.intro') %></p>
               </li>
               <li>
                 <h4><%= link_to 'Search History', blacklight.search_history_path %></h4>

@@ -8,7 +8,7 @@ class CatalogController < ApplicationController
 
   include BlacklightRangeLimit::ControllerOverride
 
-
+  GALLERY_ITEM_LIMIT = 10_000
   # If you'd like to handle errors returned by Solr in a certain way,
   # you can use Rails rescue_from with a method you define in this controller,
   # uncomment:

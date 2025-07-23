@@ -1,23 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title><%= content_for(:title) || "Bpl Mapportal V2" %></title>
+    <% if defined?(GOOGLE_ANALYTICS) && GOOGLE_ANALYTICS['web_property_id'].present? %>
+      <!-- Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=<%= GOOGLE_ANALYTICS['web_property_id'] %>"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '<%= GOOGLE_ANALYTICS['web_property_id'] %>');
+      </script>
+    <% end %>
+
+    <% if defined?(GOOGLE_ANALYTICS) && GOOGLE_ANALYTICS['gtm_container_id'].present? %>
+      <!-- Google Tag Manager -->
+      <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','<%= GOOGLE_ANALYTICS['gtm_container_id'] %>');
+      </script>
+    <% end %>
+
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= yield :head %>
-
     <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
+    <%= favicon_link_tag 'favicon-32x32.png', type: 'image/png', sizes: '32x32' %>
+    <%= favicon_link_tag 'favicon-192x192.png', type: 'image/png', sizes: '192x192' %>
+    <%= favicon_link_tag 'favicon.ico' %>
+
+    <%= stylesheet_link_tag "https://code.cdn.mozilla.net/fonts/fira.css", media: "all" %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=PT+Serif:400,700,700i", media: "all" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <%= yield :head %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="<%= render_body_class if defined?(render_body_class) %>">
+    <% if defined?(GOOGLE_ANALYTICS) && GOOGLE_ANALYTICS['gtm_container_id'].present? %>
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<%= GOOGLE_ANALYTICS['gtm_container_id'] %>"
+                        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <% end %>
+
+    <% unless current_page?(root_path) %>
+      <%= render "shared/navbar" %>
+    <% end %>
+
     <%= yield %>
 
     <%= render "shared/footer" %>

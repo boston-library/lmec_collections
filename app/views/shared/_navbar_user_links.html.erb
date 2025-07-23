@@ -12,7 +12,6 @@
     </a>
     <ul class="dropdown-menu">
       <li><%= link_to t('navbar.galleries'), main_app.galleries_path %></li>
-      <li><%= link_to t('navbar.mapsets'), main_app.map_sets_path %></li>
       <li><%= link_to t('blacklight.header_links.search_history'), blacklight.search_history_path %></li>
       <li><%= link_to t('devise.registrations.edit'), main_app.edit_user_registration_path %></li>
       <% if current_user.staff %>

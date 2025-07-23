@@ -1,0 +1,10 @@
+development:
+  web_property_id:
+  gtm_container_id:
+
+test:
+  web_property_id:
+
+production:
+  web_property_id:
+  gtm_container_id:

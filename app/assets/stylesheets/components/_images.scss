@@ -56,7 +56,7 @@ a.image-preview {
         }
     }
     .leaflet-draw-draw-color {
-        background-image: image-url("leaflet-draw/draw-color-icon.png") !important;
+        background-image: url("leaflet-draw/draw-color-icon.png") !important;
         background-size: 14px;
     }
 }
@@ -74,7 +74,7 @@ a.image-preview {
         position: absolute;
         bottom: 5px;
         right: 0;
-        background-image: image-url("icon/icon-resize-box.png");
+        background-image: url("icon/icon-resize-box.png");
         background-size: 16px;
         background-repeat: no-repeat;
         background-position: right bottom;
