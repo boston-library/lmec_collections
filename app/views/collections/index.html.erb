@@ -1,0 +1,26 @@
+<section>
+  <div class="container">
+    <% @page_title = t('blacklight.collections.index.page_title', application_name: application_name) %>
+    <% content_for(:head) do -%>
+      <%= render 'catalog/opensearch_response_metadata', response: @response %>
+    <% end %>
+
+    <div class="row">
+      <div id="collections_index_title" class="col-sm-12 text-center">
+        <h2 class="h2"><%= t('blacklight.collections.index.title') %></h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div id="content" class="collections-list">
+        <div id="collections_results" class="col-lg-12">
+          <h2 class="sr-only visually-hidden"><%= t('blacklight.search.search_results') %></h2>
+
+          <%= render_document_index(@response.documents) %>
+
+          <%= render 'catalog/results_pagination' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+<% component = Blacklight::DocumentComponent.new(classes: 'col', component: :div, document: @presenter, counter: @counter) %> 
+<%= render(component) do |component| %>
+  <% component.with_body do %>
+    <div class="thumbnail">
+      <%= thumbnail %>
+
+      <div class="caption">
+        <%= title %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

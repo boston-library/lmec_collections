@@ -15,6 +15,20 @@ class CatalogController < ApplicationController
   #
   # rescue_from Blacklight::Exceptions::InvalidRequest, with: :my_handling_method
 
+  before_action :set_gallery_context
+  after_action :set_access_control_headers, only: [ :index, :show ]
+
+  helper_method :default_image_id
+
+  def set_gallery_context
+    @galleries = current_or_guest_user.galleries if current_or_guest_user
+  end
+
+  def default_image_id(document)
+    first_image = get_files(document.id)[:image].first
+    first_image.try(:id)
+  end
+
   # CatalogController-scope behavior and configuration for BlacklightIiifSearch
   include BlacklightIiifSearch::Controller
 
@@ -37,7 +51,7 @@ class CatalogController < ApplicationController
       supported_params: %w[q page]
     }
 
-    config.view.gallery(document_component: Blacklight::Gallery::DocumentComponent, icon: Blacklight::Gallery::Icons::GalleryComponent)
+    config.view.gallery(document_component: DocumentComponent, icon: Blacklight::Gallery::Icons::GalleryComponent)
     config.view.masonry(document_component: Blacklight::Gallery::DocumentComponent, icon: Blacklight::Gallery::Icons::MasonryComponent)
     # config.view.slideshow(document_component: Blacklight::Gallery::SlideshowComponent, icon: Blacklight::Gallery::Icons::SlideshowComponent)
     # config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
@@ -186,5 +200,60 @@ class CatalogController < ApplicationController
     # if the name of the solr.SuggestComponent provided in your solrconfig.xml is not the
     # default 'mySuggester', uncomment and provide it below
     # config.autocomplete_suggester = 'mySuggester'
+
+    config.facet_fields.delete("subject_facet_ssim")
+    config.facet_fields.delete("subject_geographic_sim")
+    config.facet_fields.delete("date_facet_yearly_itim")
+    config.facet_fields.delete("genre_basic_ssim")
+    config.facet_fields.delete("collection_name_ssim")
+    config.facet_fields.delete("name_facet_ssim")
+    config.facet_fields.delete("reuse_allowed_ssi")
+
+    config.add_facet_field "subject_geographic_sim",
+                           label: "Place", limit: 8, sort: "count", collapse:  false
+    config.add_facet_field "subject_facet_ssim", label: "Topic", limit: 8, sort: "count", collapse:  false
+    config.add_facet_field "date_facet_yearly_itim",
+                           label: "Date", range: true, collapse: false
+    config.add_facet_field "name_facet_ssim", label: "Creator", limit: 8, sort: "count", collapse:  false
+    config.add_facet_field "genre_basic_ssim",
+                           label: "Format", limit: 8, sort: "count", helper_method: :render_format,
+                           collapse: false
+    config.add_facet_field "georeferenced_bsi",
+                           label: "Georeferenced",
+                           collapse: false,
+                           query: {
+                             yes: { label: "Yes",
+                                    fq: "georeferenced_bsi:true" },
+                             no:  { label: "No",
+                                    fq: "georeferenced_bsi:false OR (*:* NOT georeferenced_bsi:[* TO *])" }
+                           }
+    config.add_facet_field "collection_name_ssim",
+                           label: "Collection", limit: 8, sort: "count", helper_method: :remove_cod_text,
+                           collapse: false
+    config.add_facet_field "reuse_allowed_ssi",
+                           label: "Available to use", limit: 8, sort: "count", helper_method: :render_reuse,
+                           collapse: false,
+                           solr_params: { "facet.excludeTerms" => "all rights reserved,contact host" }
+
+    # config.view.delete(:maps)
+    # config.view.delete(:slideshow)
+    # config.view.delete(:masonry)
+
+    # config.view.delete(:split)
+    # config.view.split.partials = [ "index" ]
+    # config.view.split.icon_class = "glyphicon-maps view-icon-maps"
+  end
+
+  private
+
+  # to allow apps to load JSON API requests from a remote server
+  def set_access_control_headers
+    return unless response.content_type =~ /application\/json/
+
+    headers["Access-Control-Allow-Origin"] = "*"
+  end
+
+  def render_manifest_link?
+    @document[:identifier_iiif_manifest_ss].present?
   end
 end
