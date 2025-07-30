@@ -1,0 +1,45 @@
+<search>
+  <%= form_with url: @url, local: true, method: @method, class: @classes.join(''), scope: @prefix, role: 'search', **@form_options do |f| %>
+    <%= render Blacklight::HiddenSearchStateComponent.new(params: @params) %>
+    <% before_input_groups.each do |input_group| %>
+      <%= input_group %>
+    <% end %>
+    <div class="search-header-form">
+      <%= prepend %>
+
+      <div class="search-field">
+        <%= f.label @query_param, scoped_t('search.label') %>
+        <% if autocomplete_path.present? %>
+          <auto-complete src="<%= autocomplete_path %>" for="autocomplete-popup" class="search-autocomplete-wrapper">
+            <%= f.search_field @query_param, value: @q, placeholder: scoped_t('search.placeholder'), class: "search-q q form-control", autofocus: @autofocus, aria: { label: scoped_t('search.label'), autocomplete: 'list', controls: 'autocomplete-popup' }  %>
+            <ul id="autocomplete-popup" class="dropdown-menu" role="listbox" aria-label="<%= scoped_t('search.label') %>" hidden></ul>
+          </auto-complete>
+        <% else %>
+          <%= f.search_field @query_param, value: @q, placeholder: scoped_t('search.placeholder'), class: "search-q q form-control", autofocus: @autofocus, aria: { label: scoped_t('search.label') }  %>
+        <% end %>
+      </div>
+
+      <div class="search-field">
+        <% if search_fields.length > 1 %>
+          <%= f.label :search_field, scoped_t('search_field.label') %>
+          <%= f.select(:search_field,
+                      options_for_select(search_fields, h(@search_field)),
+                      {},
+                      title: scoped_t('search_field.title'),
+                      class: "form-control search_index_select") %>
+        <% elsif search_fields.length == 1 %>
+          <%= f.hidden_field :search_field, value: search_fields.first.last %>
+        <% end %>
+      </div>
+
+      <%= append %>
+      <div class="search-field search-btn">
+        <%= search_button || render(SearchButtonComponent.new(id: "#{@prefix}search", text: scoped_t('submit'))) %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if advanced_search_enabled? %>
+    <%= link_to t('blacklight.advanced_search.page_title'), @advanced_search_url, class: 'advanced-search-link'%>
+  <% end %>
+</search>

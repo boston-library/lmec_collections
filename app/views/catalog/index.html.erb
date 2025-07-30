@@ -1,16 +1,22 @@
-<!-- ** HEADER ** -->
 <header class="search-header search-header-small">
   <div class="container">
-    <%= render 'basic_search' %>
+    <h1 class="h2"><%= t('search.heading') %></h1>
+    <%= render SearchBarComponent.new(
+      url: search_action_url,
+      advanced_search_url: blacklight_advanced_search_engine.advanced_search_url,
+      params: search_state.params_for_search.except(:qt),
+      autocomplete_path: suggest_index_catalog_path) %>
   </div>
 </header>
-<!-- ** HEADER ** -->
 
 <div class="container search-results-container">
   <div class="row">
-    <div id="sidebar" class="col-sm-3">
-      <%= render 'search_sidebar' %>
-    </div>
+    <% content_for(:sidebar) do %>
+      <% conf = blacklight_config.view_config(document_index_view_type) %>
+      <%= render conf.sidebar_component.new(blacklight_config: blacklight_config,
+                                            response: @response,
+                                            view_config: conf) %>
+    <% end %>
     <%- if @response.empty? %>
       <div class="col-md-8 col-md-pull-1">
         <%= render "zero_results" %>
@@ -21,5 +27,4 @@
       </div>
     <%- end %>
   </div>
-  <%= render 'results_pagination' %>
 </div>

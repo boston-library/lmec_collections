@@ -1,0 +1,17 @@
+<%= form_with url: @url, local: true, method: @method, class: @classes.join(''), id: 'home_page_search_form', scope: @prefix, role: 'search', **@form_options do |f| %>
+  <%= render Blacklight::HiddenSearchStateComponent.new(params: @params) %>
+  <div class="form-group">
+    <%= f.label :q_basic, t('blacklight.search.form.search.label'), class: 'sr-only' %>
+    <div class="btn-group btn-group-justified">
+      <%= f.search_field @query_param, value: @q, placeholder: t('blacklight.search.basic_search.form.q'), class: "search-q q form-control", autofocus: @autofocus, aria: { label: scoped_t('search.label') }  %>
+      <div class="btn-group">
+        <button type="submit" class="btn btn-secondary" id="search">
+          <i class="icon-search"></i>
+          <span class="sr-only">
+            <%= t('blacklight.search.form.submit') %>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+<% end %>
