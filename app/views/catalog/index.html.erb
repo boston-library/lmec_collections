@@ -17,6 +17,9 @@
                                             response: @response,
                                             view_config: conf) %>
     <% end %>
+    <div id="sidebar" class="col-sm-3">
+      <%= render 'search_sidebar' %>
+    </div>
     <%- if @response.empty? %>
       <div class="col-md-8 col-md-pull-1">
         <%= render "zero_results" %>
