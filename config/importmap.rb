@@ -18,3 +18,5 @@ pin "chart.js", to: "https://ga.jspm.io/npm:chart.js@4.2.0/dist/chart.js"
 pin "@kurkle/color", to: "https://ga.jspm.io/npm:@kurkle/color@0.3.2/dist/color.esm.js"
 pin "@fortawesome/fontawesome-free", to: "@fortawesome--fontawesome-free.js"
 pin "universalviewer", to: "https://cdn.jsdelivr.net/npm/universalviewer@4.2.0/dist/esm/index.js"
+
+pin_all_from "app/javascript/legacy", under: "legacy"

@@ -14,6 +14,10 @@ import 'commonwealth-vlr-engine'
 import "openseadragon"
 import "openseadragon-rails"
 
+// Legacy scripts
+import "legacy/navbar"
+import "legacy/main"
+
 Blacklight.onLoad(function() {
   $('.documents-masonry').BlacklightMasonry();
   $('.documents-slideshow').slideshow();

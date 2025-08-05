@@ -59,7 +59,16 @@
   }
 }
 
+.collections-title {
+  margin-bottom: 25px;
+}
+
 .collections-list {
+  .results {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
   .document-counter {
     display: none;
   }
