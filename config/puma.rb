@@ -1,34 +1,42 @@
-# This configuration file will be evaluated by Puma. The top-level methods that
-# are invoked here are part of Puma's configuration DSL. For more information
-# about methods provided by the DSL, see https://puma.io/puma/Puma/DSL.html.
+# frozen_string_literal: true
 
-# Puma starts a configurable number of processes (workers) and each process
-# serves each request in a thread from an internal thread pool.
+# Puma can serve each request in a thread from an internal thread pool.
+# The `threads` method setting takes two numbers: a minimum and maximum.
+# Any libraries that use thread pools should be configured to match
+# the maximum value specified for Puma. Default is set to 5 threads for minimum
+# and maximum; this matches the default thread size of Active Record.
 #
-# The ideal number of threads per worker depends both on how much time the
-# application spends waiting for IO operations and on how much you wish to
-# to prioritize throughput over latency.
-#
-# As a rule of thumb, increasing the number of threads will increase how much
-# traffic a given process can handle (throughput), but due to CRuby's
-# Global VM Lock (GVL) it has diminishing returns and will degrade the
-# response time (latency) of the application.
-#
-# The default is set to 3 threads as it's deemed a decent compromise between
-# throughput and latency for the average Rails application.
-#
-# Any libraries that use a connection pool or another resource pool should
-# be configured to provide at least as many connections as the number of
-# threads. This includes Active Record's `pool` parameter in `database.yml`.
-threads_count = ENV.fetch("RAILS_MAX_THREADS", 3)
-threads threads_count, threads_count
+rails_env = ENV.fetch('RAILS_ENV') { 'development' }
+max_threads_count = ENV.fetch('RAILS_MAX_THREADS') { 5 }
+min_threads_count = ENV.fetch('RAILS_MIN_THREADS') { max_threads_count }
+app_dir = File.expand_path('..', __dir__)
 
-# Specifies the `port` that Puma will listen on to receive requests; default is 3000.
-port ENV.fetch("PORT", 3000)
+threads min_threads_count, max_threads_count
+workers ENV.fetch('WEB_CONCURRENCY') { 2 }
 
-# Allow puma to be restarted by `bin/rails restart` command.
-plugin :tmp_restart
+# Specifies the `worker_timeout` threshold that Puma will use to wait before
+# terminating a worker in development environments.
+#
+worker_timeout 3600 if rails_env == 'development'
 
-# Specify the PID file. Defaults to tmp/pids/server.pid in development.
-# In other environments, only set the PID file if requested.
-pidfile ENV["PIDFILE"] if ENV["PIDFILE"]
+environment rails_env
+
+wait_for_less_busy_worker
+
+preload_app!
+
+on_worker_boot do
+  ActiveRecord::Base.establish_connection
+end
+
+if %w(staging production).member?(rails_env)
+  bind "unix://#{app_dir}/tmp/sockets/mapportal_v2_puma.sock"
+  stdout_redirect("#{app_dir}/log/puma.stdout.log", "#{app_dir}/log/puma.stderr.log", true)
+  pidfile "#{app_dir}/tmp/pids/mapportal_v2_puma_server.pid"
+  state_path "#{app_dir}/tmp/pids/mapportal_v2_puma_server.state"
+else
+  port ENV.fetch('PORT') { 3000 }
+  pidfile "#{app_dir}/tmp/pids/server.pid"
+  state_path "#{app_dir}/tmp/pids/server.state"
+  plugin :tmp_restart
+end
