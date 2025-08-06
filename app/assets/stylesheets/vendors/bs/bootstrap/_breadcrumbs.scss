@@ -1,7 +1,11 @@
 //
 // Breadcrumbs
 // --------------------------------------------------
-
+#item_breadcrumb {
+  i {
+    padding: 0 10px;
+  }
+}
 
 .breadcrumb {
   padding: $breadcrumb-padding-vertical $breadcrumb-padding-horizontal;

@@ -19,6 +19,15 @@ a.btn-default {
   @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
 }
 
+.btn-outline-secondary.dropdown-toggle {
+  color: #6c757d;
+  border-color: #6c757d;
+
+  &:active, &:hover, &:focus {
+    color: #fff !important;
+  }
+}
+
 .btn-facebook {
   background-color: $facebook;
   color: #fff;
