@@ -2,6 +2,19 @@
   @extend .h4;
 }
 
+.facets-header {
+  padding: 5px;
+
+  .facet-toggle-button {
+    color: #6c757d !important;
+    border: var(--bl-facets-smallish-border);
+
+    &:hover {
+      color: #fff !important;
+    }
+  }
+}
+
 .blacklight-advanced-facet-select {
   margin-top: 8px;
 
@@ -63,6 +76,14 @@
   }
 }
 
+.facet-limit-active {
+  background-color: #d6e9c6;
+
+  .card-header {
+    background-color: #d6e9c6;
+  }
+}
+
 .card-body {
   .facet-values {
     li {
@@ -97,6 +118,12 @@
 
     label {
       margin-left: 8px;
+    }
+  }
+
+  .facet-values.blacklight-facet-checkboxes {
+    li {
+      justify-content: left;
     }
   }
 

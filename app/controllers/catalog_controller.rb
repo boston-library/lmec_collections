@@ -235,13 +235,8 @@ class CatalogController < ApplicationController
                            collapse: false,
                            solr_params: { "facet.excludeTerms" => "all rights reserved,contact host" }
 
-    # config.view.delete(:maps)
-    # config.view.delete(:slideshow)
-    # config.view.delete(:masonry)
-
-    # config.view.delete(:split)
-    # config.view.split.partials = [ "index" ]
-    # config.view.split.icon_class = "glyphicon-maps view-icon-maps"
+    config.view.delete(:list)
+    config.view.delete(:masonry)
   end
 
   private

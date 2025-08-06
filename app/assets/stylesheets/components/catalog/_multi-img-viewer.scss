@@ -1,9 +1,13 @@
 #img_show_zoom_cue {
-    font-size: 25px;
-    position: absolute;
-    top: 25px;
-    left: 35px;
-    z-index: 100;
+    font-size: 25px !important;
+    position: absolute !important;
+    top: 15px !important;
+    left: 15px !important;
+    z-index: 100 !important;
+    color: $link-color !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    right: unset !important;
 }
 
 .carousel-control:before {

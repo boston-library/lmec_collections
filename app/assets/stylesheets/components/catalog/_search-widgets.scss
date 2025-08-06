@@ -1,3 +1,11 @@
+#sortAndPerPage .btn {
+  font-size: 14px;
+}
+
+.btn.view-type-list, .btn.view-type-gallery {
+  padding: 6px 12px;
+}
+
 .search-widgets {
   margin-bottom: 2rem;
 }
