@@ -89,6 +89,12 @@ class CatalogController < ApplicationController
     # solr field configuration for search results/index views
     #    config.index.thumbnail_field = 'thumbnail_path_ss'
 
+    # Blacklight::Allmaps Viewer
+    config.show.partials.insert(1, :blacklight_allmaps)
+    config.default_solr_unique_key = "id"
+    config.default_georeferenced_field = "georeferenced_allmaps_bsi"
+    config.default_iiif_manifest_field = "identifier_iiif_manifest_ss"
+
     # The presenter is the view-model class for the page
     # config.index.document_presenter_class = MyApp::IndexPresenter
 
@@ -218,8 +224,8 @@ class CatalogController < ApplicationController
     config.add_facet_field "genre_basic_ssim",
                            label: "Format", limit: 8, sort: "count", helper_method: :render_format,
                            collapse: false
-    config.add_facet_field "georeferenced_bsi",
-                           label: "Georeferenced",
+    config.add_facet_field "georeferenced_allmaps_bsi",
+                           label: I18n.t('allmaps.bl_facet_label'),
                            collapse: false,
                            query: {
                              yes: { label: "Yes",

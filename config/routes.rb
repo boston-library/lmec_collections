@@ -68,5 +68,6 @@ Rails.application.routes.draw do
 
   # Render dynamic PWA files from app/views/pwa/*
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-  get '/manifest.json', to: 'pwa#manifest', defaults: { format: :json } 
+  get '/manifest.json', to: 'pwa#manifest', defaults: { format: :json }
+  mount Blacklight::Allmaps::Engine => '/'
 end

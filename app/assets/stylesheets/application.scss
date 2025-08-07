@@ -27,6 +27,7 @@ $fa-font-path: ".";
   "vendors/trix",
   "vendors/sir-trevor",
   "vendors/leaflet.draw",
+  "vendors/leaflet.opacity",
   "bootstrap-switch",
   "fontello",
   "animation";
@@ -100,3 +101,14 @@ $fa-font-path: ".";
   "pages/dashboard",
   "pages/collection",
   "pages/map_layers";
+
+/**
+ * blacklight-allmaps
+ */
+// @import 'blacklight-allmaps/app/assets/stylesheets/blacklight/allmaps/base';
+// can't use allmaps/base from npm package -- paths do not resolve
+// instead, contents copied below with modified paths
+@import "leaflet/dist/leaflet";
+@import "leaflet-fullscreen/dist/leaflet.fullscreen";
+
+#blacklight-allmaps-map { height: 400px; }
