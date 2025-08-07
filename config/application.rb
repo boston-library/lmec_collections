@@ -1,13 +1,14 @@
 require_relative "boot"
 
 require "rails/all"
-
+require "blacklight/allmaps/engine"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module BplMapportalV2
   class Application < Rails::Application
+    config.railties_order = [Blacklight::Allmaps::Engine, :main_app, :all]
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.2
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_07_16_131050) do
+ActiveRecord::Schema[7.2].define(version: 2025_07_30_193429) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,6 +59,22 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_16_131050) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "blacklight_allmaps_sidecars", force: :cascade do |t|
+    t.string "solr_document_id"
+    t.string "document_type", default: "SolrDocument"
+    t.string "manifest_id"
+    t.boolean "annotated", default: false
+    t.string "allmaps_id"
+    t.text "iiif_manifest"
+    t.text "allmaps_annotation"
+    t.bigint "solr_version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["allmaps_id"], name: "index_blacklight_allmaps_sidecars_on_allmaps_id"
+    t.index ["manifest_id"], name: "index_blacklight_allmaps_sidecars_on_manifest_id"
+    t.index ["solr_document_id"], name: "index_blacklight_allmaps_sidecars_on_solr_document_id"
   end
 
   create_table "bookmarks", id: :serial, force: :cascade do |t|

@@ -25,3 +25,5 @@ Blacklight.onLoad(function() {
 
 import BlacklightRangeLimit from "blacklight-range-limit";
 BlacklightRangeLimit.init({onLoadHandler: Blacklight.onLoad });
+
+import "blacklight-allmaps"
