@@ -1,0 +1,8 @@
+<div id="home_featured_collections">
+  <%= render CommonwealthVlrEngine::CollectionsGalleryComponent.new(collection_documents: @featured_collections) %>
+  <div id="home_featured_collections_view_all">
+    <%= link_to I18n.t('blacklight.home.featured_collections.view_all_link'), collections_url,
+                id: 'home_featured_collections_view_all_link',
+                class: 'btn btn-primary' %>
+  </div>
+</div>

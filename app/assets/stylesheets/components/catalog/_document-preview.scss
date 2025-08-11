@@ -69,6 +69,104 @@
   display: none;
 }
 
+#more_like_this {
+  .document {
+    width: 33%;
+  }
+
+  .thumbnail-container {
+    background-color: #fff;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+
+    display: block;
+    margin-bottom: 25px;
+    line-height: 1.8;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: border 0.2s ease-in-out;
+
+    .document-thumbnail > a {
+      display: block;
+      height: 20rem;
+      overflow: hidden;
+      position: relative;
+      
+      &:before,
+      &:after {
+        display: block;
+        z-index: 1;
+        position: absolute;
+        opacity: 0;
+      }
+
+      &:before {
+        background: rgba(0, 0, 0, 0.32);
+        content: '';
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: .35s ease-in-out opacity;
+      }
+
+      &:after {
+        content: 'view';
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%,-70%);
+            -ms-transform: translate(-50%,-70%);
+                transform: translate(-50%,-70%);
+        padding: .5rem 2rem;
+        border: 1px solid white;
+        color: white;
+        border-radius: 10px;
+      }
+
+      > img {
+        min-width: 100%;
+        min-height: 100%;
+        max-width: initial;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+      }
+    }
+    
+    > a:active {
+      &:after {
+        background-color: white;
+        color: $lmc-blue;
+      }
+    }
+  }
+
+  .document-title-heading {
+    > a {
+      color: $lmc-grey;
+      font-weight: 600;
+    }
+  }
+
+  .caption {
+    padding: 1rem;
+    margin-top: 0 !important;
+
+    .documentHeader {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  .document-metadata {
+    display: none;
+  }
+}
+
 #overlay_map_container {
   padding: 2rem;
   background: white;
