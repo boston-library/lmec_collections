@@ -39,6 +39,9 @@
           <div class="tab-pane active" id="image" role="tabpanel" aria-labelledby="tab-image">
             <%= media %>
           </div>
+          <div class="tab-pane" id="map-overlay" role="tabpanel" aria-labelledby="tab-map-overlay">
+            <%= allmaps_viewer %>
+          </div>
         </div>
       <% else %>
         <%= media %>
@@ -52,8 +55,10 @@
         </div>
       </div>
       <%= harvested_item_link %>
-      <%= more_like_this %>
+      <%= allmaps_sidebar %>
+      <%= metadata %>
       <%= explore_collection %>
+      <%= more_like_this %>
 
       <% partials.each do |partial| %>
         <%= partial %>
