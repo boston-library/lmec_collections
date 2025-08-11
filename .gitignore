@@ -44,3 +44,4 @@
 .idea # Rubymine config files
 /.idea/*
 
+/config/credentials/staging.key

@@ -18,6 +18,14 @@ test:
   <<: *default
   database: <%= ENV["BPL_MAPPORTAL_DB_PREFIX"] %>_test
 
+staging:
+  <<: *default
+  database: mapportal_v2_staging
+  username: <%= ENV.fetch('BPL_MAPPORTAL_PG_USER') { Rails.application.credentials.dig(:postgres, :user) } %>
+  password: <%= ENV.fetch('BPL_MAPPORTAL_PG_PASS') { Rails.application.credentials.dig(:postgres, :password) } %>
+  host: <%= ENV.fetch('BPL_MAPPORTAL_PG_HOST') { Rails.application.credentials.dig(:postgres, :host) } %>
+  port: <%= ENV.fetch('BPL_MAPPORTAL_PG_PORT') {  Rails.application.credentials.dig(:postgres, :port) } %>
+
 production:
   <<: *default
   database: <%= ENV["BPL_MAPPORTAL_DB_PREFIX"] %>_production
