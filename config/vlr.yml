@@ -18,6 +18,23 @@ default: &default
 
 development:
   <<: *default
+  featured_items:
+    root:
+      collections:
+        - bpl-dev:r207vc18w
+        - bpl-dev:w9506g03s
+        - bpl-dev:vt1516559
+        - bpl-dev:w9506g042
+
+staging:
+  <<: *default
+  featured_items:
+    root:
+      collections:
+        - bpl-dev:r207vc18w
+        - bpl-dev:w9506g03s
+        - bpl-dev:vt1516559
+        - bpl-dev:w9506g042
 
 test:
   <<: *default

@@ -110,17 +110,7 @@
     </div>
     <%# ** THREE BLOCKS ** %>
     <br>
-    <%# ** COLLECTIONS ** %>
-    <div class="text-center">
-      <h3><%= t('home.featuredcollections') %></h3>
-      <%= link_to t('home.viewallcollections'), collections_path %>
-      <div class="row">
-        <% cod_documents_for_home.each do |cod_doc| %>
-          <%= render(partial: 'collection_panel', locals: { document: cod_doc }) %>
-        <% end %>
-      </div>
-    </div>
-    <%# ** COLLECTIONS ** %>
+    <%= render partial: 'pages/home/featured_collections' if @featured_collections.present? %>
 
   </div>
 </section>
