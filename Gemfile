@@ -12,13 +12,11 @@ gem "puma", ">= 5.0"
 gem "rails", "~> 7.2.2", ">= 7.2.2.1"
 gem "rsolr", ">= 1.0", "< 3"
 gem "stimulus-rails"
-gem "turbolinks", "~> 5.2", ">= 5.2.1"
 gem "turbo-rails"
 gem "uglifier", "~> 4.2", ">= 4.2.1"
 
 gem "coffee-rails", "~> 5.0"
 gem "deep_cloneable", "~> 3.2", ">= 3.2.1"
-gem "jquery-rails", "~> 4.6"
 
 gem "activerecord-session_store", "~> 2.2"
 gem "omniauth-polaris", "~> 1.0"
