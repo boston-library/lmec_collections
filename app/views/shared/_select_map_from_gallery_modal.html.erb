@@ -23,7 +23,7 @@
           <% end %>
         </div>
         <div id="repo-map-select">
-          <% geo_document_list = @document_list.select { |d| d[:georeferenced_bsi] } %>
+          <% geo_document_list = @document_list.select { |d| d[:georeferenced_allmaps_bsi] } %>
           <%= render "shared/show_gallery", :@document_list => geo_document_list,
               :@desktop_counter => 'desktop_row_class_map',
               :@device_counter => 'device_row_class_map',

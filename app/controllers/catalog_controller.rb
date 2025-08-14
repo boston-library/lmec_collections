@@ -232,9 +232,9 @@ class CatalogController < ApplicationController
                            collapse: false,
                            query: {
                              yes: { label: "Yes",
-                                    fq: "georeferenced_bsi:true" },
+                                    fq: "georeferenced_allmaps_bsi:true" },
                              no:  { label: "No",
-                                    fq: "georeferenced_bsi:false OR (*:* NOT georeferenced_bsi:[* TO *])" }
+                                    fq: "georeferenced_allmaps_bsi:false OR (*:* NOT georeferenced_allmaps_bsi:[* TO *])" }
                            }
     config.add_facet_field "collection_name_ssim",
                            label: "Collection", limit: 8, sort: "count", helper_method: :remove_cod_text,
