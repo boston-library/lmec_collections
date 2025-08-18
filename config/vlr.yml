@@ -36,9 +36,6 @@ staging:
         - bpl-dev:vt1516559
         - bpl-dev:w9506g042
 
-staging:
-  <<: *default
-
 test:
   <<: *default
 
