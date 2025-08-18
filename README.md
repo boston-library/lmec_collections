@@ -1,24 +1,42 @@
-# README
+# BPL
+## Running with Docker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### 1. Configure environment variables
+Run following command to copy the example file and update values:
+```bash
+cp .env.development.sample .env.development
+```
 
-Things you may want to cover:
+### 2. Build the application
+```bash
+docker-compose build
+```
+This command will build the application image and install dependencies
 
-* Ruby version
+### 3. Setup the database
+If this is the first run, create and migrate the database:
+```bash
+docker-compose run web bin/rails db:create db:migrate
+```
 
-* System dependencies
+### 4. Run the application
+```bash
+docker-compose up
+```
 
-* Configuration
+## Useful Commands
+* Start services in the background:
 
-* Database creation
+    ```bash
+    docker-compose up -d
+    ```
+* Stop services:
 
-* Database initialization
+    ```bash
+    docker-compose down
+    ```
+* Open Rails console:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    ```bash
+    docker-compose run web bin/rails console
+    ```
