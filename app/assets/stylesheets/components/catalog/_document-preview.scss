@@ -34,7 +34,21 @@
 }
 
 #appliedParams {
-  display: none;
+  float: right;
+  margin: -20px 0 10px;
+
+  a {
+    background-color: unset;
+    color: $link-color;
+    text-decoration: none;
+    font-size: 14px;
+
+    border: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 #item_metadata {

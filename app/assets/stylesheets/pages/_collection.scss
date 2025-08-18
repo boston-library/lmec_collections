@@ -35,7 +35,7 @@
     }
   }
 
-  .collection_img_caption {
+  #banner_image_caption {
     position: absolute;
     bottom: 5px;
     right: 5px;
@@ -102,7 +102,7 @@
 }
 
 .show-document .pagination-search-widgets {
-  display: none;
+  display: block;
   padding: 10px;
   background: white;
   border: 1px solid #ddd;

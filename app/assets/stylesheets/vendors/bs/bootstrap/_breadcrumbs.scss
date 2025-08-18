@@ -2,8 +2,12 @@
 // Breadcrumbs
 // --------------------------------------------------
 #item_breadcrumb {
+  i:not(:first-child) {
+    padding-left: 10px;
+  }
+
   i {
-    padding: 0 10px;
+    padding-right: 10px;
   }
 }
 

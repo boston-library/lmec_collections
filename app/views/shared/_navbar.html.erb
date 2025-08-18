@@ -45,16 +45,6 @@
                       placeholder: t('navbar.search') ,
                       class: 'form-control' %>
                 </div>
-            <div class="search-buttons">
-              <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <%= t('navbar.mapcollection') %> <i class="icon-down"></i>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a href="<%= main_app.search_catalog_url %>" data-search-action data-search-name="q"><%= t('navbar.mapcollection') %></a></li>
-                </ul>
-              </div>
-            </div>
             <button class="btn btn-secondary" type="submit">Search</button>
         <% end %>
       </div><!-- /.navbar-search -->
