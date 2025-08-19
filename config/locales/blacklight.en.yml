@@ -53,9 +53,8 @@ en:
     nextpage: 'Next page'
 
   blacklight:
-
-    application_name: 'Totally Awesome Library Digital Collections'
-    application_desc: 'This site provides access to materials of historical interest from this totally awesome library.'
+    application_name: 'Norman B. Leventhal Map & Education Center'
+    application_desc: 'This site provides access to digital collections of the Leventhal Map & Education Center and partners.'
 
     advanced_search:
       page_title: 'Advanced Search'

@@ -1,2 +1,2 @@
-class SearchBarComponent < Blacklight::SearchBarComponent
+class SearchBarComponent < CommonwealthVlrEngine::SearchBarComponent
 end
