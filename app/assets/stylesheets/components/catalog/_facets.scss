@@ -3,8 +3,6 @@
 }
 
 .facets-header {
-  padding: 5px;
-
   .facet-toggle-button {
     color: #6c757d !important;
     border: var(--bl-facets-smallish-border);
@@ -183,6 +181,18 @@
     &.range_begin,
     &.range_end {
       width: 60px;
+
+      appearance: textfield;
+      -moz-appearance: textfield;
+    }
+
+    &.range_begin::-webkit-inner-spin-button,
+    &.range_begin::-webkit-outer-spin-button,
+    &.range_end::-webkit-inner-spin-button,
+    &.range_end::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      appearance: none;
+      margin: 0;
     }
   }
 }

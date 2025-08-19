@@ -11,11 +11,6 @@
   <%= render Blacklight::SkipLinkItemComponent.new(text: t('blacklight.skip_links.first_result'), href: '#documents') %>
 <% end %>
 
-<% content_for(:container_header) do -%>
-  <%= render 'search_results_header' %>
-  <%= render blacklight_config.view_config(document_index_view_type).constraints_component.new(search_state: search_state) %>
-<% end %>
-
 <%= render blacklight_config.view_config(document_index_view_type).search_header_component.new %>
 
 <h2 class="visually-hidden"><%= t('blacklight.search.search_results') %></h2>

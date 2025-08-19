@@ -11,14 +11,17 @@
 
 <div class="container search-results-container">
   <div class="row">
-    <div id="sidebar" class="col-lg-3">
-      <%= render 'search_sidebar' %>
-    </div>
     <%- if @response.empty? %>
-      <div class="col-md-8 col-md-pull-1">
+      <div class="col-md-8 col-md-offset-2">
         <%= render "zero_results" %>
       </div>
     <%- else %>
+      <div id="sidebar" class="col-lg-3">
+        <h4 class="text-primary search-results-total"><%= @response.response[:numFound] %> Results</h4>
+
+        <%= render 'constraints' %>
+        <%= render 'search_sidebar' %>
+      </div>
       <div id="content" class="<%= main_content_classes %>">
         <%= render 'search_results' %>
       </div>

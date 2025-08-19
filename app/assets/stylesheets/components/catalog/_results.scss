@@ -255,6 +255,92 @@
       }
     }
   }
+
+  #appliedParams {
+    &.constraints-container {
+      margin-bottom: 20px;
+    }
+
+    .applied-filter {
+      width: 100%;
+      display: flex;
+
+      .constraint-value {
+        width: 90%;
+        padding: 0;
+
+        font-size: 13px;
+        display: flex;
+        text-align: left;
+        background-color: unset;
+        text-decoration: none;
+        border: none;
+
+        overflow-wrap: break-word;
+        white-space: normal;
+
+        .filter-name::after {
+          padding-left: 4px;
+          padding-right: 4px;
+        }
+
+        &:active {
+          color: unset;
+          background-color: unset;
+          border: 0;
+          box-shadow: none;
+        }
+      }
+
+      .remove {
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        background-color: unset;
+        text-decoration: none;
+        border: none;
+        float: right;
+        
+        .blacklight-icons-remove {
+          display: flex;
+        }
+
+        &:active {
+          color: unset;
+          background-color: unset;
+          border: 0;
+          box-shadow: none;
+        }
+      }
+    }
+
+    .panel {
+      width: 100%;
+      margin-bottom: 0; 
+    }
+
+    .top-panel-heading {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .catalog_startOverLink {
+      padding: 0;
+      
+      background-color: unset;
+      color: $link-color;
+      text-decoration: none;
+      font-size: 14px;
+
+      border: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 /* When map is adjusted and produces no results
