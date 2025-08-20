@@ -48,12 +48,10 @@
                   &nbsp;
                 <%= link_to "<i class='icon-trash'></i> Delete".html_safe,
                             gallery,
-                            method: :delete,
                             data: {
-                              controller: "confirm",
-                              action: "click->confirm#confirm",
-                              confirm_message_value: "Are you sure ppp you want to permanently delete this favorites list?"
-                            },
+                              turbo_confirm: 'Are you sure you want to permanently delete this favorites list?',
+                              turbo_method: :delete
+                             },
                             class: "btn btn-danger btn-xs" %>
                 </td>
               </tr>

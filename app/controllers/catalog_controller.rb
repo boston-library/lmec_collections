@@ -206,6 +206,8 @@ class CatalogController < ApplicationController
     # if the name of the solr.SuggestComponent provided in your solrconfig.xml is not the
     # default 'mySuggester', uncomment and provide it below
     # config.autocomplete_suggester = 'mySuggester'
+    config.search_fields["all_fields"].label = "All Fields"
+    config.search_fields["all_fields_ft"].include_in_advanced_search = false
 
     config.facet_fields.delete("subject_facet_ssim")
     config.facet_fields.delete("subject_geographic_sim")
@@ -225,7 +227,7 @@ class CatalogController < ApplicationController
                            label: "Format", limit: 8, sort: "count", helper_method: :render_format,
                            collapse: false
     config.add_facet_field "georeferenced_allmaps_bsi",
-                           label: I18n.t('allmaps.bl_facet_label'),
+                           label: I18n.t("allmaps.bl_facet_label"),
                            collapse: false,
                            query: {
                              yes: { label: "Yes",
