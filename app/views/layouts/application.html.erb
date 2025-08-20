@@ -27,6 +27,8 @@
   <body class="<%= render_body_class if defined?(render_body_class) %>">
     <%= insert_gtm(:body) %>
 
+    <div class="alerts"><%= render partial: 'shared/flash_msg', layout: 'shared/flash_messages' %></div>
+
     <% unless current_page?(root_path) %>
       <%= render "shared/navbar" %>
     <% end %>

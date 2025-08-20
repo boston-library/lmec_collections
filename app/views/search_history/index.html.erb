@@ -1,4 +1,4 @@
-<% @page_title = 'Search History' %>
+<% @page_title = t('blacklight.search_history.page_title', :application_name => application_name) %>
 
 <header class="bg-white dashboard-header">
   <div class="container">
@@ -23,7 +23,6 @@
       <div class="row">
         <div class="col-md-12">
           <h1 class="h3"><%=t('blacklight.search_history.title')%></h1>
-          <p><%= t('blacklight.search_history.intro') %></p>
         </div>
       </div>
     </div>
@@ -47,29 +46,18 @@
               <small>
                 [<%= link_to t('blacklight.search_history.clear.action_title'),
                              blacklight.clear_search_history_path,
-                             :id => 'clear_search_history',
-                             :method => :delete,
-                             :data => { :confirm => t('blacklight.search_history.clear.action_confirm') } %>]
+                             data: {
+                               turbo_confirm: t('blacklight.search_history.clear.action_confirm'),
+                               turbo_method: :delete
+                             } %>]
               </small>
             </h3>
             <table id="searches_list" class="table search_history">
-              <%-  @searches.each_with_index do |search,index| -%>
-                  <%= content_tag :tr, :id => "document_#{index + 1}" do %>
-                      <td class="query"><%= link_to_previous_search(search.query_params) %></td>
-                      <%- if has_user_authentication_provider? -%>
-                          <td class="actions">
-                            <%- if current_or_guest_user && search.saved? -%>
-                                <%# button_to t('blacklight.search_history.forget'), blacklight.forget_search_path(search.id), :class => 'btn btn-default' %>
-                                 <%= content_tag(:span, '', :class => 'glyphicon glyphicon-ok') %>
-                                 In your <%= link_to t('blacklight.saved_searches.title'),
-                                                     blacklight.saved_searches_path %>
-                            <%- else -%>
-                                <%= button_to t('blacklight.search_history.save'), blacklight.save_search_path(search.id), :method => :put, :class => 'btn btn-default' %>
-                            <%- end -%>
-                          </td>
-                      <%- end -%>
-                  <% end #content_tag %>
-              <%- end -%>
+              <% @searches.each_with_index do |search,index| %>
+                <tr id="document_<%= index + 1 %>">
+                  <td class="query"><%= link_to_previous_search(search_state.reset(search.query_params).to_hash) %></td>
+                </tr>
+              <% end %>
             </table>
           </div>
         </div>

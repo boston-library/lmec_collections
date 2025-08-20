@@ -2,7 +2,7 @@ class AdvancedSearchFormComponent < CommonwealthVlrEngine::AdvancedSearchFormCom
    private
 
   def initialize_search_field_controls
-    search_fields.values.take(4).each.with_index do |field, i|
+    search_fields.values.take(3).each.with_index do |field, i|
       next if field.key == blacklight_config.full_text_index
 
       with_search_field_control do
