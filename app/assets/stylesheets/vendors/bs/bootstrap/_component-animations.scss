@@ -7,11 +7,15 @@
 // We don't use the `.opacity()` mixin here since it causes a bug with text
 // fields in IE7-8. Source: https://github.com/twbs/bootstrap/pull/3552.
 
+// .fade updated to match bootstrap 5.3 _transitions.scss
 .fade {
-  opacity: 0;
+  // opacity: 0;
   @include transition(opacity .15s linear);
-  &.in {
-    opacity: 1;
+  // &.in {
+  //   opacity: 1;
+  // }
+  &:not(.show) {
+    opacity: 0;
   }
 }
 

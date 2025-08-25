@@ -41,7 +41,8 @@
 @import "bootstrap/close";
 
 // // Components w/ JavaScript
-@import "bootstrap/modals";
+// don't use Bootstrap 4 modals.scss, messes up image viewer modal in catalog#show view
+// @import "bootstrap/modals";
 @import "bootstrap/tooltip";
 @import "bootstrap/popovers";
 @import "bootstrap/carousel";
