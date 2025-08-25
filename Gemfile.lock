@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/boston-library/commonwealth-vlr-engine.git
-  revision: d067490d4015b4f606feaf883832cb0a87af167f
+  revision: cdbd36320a6d78a27010ff3420e1242c8ca827fd
   branch: blacklight-8
   specs:
     commonwealth-vlr-engine (0.1.0)
@@ -401,6 +401,10 @@ GEM
       activesupport (= 7.2.2.1)
       bundler (>= 1.15.0)
       railties (= 7.2.2.1)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.3.0)
       activesupport (>= 5.0.0)
       minitest
@@ -612,6 +616,7 @@ DEPENDENCIES
   puma (>= 5.0)
   rack-livereload (~> 0.6.1)
   rails (~> 7.2.2, >= 7.2.2.1)
+  rails-controller-testing
   rsolr (>= 1.0, < 3)
   rspec (~> 3.13, >= 3.13.1)
   rspec-rails (~> 8.0)

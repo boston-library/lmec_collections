@@ -84,11 +84,13 @@
 // Close icon
 .modal-header .close {
   margin-top: -2px;
+  font-size: unset;
 }
 
 // Title text within header
 .modal-title {
   margin: 0;
+  font-size: 18px;
   line-height: $modal-title-line-height;
 }
 

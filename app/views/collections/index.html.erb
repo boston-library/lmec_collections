@@ -6,6 +6,22 @@
     <% end %>
 
     <div class="row">
+      <div id="collections_index_title_cod" class="collections-title col-sm-12 text-center">
+        <h2 class="h2"><%= t('blacklight.collections.index.cod_title') %></h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div id="content_cod" class="collections-list">
+        <div id="collections_results_cod" class="results">
+          <h2 class="sr-only visually-hidden"><%= t('blacklight.search.search_results') %></h2>
+
+          <%= render CommonwealthVlrEngine::CollectionsGalleryComponent.new(collection_documents: cod_filter(@response.documents, true)) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
       <div id="collections_index_title" class="collections-title col-sm-12 text-center">
         <h2 class="h2"><%= t('blacklight.collections.index.title') %></h2>
       </div>
@@ -16,7 +32,7 @@
         <div id="collections_results" class="results">
           <h2 class="sr-only visually-hidden"><%= t('blacklight.search.search_results') %></h2>
 
-          <%= render_document_index(@response.documents) %>
+          <%= render_document_index(cod_filter(@response.documents)) %>
 
           <%= render 'catalog/results_pagination' %>
         </div>

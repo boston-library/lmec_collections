@@ -211,7 +211,7 @@
   }
 }
 
-#home_featured_collections {
+#home_featured_collections, #collections_results_cod {
   .document {
     width: 25%;
   }
@@ -315,5 +315,24 @@
 
   #home_featured_collections_view_all {
     text-align: center;
+  }
+}
+
+#collections_results_cod {
+  h4 {
+    display: none;
+  }
+
+  #documents_collections {
+    display: flex;
+    justify-content: center;
+  }
+
+  .document {
+    width: 35% !important;
+  }
+
+  .thumbnail-container {
+    background-color: #F2F1EA !important;
   }
 }
