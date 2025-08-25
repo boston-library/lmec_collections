@@ -8,9 +8,9 @@ module CollectionsHelper
   def cod_filter(documents, cod_flag = false)
     test_string = "Collection of Distinction"
     if cod_flag
-      documents.select { |doc| doc[blacklight_config.index.title_field] =~ /#{test_string}/ }
+      documents.select { |doc| doc[blacklight_config.index.title_field.field] =~ /#{test_string}/ }
     else
-      documents.select { |doc| doc[blacklight_config.index.title_field] !~ /#{test_string}/ }
+      documents.select { |doc| doc[blacklight_config.index.title_field.field] !~ /#{test_string}/ }
     end
   end
 
