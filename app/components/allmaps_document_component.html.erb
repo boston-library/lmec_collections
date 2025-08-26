@@ -1,0 +1,64 @@
+<%= content_tag @component,
+                id: @id,
+                data: {
+                  'document-id': @document.id.to_s.parameterize,
+                  'document-counter': @counter,
+                },
+                itemscope: true,
+                itemtype: @document.itemtype,
+                class: classes.flatten.join(' ') do %>
+  <%= header %>
+  <% if body.present? %>
+    <%= body %>
+  <% else %>
+    <div class="document-main-section">
+      <%= breadcrumb %>
+      <%= title %>
+      <div class="d-flex mb-3 justify-content-end">
+          <%= helpers.galleries_toggle(view_context.instance_variable_get(:@galleries), 'repo_object', @document[:id], text: t('gallery.save'), show_tooltip: false) %>
+      </div>
+      <%= content %>
+      <% if @document.georeferenced? %>
+        <nav class="">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8">
+                <ul class="nav nav-pills">
+                  <li role="presentation">
+                    <a class="active" id="tab-image" href="#image" data-bs-toggle="tab" role="tab" aria-controls="image" aria-selected="true">Image</a>
+                  </li>
+                  <li role="presentation">
+                    <a id="tab-map-overlay" href="#map-overlay" data-bs-toggle="tab" role="tab" aria-controls="map-overlay" aria-selected="false">Map Overlay</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="tab-content clearfix">
+          <div class="tab-pane active" id="image" role="tabpanel" aria-labelledby="tab-image">
+            <%= media %>
+          </div>
+        </div>
+      <% else %>
+        <%= media %>
+      <% end %>
+      <div class="row">
+        <div class="col-sm-8">
+          <%= metadata %>
+        </div>
+        <div class="col-sm-4">
+          <%= show_tools %>
+        </div>
+      </div>
+      <%= harvested_item_link %>
+      <%= more_like_this %>
+      <%= explore_collection %>
+
+      <% partials.each do |partial| %>
+        <%= partial %>
+      <% end %>
+    </div>
+  <% end %>
+  <%= footer %>
+<% end %>

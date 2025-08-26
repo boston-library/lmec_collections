@@ -18,7 +18,7 @@ class SolrDocument
   # and Blacklight::Document::SemanticFields#to_semantic_values
   # Recommendation: Use field names from Dublin Core
   use_extension(Blacklight::Document::DublinCore)
-  
+
   def sidecar_allmaps
     # Find or create, and set version
     sidecar = Blacklight::Allmaps::Sidecar.where(
@@ -31,5 +31,9 @@ class SolrDocument
     sidecar.save
 
     sidecar
+  end
+
+  def georeferenced?
+    fetch(:georeferenced_bsi, false)
   end
 end

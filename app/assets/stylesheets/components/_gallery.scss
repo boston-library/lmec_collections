@@ -23,11 +23,12 @@
   }
 
   /* TODO Make this fade out with css animations */
-  &.remove-gallery:after {
-    @extend [class^="icon-"], :before;
+  &.remove-gallery::after {
+    font-family: "fontello";
     content: '\e813';
     margin-left: 5px;
     color: #23b59a;
+    display: inline-block;
   }
 
   &:hover.add-gallery:before {

@@ -39,7 +39,7 @@
         <li><%= link_to t('blacklight.header_links.logout'), destroy_user_session_path %></li>
       <% else %>
         <% if has_user_authentication_provider? %>
-          <li><%= link_to t('blacklight.header_links.login'), new_user_session_path %></li>
+          <li><%= link_to t('navbar.login'), new_user_session_path %></li>
         <% end %>
       <% end %>
 

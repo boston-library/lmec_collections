@@ -60,7 +60,7 @@ module CatalogHelper
     params = { type: type, item_id: item_id }
 
     with_tooltip(opts[:show_tooltip]) do
-      link_to set_modal_galleries_path(params), data: { gallery_toggle: true } do
+      link_to set_modal_galleries_path(params), data: { gallery_toggle: true, blacklight_modal: "trigger" } do
         content_tag(:span, opts[:text], class: icon_class, data: { item_id: item_id, type: type })
       end
     end
@@ -68,6 +68,7 @@ module CatalogHelper
 
   def gallery_toggle(gallery, type, item_id, opts = {})
     return nil unless gallery && type && item_id
+
     favorited = favorited?(gallery, type, item_id)
     icon_class = icon_class_for(favorited, opts[:icon_type])
     params = { type: type, item_id: item_id }
@@ -80,8 +81,9 @@ module CatalogHelper
     end
 
     with_tooltip(opts[:show_tooltip], favorited) do
-      link_to gallery_action_path, method: :post, remote: true do
-        content_tag(:span, opts[:text], class: icon_class, data: data)
+      link_to gallery_action_path,
+              data: data.merge(turbo_method: :post) do
+        content_tag(:span, opts[:text], class: icon_class)
       end
     end
   end

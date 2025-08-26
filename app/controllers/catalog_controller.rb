@@ -51,6 +51,7 @@ class CatalogController < ApplicationController
       supported_params: %w[q page]
     }
 
+    config.show.document_component = AllmapsDocumentComponent
     config.view.gallery(document_component: DocumentComponent, icon: Blacklight::Gallery::Icons::GalleryComponent)
     config.view.masonry(document_component: Blacklight::Gallery::DocumentComponent, icon: Blacklight::Gallery::Icons::MasonryComponent)
     # config.view.slideshow(document_component: Blacklight::Gallery::SlideshowComponent, icon: Blacklight::Gallery::Icons::SlideshowComponent)

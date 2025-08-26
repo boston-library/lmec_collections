@@ -6,6 +6,9 @@
   margin-bottom: 2rem;
   border-radius: 1rem;
 
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
   .img_show {
     position: relative;
     display: block;
@@ -88,6 +91,7 @@
 #more_like_this {
   .document {
     width: 33%;
+    max-width: 33%;
   }
 
   .thumbnail-container {
@@ -183,13 +187,41 @@
   }
 }
 
-#overlay_map_container {
+#allmaps_container {
   padding: 2rem;
   background: white;
   position: relative;
   border: 1px solid #ddd;
   margin-bottom: 2rem;
   border-radius: 1rem;
+
+  h3 {
+    display: none;
+  }
+}
+
+#allmaps-sidebar {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+
+  .card-header {
+    padding: 20px 15px;
+
+    h2 {
+      margin: 0;
+      font-size: 16px !important;
+    }
+  }
+
+  .card-body {
+    padding: 20px 15px;
+  }
+
+  .card-footer {
+    padding: 20px 15px;
+
+    background-color: #fff;
+  }
 }
 
 #opacity_container {
@@ -200,9 +232,8 @@
   }
 }
 
-#overlay-map {
+#blacklight-allmaps-map {
   width: 100%;
-  height: 500px;
 }
 
 #img_viewer_modal .modal-footer {

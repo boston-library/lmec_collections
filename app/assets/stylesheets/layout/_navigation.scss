@@ -1,11 +1,15 @@
 .navbar {
 	z-index: $zindex-navbar;
 
-	display: flex;
-	flex-wrap: nowrap;
+	.navbar-default {
+		padding: 0;
+	}
 
 	.container {
 		position: relative;
+		display: unset;
+		align-items: unset;
+		justify-content: unset;
 	}
 
 	.btn-search {

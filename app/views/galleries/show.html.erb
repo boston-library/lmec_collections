@@ -17,9 +17,7 @@
           <h4 class="text-center">Oh no, this favorites list is empty.</h4>
           <p class="text-center"><b><%= link_to 'Search the digital collections', search_catalog_path %></b> and click the star that appears on items to add them to the list.</p>
         <% else %>
-          <div id="documents" class="row gallery">
-            <%= render_documents_as_gallery %>
-          </div>
+          <%= render_document_index(@document_list) %>
         <% end %>
       </div>
     </div>
