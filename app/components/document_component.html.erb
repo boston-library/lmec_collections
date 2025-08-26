@@ -6,6 +6,8 @@
 
       <div class="caption">
         <%= title %>
+
+        <%= helpers.galleries_toggle(view_context.instance_variable_get(:@galleries), 'repo_object', @document.id, show_tooltip: true) %>
       </div>
     </div>
   <% end %>

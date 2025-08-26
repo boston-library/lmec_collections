@@ -42,6 +42,7 @@ en:
     georeference: 'Georeferencing'
     account: 'My Account'
     collections: 'Collections'
+    login: 'Sign Up / Log In'
     sr:
       togglenavigation: 'Toggle navigation'
 
