@@ -88,8 +88,11 @@ class GalleriesController < CatalogController
     @type = params[:type]
     @gallery.add_item(@type, @item_id)
     @gallery.save
+
+    @context = params[:context] || "single"
+
     respond_to do |format|
-      format.js { }
+      format.turbo_stream
     end
   end
 
@@ -99,8 +102,11 @@ class GalleriesController < CatalogController
     @type = params[:type]
     @gallery.remove_item(@type, @item_id)
     @gallery.save
+
+    @context = params[:context] || "single"
+
     respond_to do |format|
-      format.js { }
+      format.turbo_stream
     end
   end
 
@@ -109,6 +115,7 @@ class GalleriesController < CatalogController
     @type = params[:type]
     respond_to do |format|
       format.html { render partial: "set_galleries_modal" }
+      format.turbo_stream
     end
   end
 

@@ -1,15 +1,12 @@
 .navbar {
+	display: block;
 	z-index: $zindex-navbar;
-
-	.navbar-default {
-		padding: 0;
-	}
+	padding: 0;
 
 	.container {
 		position: relative;
-		display: unset;
-		align-items: unset;
-		justify-content: unset;
+		display: block;
+		max-width: unset;
 	}
 
 	.btn-search {

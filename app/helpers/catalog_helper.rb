@@ -71,19 +71,19 @@ module CatalogHelper
 
     favorited = favorited?(gallery, type, item_id)
     icon_class = icon_class_for(favorited, opts[:icon_type])
-    params = { type: type, item_id: item_id }
-    data = { item_id: item_id, type: type, gallery_id: gallery.id }
+    params = { type: type, item_id: item_id, context: opts[:modal] ? "modal" : "single" }
+    data_attrs = { item_id: item_id, type: type, gallery_id: gallery.id }
 
-    gallery_action_path = if favorited
-                            remove_item_gallery_path(gallery, params)
-    else
-                            add_item_gallery_path(gallery, params)
-    end
+    dom_id_value = dom_id(gallery, [ :toggle, item_id, type ])
 
     with_tooltip(opts[:show_tooltip], favorited) do
-      link_to gallery_action_path,
-              data: data.merge(turbo_method: :post) do
-        content_tag(:span, opts[:text], class: icon_class)
+      content_tag :span, id: dom_id_value do
+        link_to(
+          favorited ? remove_item_gallery_path(gallery, params) : add_item_gallery_path(gallery, params),
+          data: data_attrs.merge(turbo_method: :post, turbo_frame: "blacklight-modal-frame")
+        ) do
+          content_tag(:span, opts[:text], class: icon_class)
+        end
       end
     end
   end

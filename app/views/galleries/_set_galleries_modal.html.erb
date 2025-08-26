@@ -1,16 +1,18 @@
-<div class="modal-header">
-    <h4 class="modal-title"
-    id="set-galleries-modal-label">Add to Favorites List</h4>
-</div>
-<div class="modal-body">
-    <ul class="list-unstyled button-list">
-    <% @galleries. each do |gallery| %>
-        <li>
-            <%= gallery_toggle(gallery, @type, @item_id, text: gallery.name, icon_type: 'plus') %>
-        </li>
-    <% end %>
-    </ul>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-</div>
+<turbo-frame id="blacklight-modal-frame">
+    <div class="modal-header">
+        <h4 class="modal-title"
+        id="set-galleries-modal-label">Add to Favorites List</h4>
+    </div>
+    <div class="modal-body">
+        <ul class="list-unstyled button-list">
+        <% @galleries. each do |gallery| %>
+            <li>
+                <%= gallery_toggle(gallery, @type, @item_id, text: gallery.name, icon_type: 'plus', modal: true) %>
+            </li>
+        <% end %>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-bl-dismiss="modal" aria-label="Close">Close</button>
+    </div>
+</turbo-frame>

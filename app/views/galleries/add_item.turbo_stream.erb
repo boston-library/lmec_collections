@@ -1,0 +1,7 @@
+<%= turbo_stream.replace dom_id(@gallery, [:toggle, @item_id, @type]) do %>
+  <% if params[:context] == "modal" %>
+    <%= gallery_toggle(@gallery, @type, @item_id, text: @gallery.name, icon_type: 'plus', modal: true) %>
+  <% else %>
+    <%= gallery_toggle(@gallery, @type, @item_id, text: t('gallery.save')) %>
+  <% end %>
+<% end %>
