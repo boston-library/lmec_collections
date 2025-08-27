@@ -89,7 +89,7 @@ class GalleriesController < CatalogController
     @gallery.add_item(@type, @item_id)
     @gallery.save
 
-    @context = params[:context] || "single"
+    @context = params[:context]
 
     respond_to do |format|
       format.turbo_stream
@@ -103,7 +103,7 @@ class GalleriesController < CatalogController
     @gallery.remove_item(@type, @item_id)
     @gallery.save
 
-    @context = params[:context] || "single"
+    @context = params[:context]
 
     respond_to do |format|
       format.turbo_stream

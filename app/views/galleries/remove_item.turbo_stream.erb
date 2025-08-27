@@ -1,7 +1,9 @@
 <%= turbo_stream.replace dom_id(@gallery, [:toggle, @item_id, @type]) do %>
   <% if params[:context] == "modal" %>
-    <%= gallery_toggle(@gallery, @type, @item_id, text: @gallery.name, icon_type: 'plus', modal: true) %>
+    <%= gallery_toggle(@gallery, @type, @item_id, text: @gallery.name, icon_type: 'plus', context: 'modal') %>
+  <% elsif params[:context] == "single" %>
+    <%= gallery_toggle(@gallery, @type, @item_id, text: t('gallery.save'), context: 'single') %>
   <% else %>
-    <%= gallery_toggle(@gallery, @type, @item_id, text: t('gallery.save')) %>
+    <%= galleries_toggle(@galleries, 'repo_object', @item_id, show_tooltip: true, context: 'search') %>
   <% end %>
 <% end %>

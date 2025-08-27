@@ -7,7 +7,7 @@
         <ul class="list-unstyled button-list">
         <% @galleries. each do |gallery| %>
             <li>
-                <%= gallery_toggle(gallery, @type, @item_id, text: gallery.name, icon_type: 'plus', modal: true) %>
+                <%= gallery_toggle(gallery, @type, @item_id, text: gallery.name, icon_type: 'plus', context: "modal") %>
             </li>
         <% end %>
         </ul>

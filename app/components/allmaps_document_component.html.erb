@@ -15,7 +15,7 @@
       <%= breadcrumb %>
       <%= title %>
       <div class="d-flex mb-3 justify-content-end">
-          <%= helpers.galleries_toggle(view_context.instance_variable_get(:@galleries), 'repo_object', @document[:id], text: t('gallery.save'), show_tooltip: false) %>
+          <%= helpers.galleries_toggle(view_context.instance_variable_get(:@galleries), 'repo_object', @document[:id], text: t('gallery.save'), show_tooltip: false, context: 'single') %>
       </div>
       <%= content %>
       <% if @document.georeferenced? %>

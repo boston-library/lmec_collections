@@ -20,6 +20,7 @@ pin "universalviewer", to: "https://cdn.jsdelivr.net/npm/universalviewer@4.2.0/d
 
 pin "navbar"
 pin "main"
+pin "tooltip"
 
 # blacklight-allmaps
 pin "leaflet", to: "https://ga.jspm.io/npm:leaflet@1.9.4/dist/leaflet-src.js"

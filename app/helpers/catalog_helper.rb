@@ -58,8 +58,9 @@ module CatalogHelper
     favorited = galleries.any? { |g| favorited?(g, type, item_id) }
     icon_class = icon_class_for favorited
     params = { type: type, item_id: item_id }
+    dom_id_value = dom_id(galleries[0], [ :toggle, item_id, type ])
 
-    with_tooltip(opts[:show_tooltip]) do
+    with_tooltip(opts[:show_tooltip], favorited, dom_id_value) do
       link_to set_modal_galleries_path(params), data: { gallery_toggle: true, blacklight_modal: "trigger" } do
         content_tag(:span, opts[:text], class: icon_class, data: { item_id: item_id, type: type })
       end
@@ -71,13 +72,13 @@ module CatalogHelper
 
     favorited = favorited?(gallery, type, item_id)
     icon_class = icon_class_for(favorited, opts[:icon_type])
-    params = { type: type, item_id: item_id, context: opts[:modal] ? "modal" : "single" }
+    params = { type: type, item_id: item_id, context: opts[:context] }
     data_attrs = { item_id: item_id, type: type, gallery_id: gallery.id }
 
     dom_id_value = dom_id(gallery, [ :toggle, item_id, type ])
 
-    with_tooltip(opts[:show_tooltip], favorited) do
-      content_tag :span, id: dom_id_value do
+    with_tooltip(opts[:show_tooltip], favorited, dom_id_value) do
+      content_tag :span, id: (dom_id_value unless opts[:show_tooltip]) do
         link_to(
           favorited ? remove_item_gallery_path(gallery, params) : add_item_gallery_path(gallery, params),
           data: data_attrs.merge(turbo_method: :post, turbo_frame: "blacklight-modal-frame")
@@ -123,7 +124,7 @@ module CatalogHelper
     end
   end
 
-  def with_tooltip(show, favorited = false)
+  def with_tooltip(show, favorited = false, dom_id_value)
     link = yield
     if show
       title = if favorited
@@ -131,8 +132,8 @@ module CatalogHelper
       else
                 "Add to favorites list"
       end
-      content_tag(:div, class: [ "favorite-document" ], title: title,
-                        "data-toggle" => "tooltip", "data-placement" => "left") do
+      content_tag(:div, id: dom_id_value, class: [ "favorite-document" ], title: title,
+                        "data-bs-toggle" => "tooltip", "data-bs-placement" => "left") do
         link
       end
     else
