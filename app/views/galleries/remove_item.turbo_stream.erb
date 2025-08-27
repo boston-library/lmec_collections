@@ -1,9 +1,17 @@
-<%= turbo_stream.replace dom_id(@gallery, [:toggle, @item_id, @type]) do %>
+<%= turbo_stream.replace "#{@item_id}_#{@context}_#{@gallery.id}_button" do %>
   <% if params[:context] == "modal" %>
-    <%= gallery_toggle(@gallery, @type, @item_id, text: @gallery.name, icon_type: 'plus', context: 'modal') %>
+    <%= gallery_toggle(@gallery, @type, @item_id, text: @gallery.name, icon_type: 'plus', context: 'modal', tooltip: @tooltip) %>
   <% elsif params[:context] == "single" %>
     <%= gallery_toggle(@gallery, @type, @item_id, text: t('gallery.save'), context: 'single') %>
   <% else %>
     <%= galleries_toggle(@galleries, 'repo_object', @item_id, show_tooltip: true, context: 'search') %>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.replace "#{@item_id}_galleries_modal" do %>
+  <% if @tooltip == 'true' %>
+    <%= galleries_toggle(@galleries, 'repo_object', @item_id, show_tooltip: true, context: 'search') %>
+  <% else %>
+    <%= galleries_toggle(@galleries, 'repo_object', @item_id, text: t('gallery.save'), show_tooltip: false, context: 'single') %>
   <% end %>
 <% end %>

@@ -57,12 +57,16 @@ module CatalogHelper
 
     favorited = galleries.any? { |g| favorited?(g, type, item_id) }
     icon_class = icon_class_for favorited
-    params = { type: type, item_id: item_id }
-    dom_id_value = dom_id(galleries[0], [ :toggle, item_id, type ])
+    context = opts[:context] || 'single'
+    params = { type: type, item_id: item_id, context: context, tooltip: opts[:show_tooltip] }
+
+    dom_id_value = "#{item_id}_galleries_modal"
 
     with_tooltip(opts[:show_tooltip], favorited, dom_id_value) do
-      link_to set_modal_galleries_path(params), data: { gallery_toggle: true, blacklight_modal: "trigger" } do
-        content_tag(:span, opts[:text], class: icon_class, data: { item_id: item_id, type: type })
+      content_tag :span, id: (dom_id_value unless opts[:show_tooltip]) do
+        link_to set_modal_galleries_path(params), data: { gallery_toggle: true, blacklight_modal: "trigger" } do
+          content_tag(:span, opts[:text], class: icon_class, data: { item_id: item_id, type: type })
+        end
       end
     end
   end
@@ -72,10 +76,12 @@ module CatalogHelper
 
     favorited = favorited?(gallery, type, item_id)
     icon_class = icon_class_for(favorited, opts[:icon_type])
-    params = { type: type, item_id: item_id, context: opts[:context] }
+    context = opts[:context] || 'single'
+    tooltip = opts[:tooltip]
+    params = { type: type, item_id: item_id, context: context, tooltip: tooltip }
     data_attrs = { item_id: item_id, type: type, gallery_id: gallery.id }
 
-    dom_id_value = dom_id(gallery, [ :toggle, item_id, type ])
+    dom_id_value = "#{item_id}_#{context}_#{gallery.id}_button"
 
     with_tooltip(opts[:show_tooltip], favorited, dom_id_value) do
       content_tag :span, id: (dom_id_value unless opts[:show_tooltip]) do

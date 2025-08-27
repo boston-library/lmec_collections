@@ -90,6 +90,7 @@ class GalleriesController < CatalogController
     @gallery.save
 
     @context = params[:context]
+    @tooltip = params[:tooltip]
 
     respond_to do |format|
       format.turbo_stream
@@ -104,6 +105,7 @@ class GalleriesController < CatalogController
     @gallery.save
 
     @context = params[:context]
+    @tooltip = params[:tooltip]
 
     respond_to do |format|
       format.turbo_stream
@@ -113,6 +115,8 @@ class GalleriesController < CatalogController
   def set_galleries_modal
     @item_id = params[:item_id]
     @type = params[:type]
+    @tooltip = params[:tooltip]
+
     respond_to do |format|
       format.html { render partial: "set_galleries_modal" }
       format.turbo_stream
