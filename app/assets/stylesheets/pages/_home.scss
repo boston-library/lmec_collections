@@ -212,9 +212,6 @@
 }
 
 #home_featured_collections, #collections_results_cod {
-  .document {
-    width: 25%;
-  }
   .thumbnail-container {
     background-color: #fff;
     padding: 0;
@@ -293,6 +290,10 @@
     }
   }
 
+  .caption.container {
+    width: unset;
+  }
+
   .caption {
     padding: 1rem;
     margin-top: 0 !important;
@@ -318,6 +319,20 @@
   }
 }
 
+#home_featured_collections {
+  #documents_collections {
+    .document {
+      flex: 1 1 calc(25% - 1rem);
+    }
+
+    @media (max-width: ($screen-md - 1)) {
+      .document {
+        flex: 1 1 100%;
+      }
+    }
+  }
+}
+
 #collections_results_cod {
   h4 {
     display: none;
@@ -326,6 +341,10 @@
   #documents_collections {
     display: flex;
     justify-content: center;
+
+    .caption.container {
+      width: unset;
+    }
   }
 
   .document {

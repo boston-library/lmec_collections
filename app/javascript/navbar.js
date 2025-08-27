@@ -1,6 +1,4 @@
 document.addEventListener("turbo:load", () => {
-  console.log("turbo:load fired");
-
   const searchToggle = document.querySelector("[data-search-toggle]");
   const navbarSearch = document.querySelector(".navbar-search");
   const searchInput = document.getElementById("q");
