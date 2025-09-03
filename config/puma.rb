@@ -30,10 +30,10 @@ on_worker_boot do
 end
 
 if %w(staging production).member?(rails_env)
-  bind "unix://#{app_dir}/tmp/sockets/mapportal_v2_puma.sock"
+  bind "unix://#{app_dir}/tmp/sockets/lmec_collections_puma.sock"
   stdout_redirect("#{app_dir}/log/puma.stdout.log", "#{app_dir}/log/puma.stderr.log", true)
-  pidfile "#{app_dir}/tmp/pids/mapportal_v2_puma_server.pid"
-  state_path "#{app_dir}/tmp/pids/mapportal_v2_puma_server.state"
+  pidfile "#{app_dir}/tmp/pids/lmec_collections_puma_server.pid"
+  state_path "#{app_dir}/tmp/pids/lmec_collections_puma_server.state"
 else
   port ENV.fetch('PORT') { 3000 }
   pidfile "#{app_dir}/tmp/pids/server.pid"

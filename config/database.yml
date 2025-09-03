@@ -1,31 +1,35 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: <%= ENV["BPL_MAPPORTAL_DB_HOST"] %>
-  port: <%= ENV["BPL_MAPPORTAL_DB_PORT"] %>
-  pool: 5
-  username: <%= ENV["BPL_MAPPORTAL_DB_USER"] %>
-  password: <%= ENV["BPL_MAPPORTAL_DB_PASSWORD"] %>
+  host: <%= ENV.fetch('LMEC_COLLECTIONS_PG_HOST') { 'localhost' } %>
+  port: <%= ENV.fetch('LMEC_COLLECTIONS_PG_PORT') { 5432 } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch('LMEC_COLLECTIONS_PG_USER') { 'postgres' } %>
+  password: <%= ENV.fetch('LMEC_COLLECTIONS_PG_PASS') { 'postgres' } %>
 
 development:
   <<: *default
-  database: <%= ENV["BPL_MAPPORTAL_DB_PREFIX"] %>_development
+  database: <%= ENV["LMEC_COLLECTIONS_DB_PREFIX"] %>_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: <%= ENV["BPL_MAPPORTAL_DB_PREFIX"] %>_test
+  database: <%= ENV["LMEC_COLLECTIONS_DB_PREFIX"] %>_test
 
 staging:
   <<: *default
-  database: mapportal_v2_staging
-  username: <%= ENV.fetch('BPL_MAPPORTAL_PG_USER') { Rails.application.credentials.dig(:postgres, :user) } %>
-  password: <%= ENV.fetch('BPL_MAPPORTAL_PG_PASS') { Rails.application.credentials.dig(:postgres, :password) } %>
-  host: <%= ENV.fetch('BPL_MAPPORTAL_PG_HOST') { Rails.application.credentials.dig(:postgres, :host) } %>
-  port: <%= ENV.fetch('BPL_MAPPORTAL_PG_PORT') {  Rails.application.credentials.dig(:postgres, :port) } %>
+  database: <%= ENV["LMEC_COLLECTIONS_DB_PREFIX"] %>_staging
+  username: <%= ENV.fetch('LMEC_COLLECTIONS_PG_USER') { Rails.application.credentials.dig(:postgres, :user) } %>
+  password: <%= ENV.fetch('LMEC_COLLECTIONS_PG_PASS') { Rails.application.credentials.dig(:postgres, :password) } %>
+  host: <%= ENV.fetch('LMEC_COLLECTIONS_PG_HOST') { Rails.application.credentials.dig(:postgres, :host) } %>
+  port: <%= ENV.fetch('LMEC_COLLECTIONS_PG_PORT') {  Rails.application.credentials.dig(:postgres, :port) } %>
 
 production:
   <<: *default
-  database: <%= ENV["BPL_MAPPORTAL_DB_PREFIX"] %>_production
+  database: <%= ENV["LMEC_COLLECTIONS_DB_PREFIX"] %>_production
+  username: <%= ENV.fetch('LMEC_COLLECTIONS_PG_USER') { Rails.application.credentials.dig(:postgres, :user) } %>
+    password: <%= ENV.fetch('LMEC_COLLECTIONS_PG_PASS') { Rails.application.credentials.dig(:postgres, :password) } %>
+    host: <%= ENV.fetch('LMEC_COLLECTIONS_PG_HOST') { Rails.application.credentials.dig(:postgres, :host) } %>
+    port: <%= ENV.fetch('LMEC_COLLECTIONS_PG_PORT') {  Rails.application.credentials.dig(:postgres, :port) } %>

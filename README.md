@@ -1,4 +1,7 @@
-# BPL
+# LMEC Collections
+
+Discovery interface for geographic images and data from the [Leventhal Map & Education Center](https://www.leventhalmap.org/) at the Boston Public Library.
+
 ## Running with Docker
 
 ### 1. Configure environment variables

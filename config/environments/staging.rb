@@ -66,7 +66,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.default_url_options = { host: 'qc-mapportal_v2.bpl.org' }
+  config.action_mailer.default_url_options = { host: 'qc-lmec_collections.bpl.org' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
