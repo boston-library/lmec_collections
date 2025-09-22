@@ -46,6 +46,10 @@ group :development, :test do
   gem "solr_wrapper", ">= 0.3"
   gem "spring"
 
+  gem 'capistrano', '~> 3.19.2', require: false
+  gem 'capistrano-rails', '~> 1.4', require: false
+  gem 'capistrano-rvm'
+  
   gem "rspec", "~> 3.13", ">= 3.13.1"
   gem "rspec-rails", "~> 8.0"
   gem "rubocop", "~> 1.76", ">= 1.76.2"
