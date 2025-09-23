@@ -7,7 +7,7 @@ set :use_sudo, false
 ## STAGE_NAME is a paramter from Jenkins job: "staging", "qc", and "testing"
 set :stage_case, ENV['STAGE_NAME']
 
-set :application, 'Commonwealth-public-interface'
+set :application, 'lmec_collections'
 set :repo_url, "https://github.com/boston-library/#{fetch(:application)}.git"
 set :user, ENV['DEPLOY_USER']
 ###### Make user home path dynamic.
