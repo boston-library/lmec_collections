@@ -52,8 +52,6 @@ namespace :boston_library do
     end
   end
 
-yarn install
-
   # desc 'Install bundler 2.3.26'
   # `yarn install`
   desc " yarn install"
