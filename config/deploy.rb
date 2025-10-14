@@ -52,6 +52,35 @@ namespace :boston_library do
     end
   end
 
+yarn install
+
+  # desc 'Install bundler 2.3.26'
+  # `yarn install`
+  desc " yarn install"
+  task :yarn_install do
+    on roles(:app) do
+      execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do yarn install")
+    end
+  end
+
+  # desc 'Install bundler 2.3.26'
+  # `RAILS_ENV=staging bin/rails db:migrate`
+  desc "db_migrate #{fetch(:rvm_bundle_version)}"
+  task :db_migrate do
+    on roles(:app) do
+      execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do RAILS_ENV=#{fetch(:stage_case)} #{release_path}/bin/rails db:migrate")
+    end
+  end
+
+  # desc 'Install bundler 2.3.26'
+  # `RAILS_ENV=staging bin/rails assets:precompile`
+  desc "Assets precompile"
+  task :assets_precompile do
+    on roles(:app) do
+      execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do RAILS_ENV=#{fetch(:stage_case)} #{release_path}/bin/rails assets:precompile")
+    end
+  end
+
   ## Update ruby version for systemd service
   desc 'Update ruby version for systemd service'
   task :update_service_ruby do
@@ -118,8 +147,11 @@ after :'boston_library:gem_update', :'boston_library:rvm_install_ruby'
 after :'boston_library:rvm_install_ruby', :'boston_library:install_bundler'
 after :'boston_library:install_bundler', :'bundler:config'
 after :'bundler:config', :'bundler:install'
+after :'bundler:install', :'boston_library:yarn_install'
 before :'deploy:cleanup', :'boston_library:upload_gemfile'
 after :'deploy:cleanup', :'boston_library:update_service_ruby'
-after :'boston_library:update_service_ruby', :"boston_library:restart_#{fetch(:application)}_puma"
+after :'boston_library:update_service_ruby', :"boston_library:db_migrate"
+after :'boston_library:db_migrate', :"boston_library:assets_precompile"
+after :'boston_library:assets_precompile', :"boston_library:restart_#{fetch(:application)}_puma"
 after :"boston_library:restart_#{fetch(:application)}_puma", :'boston_library:restart_nginx'
 after :'boston_library:restart_nginx', :'boston_library:list_releases'
