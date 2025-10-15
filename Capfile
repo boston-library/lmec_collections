@@ -13,8 +13,8 @@ require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 
 
+## Capistrano tries to backup manifest but there is no assets available.
 Rake::Task["deploy:assets:backup_manifest"].clear
-
 namespace :deploy do
   namespace :assets do
     task :backup_manifest do
