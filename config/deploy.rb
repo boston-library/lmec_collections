@@ -52,14 +52,6 @@ namespace :boston_library do
     end
   end
 
-  # # `bundle binstubs puma`
-  # desc "install binstub"
-  # task :binstub_puma do
-  #   on roles(:app) do
-  #     execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do bundle binstubs puma")
-  #   end
-  # end
-
   # `yarn install`
   desc " yarn install"
   task :yarn_install do
@@ -72,8 +64,8 @@ namespace :boston_library do
   desc "db_migrate #{fetch(:rvm_bundle_version)}"
   task :db_migrate do
     on roles(:app) do
-      # execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do RAILS_ENV=#{fetch(:stage_case)} bin/rails db:migrate")
-      execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do #{release_path}/bin/rails db:migrate -e staging")
+      execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do RAILS_ENV=#{fetch(:stage_case)} bin/rails db:migrate")
+      # execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do #{release_path}/bin/rails db:migrate -e staging")
     end
   end
 
