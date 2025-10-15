@@ -66,7 +66,8 @@ namespace :boston_library do
   desc "db_migrate #{fetch(:rvm_bundle_version)}"
   task :db_migrate do
     on roles(:app) do
-      execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do RAILS_ENV=#{fetch(:stage_case)} bin/rails db:migrate")
+      # execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do RAILS_ENV=#{fetch(:stage_case)} bin/rails db:migrate")
+      execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do bin/rails db:migrate -e staging")
     end
   end
 
@@ -75,7 +76,8 @@ namespace :boston_library do
   desc "Assets precompile"
   task :assets_precompile do
     on roles(:app) do
-      execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do RAILS_ENV=#{fetch(:stage_case)} bin/rails assets:precompile")
+      #execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do RAILS_ENV=#{fetch(:stage_case)} bin/rails assets:precompile")
+      execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do bin/rails assets:precompile -e staging")
     end
   end
 
