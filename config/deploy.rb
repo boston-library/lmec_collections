@@ -64,7 +64,8 @@ namespace :boston_library do
   desc "db_migrate #{fetch(:rvm_bundle_version)}"
   task :db_migrate do
     on roles(:app) do
-      execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do #{release_path}/bin/rails db:migrate")
+      # execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do #{release_path}/bin/rails db:migrate")
+      execute("cd #{release_path}; #{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do bin/rails db:migrate")
     end
   end
 
