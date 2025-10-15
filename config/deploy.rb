@@ -65,7 +65,6 @@ namespace :boston_library do
   task :db_migrate do
     on roles(:app) do
       execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do #{release_path}/bin/rails db:migrate")
-      # execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do #{release_path}/bin/rails db:migrate -e staging")
     end
   end
 
@@ -145,11 +144,9 @@ after :'boston_library:rvm_install_ruby', :'boston_library:install_bundler'
 after :'boston_library:install_bundler', :'bundler:config'
 after :'bundler:config', :'bundler:install'
 after :'bundler:install', :'boston_library:yarn_install'
+after :'boston_library:yarn_install', :"boston_library:db_migrate"
 before :'deploy:cleanup', :'boston_library:upload_gemfile'
 after :'deploy:cleanup', :'boston_library:update_service_ruby'
-after :'boston_library:update_service_ruby', :"boston_library:db_migrate"
-# after :'boston_library:db_migrate', :"boston_library:assets_precompile"
-# after :'boston_library:assets_precompile', :"boston_library:restart_#{fetch(:application)}_puma"
-after :'boston_library:db_migrate', :"boston_library:restart_#{fetch(:application)}_puma"
+after :'boston_library:update_service_ruby', :"boston_library:restart_#{fetch(:application)}_puma"
 after :"boston_library:restart_#{fetch(:application)}_puma", :'boston_library:restart_nginx'
 after :'boston_library:restart_nginx', :'boston_library:list_releases'
