@@ -52,7 +52,14 @@ namespace :boston_library do
     end
   end
 
-  # desc 'Install bundler 2.3.26'
+  # # `bundle binstubs puma`
+  # desc "install binstub"
+  # task :binstub_puma do
+  #   on roles(:app) do
+  #     execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do bundle binstubs puma")
+  #   end
+  # end
+
   # `yarn install`
   desc " yarn install"
   task :yarn_install do
@@ -61,7 +68,6 @@ namespace :boston_library do
     end
   end
 
-  # desc 'Install bundler 2.3.26'
   # `RAILS_ENV=staging bin/rails db:migrate`
   desc "db_migrate #{fetch(:rvm_bundle_version)}"
   task :db_migrate do
@@ -71,7 +77,6 @@ namespace :boston_library do
     end
   end
 
-  # desc 'Install bundler 2.3.26'
   # `RAILS_ENV=staging bin/rails assets:precompile`
   desc "Assets precompile"
   task :assets_precompile do
