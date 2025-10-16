@@ -147,9 +147,11 @@ after :'bundler:config', :'bundler:install'
 after :'bundler:install', :'boston_library:yarn_install'
 before :'deploy:cleanup', :'boston_library:upload_gemfile'
 after :'deploy:cleanup', :'boston_library:update_service_ruby'
-after :'boston_library:update_service_ruby', :"boston_library:db_migrate"
-after :'boston_library:db_migrate', :"boston_library:assets_precompile"
-after :'boston_library:assets_precompile', :"boston_library:restart_#{fetch(:application)}_puma"
+after :'boston_library:update_service_ruby', :"boston_library:assets_precompile"
+after :'boston_library:update_service_ruby', :"boston_library:restart_#{fetch(:application)}_puma"
+# after :'boston_library:update_service_ruby', :"boston_library:db_migrate"
+# after :'boston_library:db_migrate', :"boston_library:assets_precompile"
+# after :'boston_library:assets_precompile', :"boston_library:restart_#{fetch(:application)}_puma"
 # after :'boston_library:db_migrate', :"boston_library:restart_#{fetch(:application)}_puma"
 after :"boston_library:restart_#{fetch(:application)}_puma", :'boston_library:restart_nginx'
 after :'boston_library:restart_nginx', :'boston_library:list_releases'
