@@ -6,7 +6,7 @@ class Gallery < ActiveRecord::Base
   scope :owned_by, ->(user) { where(user_id: user.id) }
 
   def self.default_name
-    "General"
+    'General'
   end
 
   def default?
@@ -21,23 +21,23 @@ class Gallery < ActiveRecord::Base
 
   def add_item(type, item_id)
     case type
-    when "repo_object"
+    when 'repo_object'
       # |= combines lists without creating duplicates
-      self.repo_objects |= [ item_id ]
+      self.repo_objects |= [item_id]
     else
       raise ArgumentError, type.to_s +
-                           " is not a valid item type. Valid types are: repo_object, curriculum_material"
+                           ' is not a valid item type. Valid types are: repo_object, curriculum_material'
     end
   end
 
   def remove_item(type, item_id)
     case type
-    when "repo_object"
+    when 'repo_object'
       # -= will quietly succeed if item_id is not in the array, which is what we want.
-      self.repo_objects -= [ item_id ]
+      self.repo_objects -= [item_id]
     else
       raise ArgumentError, type.to_s +
-                           " is not a valid item type. Valid types are: repo_object, curriculum_material"
+                           ' is not a valid item type. Valid types are: repo_object, curriculum_material'
     end
   end
 end

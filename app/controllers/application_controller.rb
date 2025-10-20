@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   def csv_param_to_int_array(params, param_name)
     if params[param_name]
       processed_params = params.dup
-      processed_params[param_name] = processed_params[param_name].map { |p| p.split(",") }.flatten.map(&:to_i)
+      processed_params[param_name] = processed_params[param_name].map { |p| p.split(',') }.flatten.map(&:to_i)
       processed_params
     else
       params
@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [ :first_name, :last_name ])
-    devise_parameter_sanitizer.permit(:account_update, keys: [ :first_name, :last_name ])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name])
   end
 end

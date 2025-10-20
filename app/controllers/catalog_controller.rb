@@ -16,7 +16,7 @@ class CatalogController < ApplicationController
   # rescue_from Blacklight::Exceptions::InvalidRequest, with: :my_handling_method
 
   before_action :set_gallery_context
-  after_action :set_access_control_headers, only: [ :index, :show ]
+  after_action :set_access_control_headers, only: [:index, :show]
 
   helper_method :default_image_id
 
@@ -36,7 +36,7 @@ class CatalogController < ApplicationController
     # SearchBuilder contains logic for adding search params to Solr
     config.search_builder_class = CommonwealthSearchBuilder
 
-    config.fetch_many_document_params = { fl: "*" }
+    config.fetch_many_document_params = { fl: '*' }
 
     # limit Advanced Search facets to this institution (uncomment if needed)
     # can't call SearchBuilder.institution_limit because it's an instance method, not a class method
@@ -45,9 +45,9 @@ class CatalogController < ApplicationController
 
     # configuration for Blacklight IIIF Content Search
     config.iiif_search = {
-      full_text_field: "ocr_tsiv",
-      object_relation_field: "is_file_set_of_ssim",
-      page_model_field: "curator_model_suffix_ssi",
+      full_text_field: 'ocr_tsiv',
+      object_relation_field: 'is_file_set_of_ssim',
+      page_model_field: 'curator_model_suffix_ssi',
       supported_params: %w[q page]
     }
 
@@ -92,9 +92,9 @@ class CatalogController < ApplicationController
 
     # Blacklight::Allmaps Viewer
     config.show.partials.insert(1, :blacklight_allmaps)
-    config.default_solr_unique_key = "id"
-    config.default_georeferenced_field = "georeferenced_allmaps_bsi"
-    config.default_iiif_manifest_field = "identifier_iiif_manifest_ss"
+    config.default_solr_unique_key = 'id'
+    config.default_georeferenced_field = 'georeferenced_allmaps_bsi'
+    config.default_iiif_manifest_field = 'identifier_iiif_manifest_ss'
 
     # The presenter is the view-model class for the page
     # config.index.document_presenter_class = MyApp::IndexPresenter
@@ -112,8 +112,8 @@ class CatalogController < ApplicationController
     config.add_results_collection_tool(:per_page_widget)
     config.add_results_collection_tool(:view_type_group)
 
-    config.add_nav_action(:bookmark, partial: "blacklight/nav/bookmark", if: :render_bookmarks_control?)
-    config.add_nav_action(:search_history, partial: "blacklight/nav/search_history")
+    config.add_nav_action(:bookmark, partial: 'blacklight/nav/bookmark', if: :render_bookmarks_control?)
+    config.add_nav_action(:search_history, partial: 'blacklight/nav/search_history')
 
     # solr field configuration for document/show views
     # config.show.title_field = 'title_tsim'
@@ -203,46 +203,46 @@ class CatalogController < ApplicationController
 
     # Configuration for autocomplete suggester
     config.autocomplete_enabled = true
-    config.autocomplete_path = "suggest"
+    config.autocomplete_path = 'suggest'
     # if the name of the solr.SuggestComponent provided in your solrconfig.xml is not the
     # default 'mySuggester', uncomment and provide it below
     # config.autocomplete_suggester = 'mySuggester'
-    config.search_fields["all_fields"].label = "All Fields"
-    config.search_fields["all_fields_ft"].include_in_advanced_search = false
+    config.search_fields['all_fields'].label = 'All Fields'
+    config.search_fields['all_fields_ft'].include_in_advanced_search = false
 
-    config.facet_fields.delete("subject_facet_ssim")
-    config.facet_fields.delete("subject_geographic_sim")
-    config.facet_fields.delete("date_facet_yearly_itim")
-    config.facet_fields.delete("genre_basic_ssim")
-    config.facet_fields.delete("collection_name_ssim")
-    config.facet_fields.delete("name_facet_ssim")
-    config.facet_fields.delete("reuse_allowed_ssi")
+    config.facet_fields.delete('subject_facet_ssim')
+    config.facet_fields.delete('subject_geographic_sim')
+    config.facet_fields.delete('date_facet_yearly_itim')
+    config.facet_fields.delete('genre_basic_ssim')
+    config.facet_fields.delete('collection_name_ssim')
+    config.facet_fields.delete('name_facet_ssim')
+    config.facet_fields.delete('reuse_allowed_ssi')
 
-    config.add_facet_field "subject_geographic_sim",
-                           label: "Place", limit: 8, sort: "count", collapse:  false
-    config.add_facet_field "subject_facet_ssim", label: "Topic", limit: 8, sort: "count", collapse:  false
-    config.add_facet_field "date_facet_yearly_itim",
-                           label: "Date", range: true, collapse: false
-    config.add_facet_field "name_facet_ssim", label: "Creator", limit: 8, sort: "count", collapse:  false
-    config.add_facet_field "genre_basic_ssim",
-                           label: "Format", limit: 8, sort: "count", helper_method: :render_format,
+    config.add_facet_field 'subject_geographic_sim',
+                           label: 'Place', limit: 8, sort: 'count', collapse:  false
+    config.add_facet_field 'subject_facet_ssim', label: 'Topic', limit: 8, sort: 'count', collapse:  false
+    config.add_facet_field 'date_facet_yearly_itim',
+                           label: 'Date', range: true, collapse: false
+    config.add_facet_field 'name_facet_ssim', label: 'Creator', limit: 8, sort: 'count', collapse:  false
+    config.add_facet_field 'genre_basic_ssim',
+                           label: 'Format', limit: 8, sort: 'count', helper_method: :render_format,
                            collapse: false
-    config.add_facet_field "georeferenced_allmaps_bsi",
-                           label: I18n.t("allmaps.bl_facet_label"),
+    config.add_facet_field 'georeferenced_allmaps_bsi',
+                           label: I18n.t('allmaps.bl_facet_label'),
                            collapse: false,
                            query: {
-                             yes: { label: "Yes",
-                                    fq: "georeferenced_bsi:true" },
-                             no:  { label: "No",
-                                    fq: "georeferenced_bsi:false OR (*:* NOT georeferenced_bsi:[* TO *])" }
+                             yes: { label: 'Yes',
+                                    fq: 'georeferenced_bsi:true' },
+                             no:  { label: 'No',
+                                    fq: 'georeferenced_bsi:false OR (*:* NOT georeferenced_bsi:[* TO *])' }
                            }
-    config.add_facet_field "collection_name_ssim",
-                           label: "Collection", limit: 8, sort: "count", helper_method: :remove_cod_text,
+    config.add_facet_field 'collection_name_ssim',
+                           label: 'Collection', limit: 8, sort: 'count', helper_method: :remove_cod_text,
                            collapse: false
-    config.add_facet_field "reuse_allowed_ssi",
-                           label: "Available to use", limit: 8, sort: "count", helper_method: :render_reuse,
+    config.add_facet_field 'reuse_allowed_ssi',
+                           label: 'Available to use', limit: 8, sort: 'count', helper_method: :render_reuse,
                            collapse: false,
-                           solr_params: { "facet.excludeTerms" => "all rights reserved,contact host" }
+                           solr_params: { 'facet.excludeTerms' => 'all rights reserved,contact host' }
 
     config.view.delete(:list)
     config.view.delete(:masonry)
@@ -254,7 +254,7 @@ class CatalogController < ApplicationController
   def set_access_control_headers
     return unless response.content_type =~ /application\/json/
 
-    headers["Access-Control-Allow-Origin"] = "*"
+    headers['Access-Control-Allow-Origin'] = '*'
   end
 
   def render_manifest_link?

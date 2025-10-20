@@ -14,7 +14,7 @@ require 'capistrano/rails/migrations'
 
 
 ## Capistrano tries to backup manifest but there is no assets available.
-## So overwrite assets backup task in library do nothing! 
+## So overwrite assets backup task in library do nothing!
 Rake::Task["deploy:assets:backup_manifest"].clear
 namespace :deploy do
   namespace :assets do

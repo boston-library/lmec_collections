@@ -5,10 +5,10 @@ class CollectionsController < CatalogController
   def cod_documents
     cod_q_params = ["#{blacklight_config.index.title_field}:\"Collections of Distinction\"",
                     "+destination_site_ssim:\"#{CommonwealthVlrEngine.config[:site]}\"",
-                    "+curator_model_suffix_ssi:\"Collection\""]
+                    '+curator_model_suffix_ssi:"Collection"']
     solr_resp = Blacklight.default_index.search(q: cod_q_params.join(' AND '),
                                                 rows: 50,
-                                                sort: "title_info_primary_ssort asc")
+                                                sort: 'title_info_primary_ssort asc')
     solr_resp.documents
   end
 
