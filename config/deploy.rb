@@ -60,14 +60,14 @@ namespace :boston_library do
     end
   end
 
-  # `RAILS_ENV=staging bin/rails db:migrate`
-  desc "db_migrate #{fetch(:rvm_bundle_version)}"
-  task :db_migrate do
-    on roles(:app) do
-      execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do #{release_path}/bin/rails db:migrate")
-      # execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do #{release_path}/bin/rails db:migrate -e staging")
-    end
-  end
+  # # `RAILS_ENV=staging bin/rails db:migrate`
+  # desc "db_migrate #{fetch(:rvm_bundle_version)}"
+  # task :db_migrate do
+  #   on roles(:app) do
+  #     execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do #{release_path}/bin/rails db:migrate")
+  #     # execute("#{fetch(:rvm_installed)} #{fetch(:rvm_ruby_version)} do #{release_path}/bin/rails db:migrate -e staging")
+  #   end
+  # end
 
   # `RAILS_ENV=staging bin/rails assets:precompile`
   desc "Assets precompile"
