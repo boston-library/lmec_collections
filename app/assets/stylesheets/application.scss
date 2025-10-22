@@ -14,7 +14,7 @@ $fa-font-path: ".";
 @use "@fortawesome/fontawesome-free/scss/brands.scss";
 @use "@fortawesome/fontawesome-free/scss/regular.scss";
 
-@use url('https://cdn.jsdelivr.net/gh/boston-library/commonwealth-vlr-engine@blacklight-8/app/assets/builds/commonwealth-vlr-engine.css');
+@import url('https://cdn.jsdelivr.net/gh/boston-library/commonwealth-vlr-engine@blacklight-8/app/assets/builds/commonwealth-vlr-engine.css');
 @use "universalviewer/dist/esm/index";
 
 /**
