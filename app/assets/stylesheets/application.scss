@@ -1,26 +1,26 @@
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons';
-@import "blacklight-frontend/app/assets/stylesheets/blacklight/blacklight";
+@use 'bootstrap/scss/bootstrap';
+@use 'bootstrap-icons/font/bootstrap-icons';
+@use "blacklight-frontend/app/assets/stylesheets/blacklight/blacklight";
 
-@import 'openseadragon';
-@import "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/_gallery";
-@import "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/_masonry";
-@import "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/_slideshow";
-@import "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/_osd_viewer";
+@use 'openseadragon';
+@use "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/_gallery";
+@use "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/_masonry";
+@use "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/_slideshow";
+@use "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/_osd_viewer";
 
 $fa-font-path: ".";
-@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
-@import "@fortawesome/fontawesome-free/scss/solid.scss";
-@import "@fortawesome/fontawesome-free/scss/brands.scss";
-@import "@fortawesome/fontawesome-free/scss/regular.scss";
+@use "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@use "@fortawesome/fontawesome-free/scss/solid.scss";
+@use "@fortawesome/fontawesome-free/scss/brands.scss";
+@use "@fortawesome/fontawesome-free/scss/regular.scss";
 
-@import url('https://cdn.jsdelivr.net/gh/boston-library/commonwealth-vlr-engine@blacklight-8/app/assets/builds/commonwealth-vlr-engine.css');
-@import "universalviewer/dist/esm/index";
+@use url('https://cdn.jsdelivr.net/gh/boston-library/commonwealth-vlr-engine@blacklight-8/app/assets/builds/commonwealth-vlr-engine.css');
+@use "universalviewer/dist/esm/index";
 
 /**
  * Vendors
  */
-@import
+@use
   "vendors/bs/bootstrap",
   "vendors/toastr",
   "vendors/dragula",
@@ -37,21 +37,21 @@ $fa-font-path: ".";
 /**
  * Utils
  */
-@import
+@use
   "utils/bs-variables",
   "utils/lmc-variables";
 
 /**
  * Base
  */
-@import
+@use
   "base/base",
   "base/helper-classes";
 
 /**
  * Layout
  */
-@import
+@use
   "layout/navigation",
   "layout/header",
   "layout/section",
@@ -60,7 +60,7 @@ $fa-font-path: ".";
 /**
  * Components
  */
-@import
+@use
   "components/animations",
   "components/alerts",
   "components/typography",
@@ -95,7 +95,7 @@ $fa-font-path: ".";
 /**
  * Pages
  */
-@import
+@use
   "pages/user_auth",
   "pages/home",
   "pages/dashboard",
@@ -105,10 +105,10 @@ $fa-font-path: ".";
 /**
  * blacklight-allmaps
  */
-// @import 'blacklight-allmaps/app/assets/stylesheets/blacklight/allmaps/base';
+// @use 'blacklight-allmaps/app/assets/stylesheets/blacklight/allmaps/base';
 // can't use allmaps/base from npm package -- paths do not resolve
 // instead, contents copied below with modified paths
-@import "leaflet/dist/leaflet";
-@import "leaflet-fullscreen/dist/leaflet.fullscreen";
+@use "leaflet/dist/leaflet";
+@use "leaflet-fullscreen/dist/leaflet.fullscreen";
 
 #blacklight-allmaps-map { height: 400px; }
