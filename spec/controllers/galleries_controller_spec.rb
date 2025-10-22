@@ -188,7 +188,7 @@ RSpec.describe GalleriesController, type: :controller do
     end
 
     it 'should add a repo_object to the gallery' do
-      post :add_item, params: valid_params, session: valid_session
+      post :add_item, params: valid_params, session: valid_session, format: :turbo_stream
       gallery.reload
       expect(gallery.repo_objects).to eq(['abc123'])
       expect(response.status).to eq(200)
