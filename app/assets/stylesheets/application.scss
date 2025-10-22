@@ -4,9 +4,9 @@
 
 @use 'openseadragon';
 @use "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/_gallery";
-@use "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/_masonry";
-@use "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/_slideshow";
-@use "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/_osd_viewer";
+@import "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/_masonry";
+@import "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/_slideshow";
+@import "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/_osd_viewer";
 
 $fa-font-path: ".";
 @import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
