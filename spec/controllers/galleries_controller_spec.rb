@@ -195,13 +195,13 @@ RSpec.describe GalleriesController, type: :controller do
     end
 
     it 'should render the add_item template' do
-      post :add_item, params: valid_params, session: valid_session
+      post :add_item, params: valid_params, session: valid_session, format: :turbo_stream
       expect(response).to render_template('add_item')
     end
 
     it 'should not add a duplicate items' do
-      post :add_item, params: valid_params, session: valid_session
-      post :add_item, params: valid_params, session: valid_session
+      post :add_item, params: valid_params, session: valid_session, format: :turbo_stream
+      post :add_item, params: valid_params, session: valid_session, format: :turbo_stream
       gallery.reload
       expect(gallery.repo_objects).to eq(['abc123'])
     end
@@ -223,14 +223,14 @@ RSpec.describe GalleriesController, type: :controller do
       gallery.update(repo_objects: [item_id])
       gallery.reload
       expect(gallery.repo_objects).to eq([item_id])
-      post :remove_item, params: valid_params, session: valid_session
+      post :remove_item, params: valid_params, session: valid_session, format: :turbo_stream
       gallery.reload
       expect(gallery.repo_objects).to eq([])
       expect(response.status).to eq(200)
     end
 
     it 'should render the remove_item template' do
-      post :remove_item, params: valid_params, session: valid_session
+      post :remove_item, params: valid_params, session: valid_session, format: :turbo_stream
       expect(response).to render_template('remove_item')
     end
 
@@ -238,8 +238,8 @@ RSpec.describe GalleriesController, type: :controller do
       gallery.update(repo_objects: [item_id])
       gallery.reload
       expect(gallery.repo_objects).to eq([item_id])
-      post :remove_item, params: valid_params, session: valid_session
-      post :remove_item, params: valid_params, session: valid_session
+      post :remove_item, params: valid_params, session: valid_session, format: :turbo_stream
+      post :remove_item, params: valid_params, session: valid_session, format: :turbo_stream
       gallery.reload
       expect(gallery.repo_objects).to eq([])
     end
