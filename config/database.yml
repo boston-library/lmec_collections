@@ -30,6 +30,6 @@ production:
   <<: *default
   database: <%= ENV["LMEC_COLLECTIONS_DB_PREFIX"] %>_production
   username: <%= ENV.fetch('LMEC_COLLECTIONS_PG_USER') { Rails.application.credentials.dig(:postgres, :user) } %>
-    password: <%= ENV.fetch('LMEC_COLLECTIONS_PG_PASS') { Rails.application.credentials.dig(:postgres, :password) } %>
-    host: <%= ENV.fetch('LMEC_COLLECTIONS_PG_HOST') { Rails.application.credentials.dig(:postgres, :host) } %>
-    port: <%= ENV.fetch('LMEC_COLLECTIONS_PG_PORT') {  Rails.application.credentials.dig(:postgres, :port) } %>
+  password: <%= ENV.fetch('LMEC_COLLECTIONS_PG_PASS') { Rails.application.credentials.dig(:postgres, :password) } %>
+  host: <%= ENV.fetch('LMEC_COLLECTIONS_PG_HOST') { Rails.application.credentials.dig(:postgres, :host) } %>
+  port: <%= ENV.fetch('LMEC_COLLECTIONS_PG_PORT') {  Rails.application.credentials.dig(:postgres, :port) } %>

@@ -46,7 +46,7 @@ RSpec.describe GalleriesController, type: :controller do
       login_with user
       get :index, params: {}, session: valid_session
 
-      expect(assigns(:galleries)).to eq([ galleries(:joes_favorites) ])
+      expect(assigns(:galleries)).to eq([galleries(:joes_favorites)])
     end
   end
 
@@ -188,22 +188,22 @@ RSpec.describe GalleriesController, type: :controller do
     end
 
     it 'should add a repo_object to the gallery' do
-      post :add_item, params: valid_params, session: valid_session
+      post :add_item, params: valid_params, session: valid_session, format: :turbo_stream
       gallery.reload
-      expect(gallery.repo_objects).to eq([ 'abc123' ])
+      expect(gallery.repo_objects).to eq(['abc123'])
       expect(response.status).to eq(200)
     end
 
     it 'should render the add_item template' do
-      post :add_item, params: valid_params, session: valid_session
+      post :add_item, params: valid_params, session: valid_session, format: :turbo_stream
       expect(response).to render_template('add_item')
     end
 
     it 'should not add a duplicate items' do
-      post :add_item, params: valid_params, session: valid_session
-      post :add_item, params: valid_params, session: valid_session
+      post :add_item, params: valid_params, session: valid_session, format: :turbo_stream
+      post :add_item, params: valid_params, session: valid_session, format: :turbo_stream
       gallery.reload
-      expect(gallery.repo_objects).to eq([ 'abc123' ])
+      expect(gallery.repo_objects).to eq(['abc123'])
     end
   end
 
@@ -220,26 +220,26 @@ RSpec.describe GalleriesController, type: :controller do
     end
 
     it 'should remove a repo_object from the gallery' do
-      gallery.update(repo_objects: [ item_id ])
+      gallery.update(repo_objects: [item_id])
       gallery.reload
-      expect(gallery.repo_objects).to eq([ item_id ])
-      post :remove_item, params: valid_params, session: valid_session
+      expect(gallery.repo_objects).to eq([item_id])
+      post :remove_item, params: valid_params, session: valid_session, format: :turbo_stream
       gallery.reload
       expect(gallery.repo_objects).to eq([])
       expect(response.status).to eq(200)
     end
 
     it 'should render the remove_item template' do
-      post :remove_item, params: valid_params, session: valid_session
+      post :remove_item, params: valid_params, session: valid_session, format: :turbo_stream
       expect(response).to render_template('remove_item')
     end
 
     it 'should allow multiple remove requests without error' do
-      gallery.update(repo_objects: [ item_id ])
+      gallery.update(repo_objects: [item_id])
       gallery.reload
-      expect(gallery.repo_objects).to eq([ item_id ])
-      post :remove_item, params: valid_params, session: valid_session
-      post :remove_item, params: valid_params, session: valid_session
+      expect(gallery.repo_objects).to eq([item_id])
+      post :remove_item, params: valid_params, session: valid_session, format: :turbo_stream
+      post :remove_item, params: valid_params, session: valid_session, format: :turbo_stream
       gallery.reload
       expect(gallery.repo_objects).to eq([])
     end

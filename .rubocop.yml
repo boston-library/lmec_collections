@@ -4,9 +4,6 @@ inherit_gem:
 AllCops:
   TargetRubyVersion: 3.4
   NewCops: enable
-  Include:
-    - '**/Rakefile'
-    - '**/config.ru'
   Exclude:
     - 'db/**/*'
     - 'bin/**/*'
@@ -15,6 +12,10 @@ AllCops:
 
 Layout/LineLength:
   Max: 110
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: true
+  EnforcedStyle: no_space
 
 Metrics/AbcSize:
   Enabled: false
@@ -33,3 +34,7 @@ Style/Documentation:
 Style/RegexpLiteral:
   Exclude:
     - 'app/controllers/catalog_controller.rb'
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes

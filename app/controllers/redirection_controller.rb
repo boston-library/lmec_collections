@@ -3,7 +3,7 @@ class RedirectionController < ApplicationController
     url = if params[:redirect_to]
             params[:redirect_to]
     else
-            Rack::Utils.escape("/")
+            Rack::Utils.escape('/')
     end
 
     if user_signed_in?

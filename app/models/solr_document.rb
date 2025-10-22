@@ -24,10 +24,10 @@ class SolrDocument
     sidecar = Blacklight::Allmaps::Sidecar.where(
       solr_document_id: id,
     ).first_or_create do |sc|
-      sc.solr_version = self._source["_version_"]
+      sc.solr_version = self._source['_version_']
     end
 
-    sidecar.solr_version = self._source["_version_"]
+    sidecar.solr_version = self._source['_version_']
     sidecar.save
 
     sidecar

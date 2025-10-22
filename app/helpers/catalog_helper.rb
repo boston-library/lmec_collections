@@ -64,7 +64,7 @@ module CatalogHelper
 
     with_tooltip(opts[:show_tooltip], favorited, dom_id_value) do
       content_tag :span, id: (dom_id_value unless opts[:show_tooltip]) do
-        link_to set_modal_galleries_path(params), data: { gallery_toggle: true, blacklight_modal: "trigger" } do
+        link_to set_modal_galleries_path(params), data: { gallery_toggle: true, blacklight_modal: 'trigger' } do
           content_tag(:span, opts[:text], class: icon_class, data: { item_id: item_id, type: type })
         end
       end
@@ -87,7 +87,7 @@ module CatalogHelper
       content_tag :span, id: (dom_id_value unless opts[:show_tooltip]) do
         link_to(
           favorited ? remove_item_gallery_path(gallery, params) : add_item_gallery_path(gallery, params),
-          data: data_attrs.merge(turbo_method: :post, turbo_frame: "blacklight-modal-frame")
+          data: data_attrs.merge(turbo_method: :post, turbo_frame: 'blacklight-modal-frame')
         ) do
           content_tag(:span, opts[:text], class: icon_class)
         end
@@ -100,14 +100,14 @@ module CatalogHelper
   end
 
   def render_argo_info?(document)
-    document[:destination_site_ssim].include?("argo")
+    document[:destination_site_ssim].include?('argo')
   end
 
   def iiif_manifest_url(document)
     manifest_uri = document[:identifier_iiif_manifest_ss]
     return nil if manifest_uri.blank?
 
-    return manifest_uri unless manifest_uri.include?("ark:/50959")
+    return manifest_uri unless manifest_uri.include?('ark:/50959')
 
     "#{solr_document_url(document)}/manifest"
   end
@@ -115,15 +115,15 @@ module CatalogHelper
   private
 
   def icon_class_for(favorited, type = nil)
-    if type == "plus"
-      favorited ? "gallery-name remove-gallery" : "gallery-name add-gallery"
+    if type == 'plus'
+      favorited ? 'gallery-name remove-gallery' : 'gallery-name add-gallery'
     else
-      favorited ? "icon-star" : "icon-star-empty"
+      favorited ? 'icon-star' : 'icon-star-empty'
     end
   end
 
   def favorited?(gallery, type, item_id)
-    if type == "repo_object"
+    if type == 'repo_object'
       gallery.repo_objects.include?(item_id)
     else
       raise
@@ -134,12 +134,12 @@ module CatalogHelper
     link = yield
     if show
       title = if favorited
-                "Remove from favorites list"
+                'Remove from favorites list'
       else
-                "Add to favorites list"
+                'Add to favorites list'
       end
-      content_tag(:div, id: dom_id_value, class: [ "favorite-document" ], title: title,
-                        "data-bs-toggle" => "tooltip", "data-bs-placement" => "left") do
+      content_tag(:div, id: dom_id_value, class: ['favorite-document'], title: title,
+                        'data-bs-toggle' => 'tooltip', 'data-bs-placement' => 'left') do
         link
       end
     else
