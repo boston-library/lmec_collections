@@ -20,7 +20,7 @@ test:
 
 staging:
   <<: *default
-  database: <%= ENV["LMEC_COLLECTIONS_DB_PREFIX"] %>_staging
+  database: mapportal_v2_staging
   username: <%= ENV.fetch('LMEC_COLLECTIONS_PG_USER') { Rails.application.credentials.dig(:postgres, :user) } %>
   password: <%= ENV.fetch('LMEC_COLLECTIONS_PG_PASS') { Rails.application.credentials.dig(:postgres, :password) } %>
   host: <%= ENV.fetch('LMEC_COLLECTIONS_PG_HOST') { Rails.application.credentials.dig(:postgres, :host) } %>
@@ -28,7 +28,7 @@ staging:
 
 production:
   <<: *default
-  database: <%= ENV["LMEC_COLLECTIONS_DB_PREFIX"] %>_production
+  database: lmec_collections_production
   username: <%= ENV.fetch('LMEC_COLLECTIONS_PG_USER') { Rails.application.credentials.dig(:postgres, :user) } %>
   password: <%= ENV.fetch('LMEC_COLLECTIONS_PG_PASS') { Rails.application.credentials.dig(:postgres, :password) } %>
   host: <%= ENV.fetch('LMEC_COLLECTIONS_PG_HOST') { Rails.application.credentials.dig(:postgres, :host) } %>
