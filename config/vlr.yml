@@ -41,3 +41,10 @@ test:
 
 production:
   <<: *default
+  featured_items:
+    root:
+      collections:
+        - commonwealth:dn39z222j
+        - commonwealth:dn39z223t
+        - commonwealth:f4752s58n
+        - commonwealth:9s1621613
