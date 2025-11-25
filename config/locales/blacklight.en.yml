@@ -1,5 +1,8 @@
 # this file contains site-specific values
 en:
+  allmaps:
+    bl_facet_label: 'Georeferenced'
+
   home:
     tagline: 'Discover the digital collections of the Leventhal Map & Education Center and partners'
     
