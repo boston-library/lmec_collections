@@ -16,7 +16,11 @@
 
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to t('navbar.lmec_home'), 'https://www.leventhalmap.org' %></li>
+        <li><%= link_to t('navbar.lmec_home'), 'https://www.leventhalmap.org', target: '_blank' %></li>
+        <li><%= link_to t('navbar.collections'), main_app.collections_path %></li>
+        <% unless current_user %>
+          <li><%= link_to t('navbar.galleries'), main_app.galleries_path %></li>
+        <% end %>
         <li><%= link_to t('navbar.exhibits'), 'https://www.leventhalmap.org/exhibitions/', target: '_blank' %></li>
         <li <% if current_user %>class="hidden-md"<% end %>>
             <%= link_to t('navbar.georeference'),
@@ -24,10 +28,6 @@
                         target: '_blank' %>
         </li>
         <li><%= link_to t('navbar.educators'), 'https://www.leventhalmap.org/education/', target: '_blank' %></li>
-        <li><%= link_to t('navbar.collections'), main_app.collections_path %></li>
-        <% unless current_user %>
-          <li><%= link_to t('navbar.galleries'), main_app.galleries_path %></li>
-        <% end %>
         <%= render "shared/navbar_user_links" %>
         <li><button type="button" class="btn btn-search" data-search-toggle><i class="icon-search"></i> Search</button></li>
       </ul>
