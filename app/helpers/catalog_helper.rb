@@ -2,52 +2,6 @@ module CatalogHelper
   include Blacklight::CatalogHelperBehavior
   include CommonwealthVlrEngine::CatalogHelperBehavior
 
-  def link_to_warper_detail(item_id, tab = nil)
-    url = "//#{WARPER_HOST_NAME}/maps/from_uuid/#{item_id}"
-    url += "##{tab}" unless tab.blank?
-
-    if block_given?
-      link_to_warper url do
-        yield
-      end
-    else
-      link_to_warper url
-    end
-  end
-
-  # override from CommonwealthVlrEngine::CatalogHelper
-  # so we can remove 'Collection of Distinction' from collection names
-  def setup_collection_links(document, link_class = nil)
-    coll_hash = {}
-    0.upto document[:collection_ark_id_ssim].length - 1 do |index|
-      coll_hash_key = document[blacklight_config.collection_field.to_sym][index]
-      coll_hash[coll_hash_key] = document[:collection_ark_id_ssim][index]
-    end
-    coll_links = []
-    coll_hash.sort.each do |coll_array|
-      coll_links << link_to(remove_cod_text(coll_array[0]),
-                            collection_path(id: coll_array[1]),
-                            class: link_class.presence)
-    end
-    coll_links
-  end
-
-  def warped_map_div(id, item_id)
-    data = warped_map_data(item_id)
-    content_tag(:div, nil, id: id, data: data)
-  end
-
-  def warped_map_data(item_id)
-    url = "#{request.protocol}#{WARPER_HOST_NAME}/maps/tiles_for_uuid/#{item_id}"
-    begin
-      data = RestClient.get url, accept: :json
-      JSON.parse(data)
-    rescue RestClient::ResourceNotFound
-      logger.error "The Solr index says that #{item_id} is warped but the warper API returned 404."
-      { not_found: true }
-    end
-  end
-
   def galleries_toggle(galleries, type, item_id, opts = {})
     return nil unless galleries && !galleries.empty? && item_id
 
@@ -95,21 +49,13 @@ module CatalogHelper
     end
   end
 
-  def buy_repro_url(_document)
-    # new_reproduction_path(map_pid: document['id'])
-  end
-
   def render_argo_info?(document)
     document[:destination_site_ssim].include?('argo')
   end
 
   def iiif_manifest_url(document)
     manifest_uri = document[:identifier_iiif_manifest_ss]
-    return nil if manifest_uri.blank?
-
-    return manifest_uri unless manifest_uri.include?('ark:/50959')
-
-    "#{solr_document_url(document)}/manifest"
+    manifest_uri&.include?('ark:/50959') ? "#{solr_document_url(document)}/manifest" : manifest_uri
   end
 
   private

@@ -1,7 +1,11 @@
 # this file contains site-specific values
 en:
   allmaps:
-    bl_facet_label: 'Georeferenced'
+    georef_facet_label: 'Georeferenced'
+
+  argo:
+    info: 'This map is also available in American Revolutionary Geographies Online (ARGO), a collections portal especially built for material relating to the American Revolutionary War Era. Visit ARGO to learn more about this item and explore the historical geography of North America in the late eighteenth century.'
+    link: 'View this item in ARGO'
 
   home:
     tagline: 'Discover the digital collections of the Leventhal Map & Education Center and partners'

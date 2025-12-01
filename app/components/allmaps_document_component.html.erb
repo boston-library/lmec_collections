@@ -15,7 +15,8 @@
       <%= breadcrumb %>
       <%= title %>
       <div class="d-flex mb-3 justify-content-end">
-          <%= helpers.galleries_toggle(view_context.instance_variable_get(:@galleries), 'repo_object', @document[:id], text: t('gallery.save'), show_tooltip: false, context: 'single') %>
+          <%= helpers.galleries_toggle(view_context.instance_variable_get(:@galleries), 'repo_object', @document[:id],
+                                       text: t('gallery.save'), show_tooltip: false, context: 'single') %>
       </div>
       <%= content %>
       <% if @document.georeferenced? %>
@@ -43,7 +44,9 @@
       <% else %>
         <%= media %>
       <% end %>
+      <%= harvested_item_link %>
       <div class="row">
+        <%= argo_info %>
         <div class="col-sm-8">
           <%= metadata %>
         </div>
@@ -51,10 +54,8 @@
           <%= show_tools %>
         </div>
       </div>
-      <%= harvested_item_link %>
       <%= more_like_this %>
       <%= explore_collection %>
-
       <% partials.each do |partial| %>
         <%= partial %>
       <% end %>
