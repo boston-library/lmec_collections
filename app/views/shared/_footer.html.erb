@@ -10,26 +10,42 @@
         </p>
         <ul class="social-links">
           <li>
-            <%= link_to 'https://twitter.com/bplmaps', target: '_blank', title: 'BPL Maps Twitter' do %>
-              <i class="icon-twitter-squared" aria-hidden="true"></i>
+            <%= link_to 'https://www.facebook.com/bplmaps/', target: '_blank', title: 'Leventhal Map & Education Center Facebook' do %>
+              <%= icon('fa-brands', 'facebook', aria: { hidden: true }) %>
             <% end %>
           </li>
           <li>
-            <%= link_to 'https://www.facebook.com/bplmaps/', target: '_blank', title: 'BPL Maps Facebook' do %>
-              <i class="icon-facebook-squared" aria-hidden="true"></i>
+            <%= link_to 'https://bsky.app/profile/bplmaps.bsky.social', target: '_blank', title: 'Leventhal Map & Education Center BlueSky' do %>
+              <%= icon('fa-brands', 'bluesky', aria: { hidden: true }) %>
             <% end %>
           </li>
           <li>
-            <%= link_to 'https://secure.flickr.com/photos/normanbleventhalmapcenter/', target: '_blank', title: 'BPL Maps Flickr' do %>
-              <i class="icon-flickr-squared" aria-hidden="true"></i>
+            <%= link_to 'http://instagram.com/bplmaps/', target: '_blank', title: 'Leventhal Map & Education Center Instagram' do %>
+              <%= icon('fa-brands', 'instagram', aria: { hidden: true }) %>
             <% end %>
           </li>
           <li>
-            <%= link_to 'http://instagram.com/bplmaps/', target: '_blank', title: 'BPL Maps Instagram' do %>
-              <i class="icon-instagram-squared" aria-hidden="true"></i>
+            <%= link_to 'https://www.youtube.com/c/LeventhalMapEducationCenter', target: '_blank', title: 'Leventhal Map & Education Center YouTube' do %>
+              <%= icon('fa-brands', 'youtube', aria: { hidden: true }) %>
             <% end %>
           </li>
-          <li class="pull-right-desktop"><%= link_to 'Donate', 'https://www.leventhalmap.org/donate/', class: 'btn btn-primary btn-sm', target: '_blank', title: 'Donate to BPL Maps' %></li>
+          <li>
+            <%= link_to 'https://www.flickr.com/photos/normanbleventhalmapcenter', target: '_blank', title: 'Leventhal Map & Education Center Flickr' do %>
+              <%= icon('fa-brands', 'flickr', aria: { hidden: true }) %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'https://github.com/bplmaps', target: '_blank', title: 'Leventhal Map & Education Center GitHub' do %>
+              <!-- <i class="icon-github-squared" aria-hidden="true"></i> -->
+              <%= icon('fa-brands', 'github', aria: { hidden: true }) %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'https://mapstodon.space/@bplmaps', target: '_blank', title: 'Leventhal Map & Education Center Mastodon' do %>
+              <%= icon('fa-brands', 'mastodon', aria: { hidden: true }) %>
+            <% end %>
+          </li>
+          <li class="pull-right-desktop"><%= link_to 'Donate', 'https://www.leventhalmap.org/donate/', class: 'btn btn-primary btn-sm', target: '_blank', title: 'Donate to Leventhal Map & Education Center' %></li>
         </ul>
       </div>
       <div class="footer-column">
@@ -43,9 +59,9 @@
         </ul>
 
         <ul class="list-inline">
-          <li><%= link_to 'Home', 'http://www.leventhalmap.org', target: '_blank', alt: 'Go to Home' %></li>
-          <li><%= link_to 'Contact Us', 'http://www.leventhalmap.org/contact_us', target: '_blank', alt: 'Contact the Leventhal Map & Education Center' %></li>
-          <li><%= link_to 'BPL.org', 'http://www.bpl.org/', target: '_blank', alt: 'Go to BPL.org' %></li>
+          <li><%= link_to 'Home', 'https://www.leventhalmap.org', target: '_blank', alt: 'Go to Home' %></li>
+          <li><%= link_to 'Contact Us', 'https://www.leventhalmap.org/about/contact-connect/', target: '_blank', alt: 'Contact the Leventhal Map & Education Center' %></li>
+          <li><%= link_to 'BPL.org', 'https://www.bpl.org/', target: '_blank', alt: 'Go to BPL.org' %></li>
           <li><%= link_to 'BPL catalog', 'https://bpl.bibliocommons.com/', target: '_blank', alt: 'Go to BPL catalog' %></li>
         </ul>
       </div>
@@ -64,7 +80,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <p>This website was made possible by support from the Boston Public Library, the National Endowment for Humanities (NEH), and the Institute for Museum and Library Services.</p>
+          <p>This website was made possible by support from Boston Public Library, the National Endowment for Humanities (NEH),<br>the Institute for Museum and Library Services, and the MassCyberCenter.</p>
 
           <h4>Copyright Norman B. Leventhal Map & Education Center</h4>
         </div>
