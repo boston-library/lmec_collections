@@ -124,10 +124,13 @@ en:
         title: 'Filter your Search'
       form:
         submit: 'Search All Digital Collections'
-
       view:
         split: 'map view'
         gallery: 'grid view'
+      zero_results:
+        modify_search: 'Search Tips'
+        title: 'No results found. Please go back and try a different search.'
+
 
     tools:
       title: 'Share'

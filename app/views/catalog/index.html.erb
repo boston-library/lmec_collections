@@ -13,6 +13,7 @@
   <div class="row">
     <%- if @response.empty? %>
       <div class="col-md-8 col-md-offset-2">
+        <%= render 'did_you_mean' %>
         <%= render "zero_results" %>
       </div>
     <%- else %>
