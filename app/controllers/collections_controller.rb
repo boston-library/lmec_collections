@@ -1,21 +1,18 @@
 class CollectionsController < CatalogController
   include CommonwealthVlrEngine::CollectionsControllerBehavior
 
-  # return the CoDs as an array of SolrDocuments
-  def cod_documents
-    cod_q_params = ["#{blacklight_config.index.title_field}:\"Collections of Distinction\"",
-                    "+destination_site_ssim:\"#{CommonwealthVlrEngine.config[:site]}\"",
-                    '+curator_model_suffix_ssi:"Collection"']
-    solr_resp = Blacklight.default_index.search(q: cod_q_params.join(' AND '),
-                                                rows: 50,
-                                                sort: 'title_info_primary_ssort asc')
-    solr_resp.documents
-  end
-
   # override; set higher per_page so all nblmc collections are included, use custom SearchBuilder
   def index
     blacklight_config.search_builder_class = CollectionsSearchBuilder
-    params[:per_page] = 50
-    super
+    params.merge!(view: 'gallery', sort: blacklight_config.title_sort, per_page: 50)
+    collection_search_service = search_service_class.new(config: blacklight_config, user_params: params)
+    @featured_collections = collection_search_service.fetch(helpers.featured_objects_from_config(context: 'root',
+                                                                                                 type: 'collections'))
+    @response = collection_search_service.search_results
+    @other_collections = @response.documents.select { |d| @featured_collections.none? { |fc| fc.id == d.id } }
+
+    respond_to do |format|
+      format.html
+    end
   end
 end

@@ -1,18 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe CollectionsController, type: :controller do
-  class CollectionsControllerTestClass < CollectionsController
-  end
+  # TODO: this spec is using the DC3 staging Solr index, use a local Solr instance instead
 
-  let(:blacklight_config) { CatalogController.blacklight_config }
-  let(:test_controller) { CollectionsControllerTestClass.new }
-
-  # this is a very minimal test, not looking for any specific docs returned
-  # since objects in Test repo are not super stable
-  describe 'cod_documents' do
-    it 'should return an array of SolrDocuments' do
-      docs = test_controller.send(:cod_documents)
-      expect(docs.class).to eq(Array)
+  describe 'GET "index"' do
+    it 'should show the collections page' do
+      get :index
+      expect(response).to be_successful
+      expect(assigns(:featured_collections)).to be_a_kind_of(Array)
+      expect(assigns(:other_collections)).to be_a_kind_of(Array)
     end
   end
 end

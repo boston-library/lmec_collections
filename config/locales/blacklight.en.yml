@@ -72,7 +72,7 @@ en:
 
     collections:
       index:
-        cod_title: 'Collections of Distinction'
+        featured_title: 'Featured Collections'
         title: 'Digital Partner Collections'
         page_title: 'Digital Collections - Norman B. Leventhal Map & Education Center'
       browse:
@@ -110,6 +110,10 @@ en:
             about:
               title: 'About This Site'
               text: 'This site provides access to the digital collections of the Leventhal Map & Education Center and partners.'
+
+    institutions:
+      collections:
+        title: 'Featured Collections'
 
     metadata_display:
           fields:
