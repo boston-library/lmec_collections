@@ -2,9 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe CommonwealthVlrEngine::Document::MetadataFieldComponent, type: :component do
-  let(:item_pid) { 'TK' }
-  let(:document) { SolrDocument.find(item_pid) }
+RSpec.describe Document::ArgoComponent, type: :component do
+  let(:document) do
+    SolrDocument.new(id: 'bpl-dev:123456', destination_site_ssim: %w[nblmc argo])
+  end
 
   it 'renders the component' do
     render_inline(described_class.new(document: document))
