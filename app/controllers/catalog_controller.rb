@@ -236,9 +236,7 @@ class CatalogController < ApplicationController
                              no:  { label: 'No',
                                     fq: 'georeferenced_bsi:false OR (*:* NOT georeferenced_bsi:[* TO *])' }
                            }
-    config.add_facet_field 'collection_name_ssim',
-                           label: 'Collection', limit: 8, sort: 'count', helper_method: :remove_cod_text,
-                           collapse: false
+    config.add_facet_field 'collection_name_ssim', label: 'Collection', limit: 8, sort: 'count', collapse: false
     config.add_facet_field 'reuse_allowed_ssi',
                            label: 'Available to use', limit: 8, sort: 'count', helper_method: :render_reuse,
                            collapse: false,
