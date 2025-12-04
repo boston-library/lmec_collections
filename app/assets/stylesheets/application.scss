@@ -107,7 +107,7 @@ $fa-font-path: ".";
  */
 // @import 'blacklight-allmaps/app/assets/stylesheets/blacklight/allmaps/base';
 // can't use allmaps/base from npm package -- paths do not resolve
-// instead, contents copied below with modified paths
+// instead, includes from allmaps/base are copied below with modified paths
 @import "leaflet/dist/leaflet";
 @import "leaflet-fullscreen/dist/leaflet.fullscreen";
 

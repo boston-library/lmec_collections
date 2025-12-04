@@ -19,7 +19,7 @@
                                        text: t('gallery.save'), show_tooltip: false, context: 'single') %>
       </div>
       <%= content %>
-      <% if @document.georeferenced? %>
+      <% if false #@document.georeferenced? %>
         <nav class="">
           <div class="container">
             <div class="row">
@@ -40,9 +40,13 @@
           <div class="tab-pane active" id="image" role="tabpanel" aria-labelledby="tab-image">
             <%= media %>
           </div>
+          <div class="tab-pane" id="map-overlay" role="tabpanel" aria-labelledby="tab-map-overlay">
+            <%= allmaps_viewer %>
+          </div>
         </div>
       <% else %>
-        <%= media %>
+        <%= allmaps_viewer %>
+        <%# media %>
       <% end %>
       <%= harvested_item_link %>
       <div class="row">
@@ -52,6 +56,7 @@
         </div>
         <div class="col-sm-4">
           <%= show_tools %>
+          <%= allmaps_links %>
         </div>
       </div>
       <%= more_like_this %>

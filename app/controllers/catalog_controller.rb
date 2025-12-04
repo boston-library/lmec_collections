@@ -91,7 +91,7 @@ class CatalogController < ApplicationController
     #    config.index.thumbnail_field = 'thumbnail_path_ss'
 
     # Blacklight::Allmaps Viewer
-    config.show.partials.insert(1, :blacklight_allmaps)
+    # config.show.partials.insert(1, :blacklight_allmaps)
     config.default_solr_unique_key = 'id'
     config.default_georeferenced_field = 'georeferenced_allmaps_bsi'
     config.default_iiif_manifest_field = 'identifier_iiif_manifest_ss'
@@ -232,9 +232,9 @@ class CatalogController < ApplicationController
                            collapse: false,
                            query: {
                              yes: { label: 'Yes',
-                                    fq: 'georeferenced_bsi:true' },
+                                    fq: 'georeferenced_allmaps_bsi:true' },
                              no:  { label: 'No',
-                                    fq: 'georeferenced_bsi:false OR (*:* NOT georeferenced_bsi:[* TO *])' }
+                                    fq: 'georeferenced_allmaps_bsi:false OR (*:* NOT georeferenced_allmaps_bsi:[* TO *])' }
                            }
     config.add_facet_field 'collection_name_ssim', label: 'Collection', limit: 8, sort: 'count', collapse: false
     config.add_facet_field 'reuse_allowed_ssi',
@@ -256,6 +256,6 @@ class CatalogController < ApplicationController
   end
 
   def render_manifest_link?
-    @document[:identifier_iiif_manifest_ss].present?
+    @document.iiif_manifest_url.present?
   end
 end

@@ -54,7 +54,7 @@ module CatalogHelper
   end
 
   def iiif_manifest_url(document)
-    manifest_uri = document[:identifier_iiif_manifest_ss]
+    manifest_uri = document.iiif_manifest_url
     manifest_uri&.include?('ark:/50959') ? "#{solr_document_url(document)}/manifest" : manifest_uri
   end
 

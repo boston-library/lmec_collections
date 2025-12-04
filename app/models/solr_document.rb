@@ -34,6 +34,6 @@ class SolrDocument
   end
 
   def georeferenced?
-    fetch(:georeferenced_bsi, false)
+    sidecar_allmaps.georeferenced? || fetch(:georeferenced_allmaps_bsi, false)
   end
 end
