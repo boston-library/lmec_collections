@@ -348,7 +348,17 @@
   }
 
   .document {
-    width: 35% !important;
+    width: 35%;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @media (max-width: ($screen-md - 1)) {
+      width: 50%;
+    }
+
+    @media (max-width: $screen-xs) {
+      width: 47%;
+    }
   }
 
   .thumbnail-container {

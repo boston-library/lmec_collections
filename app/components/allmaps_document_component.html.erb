@@ -19,34 +19,10 @@
                                        text: t('gallery.save'), show_tooltip: false, context: 'single') %>
       </div>
       <%= content %>
-      <% if false #@document.georeferenced? %>
-        <nav class="">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-8">
-                <ul class="nav nav-pills">
-                  <li role="presentation">
-                    <a class="active" id="tab-image" href="#image" data-bs-toggle="tab" role="tab" aria-controls="image" aria-selected="true">Image</a>
-                  </li>
-                  <li role="presentation">
-                    <a id="tab-map-overlay" href="#map-overlay" data-bs-toggle="tab" role="tab" aria-controls="map-overlay" aria-selected="false">Map Overlay</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </nav>
-        <div class="tab-content clearfix">
-          <div class="tab-pane active" id="image" role="tabpanel" aria-labelledby="tab-image">
-            <%= media %>
-          </div>
-          <div class="tab-pane" id="map-overlay" role="tabpanel" aria-labelledby="tab-map-overlay">
-            <%= allmaps_viewer %>
-          </div>
-        </div>
+      <% if @document.georeferenced? %>
+        <%= allmaps_tabbed_viewer %>
       <% else %>
-        <%= allmaps_viewer %>
-        <%# media %>
+        <%= media %>
       <% end %>
       <%= harvested_item_link %>
       <div class="row">

@@ -23,13 +23,6 @@ pin "main"
 pin "tooltip"
 
 # blacklight-allmaps
-# ESM
-# pin "leaflet", to: "https://ga.jspm.io/npm:leaflet@1.9.4/dist/leaflet-src.js"
-# pin "leaflet", to: "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/+esm"
-# pin "@allmaps/leaflet", to: "https://cdn.jsdelivr.net/npm/@allmaps/leaflet@1.0.0-beta.51/+esm"
-
-# UMD
-pin "leaflet", to: "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js", preload: true
-pin "@allmaps/leaflet", to: "https://cdn.jsdelivr.net/npm/@allmaps/leaflet/dist/bundled/allmaps-leaflet-1.9.umd.js", preload: true
-
-pin "leaflet-fullscreen", to: "https://ga.jspm.io/npm:leaflet-fullscreen@1.0.2/dist/Leaflet.fullscreen.js"
+pin "leaflet", to: "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"
+pin "leaflet-fullscreen", to: "https://cdn.jsdelivr.net/npm/leaflet-fullscreen@1.0.2/dist/Leaflet.fullscreen.min.js"
+pin "@allmaps/leaflet", to: "https://cdn.jsdelivr.net/npm/@allmaps/leaflet/dist/bundled/allmaps-leaflet-1.9.umd.js"

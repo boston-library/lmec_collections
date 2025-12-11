@@ -3,6 +3,11 @@
 module AllmapsHelper
   include Blacklight::Allmaps::AllmapsHelperBehavior
 
+  # override to add some additional conditional logic
+  def georeferenceable?(document = @document)
+    document[:type_of_resource_ssim].include?('Cartographic') && super
+  end
+
   # override so we can calculate allmaps_id from manifest url in Solr if needed
   def allmaps_id(document = @document)
     return document.sidecar_allmaps.allmaps_id if document.sidecar_allmaps.allmaps_id.present?

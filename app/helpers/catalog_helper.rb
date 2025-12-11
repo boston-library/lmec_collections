@@ -3,6 +3,8 @@ module CatalogHelper
   include CommonwealthVlrEngine::CatalogHelperBehavior
 
   def galleries_toggle(galleries, type, item_id, opts = {})
+    return nil unless controller_name == 'catalog'
+
     return nil unless galleries && !galleries.empty? && item_id
 
     if galleries.length == 1
