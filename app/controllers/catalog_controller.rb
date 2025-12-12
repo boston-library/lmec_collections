@@ -258,4 +258,24 @@ class CatalogController < ApplicationController
   def render_manifest_link?
     @document.iiif_manifest_url.present?
   end
+
+  # override CommonwealthVlrEngine::ControllerOverride MLT-related methods
+  # so we can use our own SearchBuilder class
+  def mlt_search
+    return unless controller_name == 'catalog'
+
+    if params[:mlt_id] ||
+      (current_search_session && current_search_session.query_params[:mlt_id].present?)
+      blacklight_config.search_builder_class = MltSearchBuilder
+    end
+  end
+
+  def mlt_results_for_show
+    return unless controller_name == 'catalog'
+
+    mlt_search_service = search_service_class.new(config: blacklight_config,
+                                                  user_params: { mlt_id: params[:id], rows: 4 },
+                                                  search_builder_class: MltSearchBuilder)
+    @mlt_response = mlt_search_service.search_results
+  end
 end
