@@ -65,8 +65,10 @@
 
 .collections-list {
   .results {
-    margin-left: -15px;
-    margin-right: -15px;
+    @media (max-width: $screen-xs - 1) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
 
   .document-counter {
