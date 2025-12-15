@@ -78,6 +78,38 @@ module CatalogHelper
     end
   end
 
+  # override CommonwealthVlrEngine::ShowToolsHelperBehavior so we can customize sharing options
+  def social_sharing_links(document)
+    url = document['identifier_uri_ss']
+    [
+      {
+        name: 'Facebook',
+        icon: 'facebook-square',
+        url: "https://www.facebook.com/sharer/sharer.php?u=#{url}"
+      },
+      {
+        name: 'Pinterest',
+        icon: 'pinterest-square',
+        url: "https://pinterest.com/pin/create/link/?url=#{url}"
+      },
+      {
+        name: 'Reddit',
+        icon: 'reddit-square',
+        url: "https://www.reddit.com/submit?url=#{url}"
+      },
+      {
+        name: 'Tumblr',
+        icon: 'tumblr-square',
+        url: "https://www.tumblr.com/share/link?url=#{url}"
+      },
+      {
+        name: 'BlueSky',
+        icon: 'bluesky',
+        url: "https://bsky.app/intent/compose?text=#{url}"
+      }
+    ]
+  end
+
   def with_tooltip(show, favorited = false, dom_id_value)
     link = yield
     if show
