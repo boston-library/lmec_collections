@@ -74,11 +74,16 @@
   }
 }
 
+.facet-field-heading {
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
 .facet-limit-active {
-  background-color: #d6e9c6;
+  background-color: $lmc-offwhite;
 
   .card-header {
-    background-color: #d6e9c6;
+    background-color: $lmc-offwhite;
   }
 }
 
@@ -89,14 +94,18 @@
       margin-bottom: -1px;
       display: flex;
       justify-content: space-between;
+
+      .selected {
+        color: $lmc-grey-dark;
+      }
     }
 
     .facet-count {
       padding: 0px 8px;
       display: inline-block;
-      background: #054571;
+      //background: $lmc-secondary-dark;
       border-radius: 10px;
-      color: white;
+      color: $lmc-grey-dark;
       font-size: 1.2rem;
       margin-left: 8px;
     }

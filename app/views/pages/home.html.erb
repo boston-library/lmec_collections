@@ -3,44 +3,44 @@
   
   <%= render "shared/home_navbar" %>
   
-  <div id="home-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+  <div id="home-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <%# ** Wrapper for carousel images ** %>
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <%= image_tag("headers/header-Bunting-1581.jpg") %>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag("headers/header-Bunting-1581.jpg", alt: 'Die gantze Welt in ein Kleberblat (1581)') %>
         <div class="item-citation">
           Bünting, Heinrich, <i>Die gantze Welt in ein Kleberblat</i> (1581)
         </div>
       </div>
-      <div class="item">
-        <%= image_tag("headers/commonwealth-9g54xj66d.jpg") %>
+      <div class="carousel-item">
+        <%= image_tag("headers/commonwealth-9g54xj66d.jpg", alt: 'The World (1525)') %>
         <div class="item-citation">
-          Fries, Lorenz, ca. 1490-1531, Ptolemy,  Grüninger, Johann, d. 1532?, Pirckheimer, Willibald, and Regiomontanus, Joannes. <i>The World</i>  (1525)
+          Fries, Lorenz, ca. 1490-1531, Ptolemy,  Grüninger, Johann, d. 1532?, Pirckheimer, Willibald, and Regiomontanus, Joannes. <i>The World</i> (1525)
         </div>
       </div>
-      <div class="item">
-        <%= image_tag("headers/header-Williams-Dury-1775.jpg") %>
+      <div class="carousel-item">
+        <%= image_tag("headers/header-Williams-Dury-1775.jpg", alt: 'A plan of Boston and its environs (1775)') %>
         <div class="item-citation">
           Williams, Richard, <i>A plan of Boston and its environs</i> (1775)
-      </div>
         </div>
-      <div class="item">
-        <%= image_tag("headers/header-Page-1776.jpg") %>
+        </div>
+      <div class="carousel-item">
+        <%= image_tag("headers/header-Page-1776.jpg", alt: 'A plan of the Action at Bunkers Hill, on the 17th of June 1775 (1778)') %>
         <div class="item-citation">
           Page, Thomas Hyde, <i>A plan of the Action at Bunkers Hill, on the 17th of June 1775...</i> (1778)
+        </div>
       </div>
-      </div>
-      <div class="item">
-        <%= image_tag("headers/commonwealth-x633fc72t.jpg") %>
+      <div class="carousel-item">
+        <%= image_tag("headers/commonwealth-x633fc72t.jpg", alt: 'View of Springfield, Mass.</i> (1875)') %>
         <div class="item-citation">
           O.H. Bailey & Co.  <i>View of Springfield, Mass.</i> (1875)
+        </div>
       </div>
-      </div>
-      <div class="item">
-        <%= image_tag("headers/commonwealth-1257bc79t.jpg") %>
+      <div class="carousel-item">
+        <%= image_tag("headers/commonwealth-1257bc79t.jpg", alt: 'Map of the town of Concord</i> (1852)') %>
         <div class="item-citation">
           Walling, Henry Francis.  <i>Map of the town of Concord</i> (1852)
-      </div>
+        </div>
       </div>
     </div>
     <%# ** Wrapper for carousel images ** %>

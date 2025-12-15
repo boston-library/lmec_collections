@@ -22,6 +22,14 @@
   }
 }
 
+#harvested_item_show_container {
+  text-align: center;
+
+  #oai_item_link {
+    margin-bottom: 25px;
+  }
+}
+
 .show-tools {
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -285,4 +293,13 @@
   padding: 1rem;
   border-radius: 2px;
   background-color: $off-white;
+}
+
+#parent_preview_component {
+  margin-top: 20px;
+
+  #parent_preview_header {
+    font-family: $font-family-serif;
+    font-size: 18px;
+  }
 }

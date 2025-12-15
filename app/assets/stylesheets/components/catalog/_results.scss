@@ -267,9 +267,9 @@
 
       .constraint-value {
         width: 90%;
-        padding: 0;
-
-        font-size: 13px;
+        padding: 0 0 5px 0;
+        color: $facet-active-item-color;
+        font-size: 14px;
         display: flex;
         text-align: left;
         background-color: unset;

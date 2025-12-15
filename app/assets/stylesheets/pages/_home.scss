@@ -184,7 +184,7 @@
   .carousel-inner {
     height: 100%;
 
-    .item {
+    .carousel-item {
       height: 100%;
 
       .item-citation {
@@ -199,7 +199,7 @@
     }
   }
 
-  .carousel-inner > .item > img {
+  .carousel-inner > .carousel-item > img {
     min-width: 100%;
     position: absolute;
     top: 50%;
@@ -323,6 +323,10 @@
   #documents_collections {
     .document {
       flex: 1 1 calc(25% - 1rem);
+
+      .document-title-heading {
+        text-align: center;
+      }
     }
 
     @media (max-width: ($screen-md - 1)) {
