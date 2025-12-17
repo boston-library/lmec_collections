@@ -80,7 +80,7 @@ module CatalogHelper
 
   # override CommonwealthVlrEngine::ShowToolsHelperBehavior so we can customize sharing options
   def social_sharing_links(document)
-    url = document['identifier_uri_ss']
+    url = solr_document_url(document)
     [
       {
         name: 'Facebook',

@@ -153,6 +153,22 @@
   border-bottom: none;
 }
 
+#spell h3.suggest {
+  font-size: $font-size-h4;
+}
+
+#zero_results_title {
+  font-size: $font-size-h4;
+}
+
+.no-search-results {
+  margin-bottom: 30px;
+
+  h3 {
+    font-size: $font-size-h4;
+  }
+}
+
 .documents-georeferencable {
   margin-top: 20px;
 
@@ -341,19 +357,4 @@
       }
     }
   }
-}
-
-/* When map is adjusted and produces no results
-   these styles will be applied
-   to center the map and no results message */
-.col-sm-9 .no-search-results {
-  right: 17.5%;
-  position: relative;
-}
-
-.col-sm-9 .no-search-results ~ #map {
-  right: 17.5%;
-  height: 200px;
-  position: relative !important;
-  width: 100%;
 }

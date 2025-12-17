@@ -64,10 +64,18 @@ Rails.application.routes.draw do
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  get 'up' => 'rails/health#show', as: :rails_health_check
 
   # Render dynamic PWA files from app/views/pwa/*
-  get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+  get 'service-worker' => 'rails/pwa#service_worker', as: :pwa_service_worker
   get '/manifest.json', to: 'pwa#manifest', defaults: { format: :json }
   mount Blacklight::Allmaps::Engine => '/'
+
+  # redirect for legacy routes from previous bpl-mapportal app
+  resources :exhibits, to: redirect('https://www.leventhalmap.org/exhibitions/')
+  get 'educators', to: redirect('https://www.leventhalmap.org/education/')
+  get 'educators/search', to: redirect('https://www.leventhalmap.org/education/')
+  resources :curriculum_materials, path: 'educators/curriculum-materials', to: redirect('https://www.leventhalmap.org/education/')
+  resources :map_sets, path: 'map-sets', to: redirect('https://www.leventhalmap.org/education/')
+  resources :reproductions, to: redirect('https://www.leventhalmap.org/collections/reproductions/')
 end

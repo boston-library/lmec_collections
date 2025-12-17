@@ -16,6 +16,7 @@ import "openseadragon-rails"
 import "navbar"
 import "main"
 import "tooltip"
+import "carousel"
 
 Blacklight.onLoad(function() {
   $('.documents-masonry').BlacklightMasonry();

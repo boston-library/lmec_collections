@@ -68,7 +68,7 @@ en:
       page_title: 'Advanced Search'
 
     citation:
-          chicago: ''
+          chicago: 'Chicago'
 
     collections:
       index:
@@ -121,6 +121,9 @@ en:
 
     search:
       facets:
+        group:
+          close: 'Hide filters'
+          open: 'Show filters'
         title: 'Filter your Search'
       form:
         submit: 'Search All Digital Collections'
