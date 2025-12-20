@@ -16,6 +16,10 @@ module Allmaps
       Allmaps::AllmapsViewerComponent.new(document: document)
     end
 
+    def render?
+      document.georeferenced?
+    end
+
     def before_render
       set_slot(:media, nil)
       set_slot(:allmaps_viewer, nil)

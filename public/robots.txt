@@ -1,1 +1,31 @@
 # See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+
+Crawl-Delay: 15
+
+# "more facets"
+Disallow: /search/facet/
+
+# range-limit page normally only requested by AJAX for loading range limit info.
+Disallow: /search/range_limit
+
+# "View larger" link for range limit.
+Disallow: /search/range_limit
+Disallow: /search/range_limit_panel
+
+# disallow search results that include facet limits
+# to try to prevent these crawlers from tree-walking every possible facet limit combination. 'nofollow' on the links would be my first choice
+# Unclear if the [ should be %-encoded here, spec says yes,
+# google robots.txt-validator suggests no, so list both.
+Disallow: /search*f%5B
+Disallow: /search*f[
+
+# disallow download pages
+Disallow: /downloads/
+Disallow: /start_download/
+
+# disallow favorites
+Disallow: /login
+# disallow user pages
+Disallow: /users*
+Disallow: /favorites*
+Disallow: /search_history

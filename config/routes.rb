@@ -78,4 +78,7 @@ Rails.application.routes.draw do
   resources :curriculum_materials, path: 'educators/curriculum-materials', to: redirect('https://www.leventhalmap.org/education/')
   resources :map_sets, path: 'map-sets', to: redirect('https://www.leventhalmap.org/education/')
   resources :reproductions, to: redirect('https://www.leventhalmap.org/collections/reproductions/')
+  get 'maps/:id', to: redirect('/')
+  get 'maps/:id/export.tif', to: redirect('/')
+  get 'maps/:id/export.png', to: redirect('/')
 end

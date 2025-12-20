@@ -2,6 +2,7 @@
 en:
   allmaps:
     georef_facet_label: 'Georeferenced'
+    map_heading: 'Georeferenced Map Overlay'
 
   argo:
     info: 'This map is also available in American Revolutionary Geographies Online (ARGO), a collections portal especially built for material relating to the American Revolutionary War Era. Visit ARGO to learn more about this item and explore the historical geography of North America in the late eighteenth century.'
