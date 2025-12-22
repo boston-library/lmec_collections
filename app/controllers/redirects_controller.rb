@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RedirectsController < ApplicationController
   def show
     @redirect = Redirect.where(drupal_id: params[:id]).first

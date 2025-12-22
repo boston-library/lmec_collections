@@ -24,7 +24,6 @@ GIT
 GIT
   remote: https://github.com/bplmaps/blacklight-allmaps.git
   revision: 1cdf06bb94b4ebe73e61629cf51a0d35059c2055
-  ref: 1cdf06b
   branch: importmaps-config
   specs:
     blacklight_allmaps (0.4.0)

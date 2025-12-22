@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GalleriesController < CatalogController
   # Give Galleries access to the CatalogController configuration
   # Needed to be able to fetch documents from the Solr index

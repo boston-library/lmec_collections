@@ -6,11 +6,6 @@ Rails.application.routes.draw do
   # routes for CommonwealthVlrEngine
   mount CommonwealthVlrEngine::Engine => '/'
 
-  # TODO: this bookmarks stuff should be in bpluser generator?
-  # bookmarks item actions
-  # this has to be in local app for bookmark item actions to work
-  put 'bookmarks/item_actions', to: 'folder_items_actions#folder_item_actions', as: 'selected_bookmarks_actions'
-
   # Begin Blacklight routing
   mount Blacklight::Engine => '/'
 
@@ -28,13 +23,13 @@ Rails.application.routes.draw do
     concerns :iiif_search
   end
 
-  resources :bookmarks, only: [:index, :update, :create, :destroy] do
-    concerns :exportable
-
-    collection do
-      delete 'clear'
-    end
-  end
+  # resources :bookmarks, only: [:index, :update, :create, :destroy] do
+  #   concerns :exportable
+  #
+  #   collection do
+  #     delete 'clear'
+  #   end
+  # end
   # end Blacklight routing
 
   devise_for :users, controllers: {
@@ -62,6 +57,8 @@ Rails.application.routes.draw do
 
   resources :redirects, only: [:show]
 
+  resources :warper_redirects, only: [:show]
+
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get 'up' => 'rails/health#show', as: :rails_health_check
@@ -71,14 +68,20 @@ Rails.application.routes.draw do
   get '/manifest.json', to: 'pwa#manifest', defaults: { format: :json }
   mount Blacklight::Allmaps::Engine => '/'
 
-  # redirect for legacy routes from previous bpl-mapportal app
+  # redirects for legacy routes from previous bpl-mapportal portal app
   resources :exhibits, to: redirect('https://www.leventhalmap.org/exhibitions/')
   get 'educators', to: redirect('https://www.leventhalmap.org/education/')
   get 'educators/search', to: redirect('https://www.leventhalmap.org/education/')
   resources :curriculum_materials, path: 'educators/curriculum-materials', to: redirect('https://www.leventhalmap.org/education/')
   resources :map_sets, path: 'map-sets', to: redirect('https://www.leventhalmap.org/education/')
   resources :reproductions, to: redirect('https://www.leventhalmap.org/collections/reproductions/')
-  get 'maps/:id', to: redirect('/')
-  get 'maps/:id/export.tif', to: redirect('/')
-  get 'maps/:id/export.png', to: redirect('/')
+
+  # redirects for legacy routes from previous bpl-mapportal warper app (geo.leventhalmap.org)
+  get 'maps', to: redirect('https://www.leventhalmap.org/projects/digital-projects/georeferencing/')
+  get 'maps/:id', to: redirect("/warper_redirects/%{id}")
+  get 'maps/:id/export', to: redirect("/warper_redirects/%{id}")
+  get 'maps/:id/warped', to: redirect("/warper_redirects/%{id}")
+  get 'maps/from_uuid/:ark_id', to: redirect("/search/%{ark_id}")
+  get 'maps/wms/:id', to: redirect("/warper_redirects/%{id}")
+  get 'maps/tile/:id/:z/:x/:y.png', to: redirect("/warper_redirects/%{id}")
 end

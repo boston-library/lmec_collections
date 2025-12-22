@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RedirectionController < ApplicationController
   def ensure_sign_in
     url = if params[:redirect_to]
