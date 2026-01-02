@@ -10,6 +10,20 @@
     right: unset !important;
 }
 
+.show-document {
+    #multi_img_show_container {
+        margin-bottom: 2rem;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+
+        #multi_img_viewer_osd {
+            padding: 1rem;
+            border-radius: 1rem;
+            height: 600px;
+        }
+    }
+}
+
 .carousel-control:before {
     content: "";
     display: inline-block;
