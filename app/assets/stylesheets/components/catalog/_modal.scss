@@ -1,0 +1,29 @@
+#img_viewer_modal {
+
+  .modal-dialog {
+    width: 95%;
+
+    .modal-title{
+      padding-bottom: 10px;
+    }
+  }
+
+}
+
+#blacklight-modal {
+  .modal-dialog {
+
+    .modal-title {
+      font-size: $font-size-h3;
+      padding: 1rem 20px;
+    }
+
+    .modal-body {
+      padding: 1rem 20px;
+    }
+
+    .modal-footer {
+      padding: 1rem 20px;
+    }
+  }
+}

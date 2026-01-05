@@ -93,7 +93,7 @@ Rails.application.configure do
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
-  file_logger = ActiveSupport::Logger.new('log/production.log')
+  file_logger = ActiveSupport::Logger.new('log/staging.log')
                                      .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
                                      .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
 

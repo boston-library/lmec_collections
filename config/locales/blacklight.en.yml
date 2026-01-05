@@ -87,6 +87,9 @@ en:
           text:
             subject: 'Leventhal Map & Education Center: link to item'
 
+    explore_component:
+      header: 'Explore the Collection:'
+
     feedback:
           text:
             subject: 'Leventhal Map & Education Center: contact email'

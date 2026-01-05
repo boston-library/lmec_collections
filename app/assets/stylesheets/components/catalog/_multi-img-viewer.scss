@@ -18,9 +18,16 @@
 
         #multi_img_viewer_osd {
             padding: 1rem;
-            border-radius: 1rem;
+            border-radius: .5rem;
             height: 600px;
         }
+    }
+
+    #uv_container {
+        margin-bottom: 2rem;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        height: 600px;
     }
 }
 
