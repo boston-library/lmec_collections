@@ -12,6 +12,20 @@ require 'rspec/rails'
 require 'rails-controller-testing'
 Rails::Controller::Testing.install
 
+require 'vcr'
+VCR.configure do |c|
+  # NOTE: uncomment this when updating existing specs wrapped in VCR.use_cassette
+  # This will update the yaml files for the specs.
+  # c.default_cassette_options = { record: :new_episodes }
+  c.cassette_library_dir = 'spec/vcr'
+  c.configure_rspec_metadata!
+  c.hook_into :webmock
+  c.ignore_localhost = true
+end
+
+require 'view_component/test_helpers'
+require 'view_component/system_test_helpers'
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
