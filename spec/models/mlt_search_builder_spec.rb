@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe MltSearchBuilder, type: :model do
   let(:search_builder) { described_class.new processor_chain, scope  }
-  # subject(:builder) { described_class.new processor_chain, scope }
 
   let(:processor_chain) { [] }
   let(:blacklight_config) { Blacklight::Configuration.new }

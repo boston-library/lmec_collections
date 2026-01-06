@@ -18,7 +18,7 @@ require 'rails_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-RSpec.describe GalleriesController, type: :controller do
+RSpec.describe GalleriesController, :vcr, type: :controller do
   fixtures :users, :galleries
 
   let(:user) do
