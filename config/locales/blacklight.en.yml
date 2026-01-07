@@ -154,3 +154,7 @@ en:
 
     users:
       account_heading: My Account
+      show:
+        account_subhead: 'Change your email or password, or cancel your account.'
+        galleries_subhead: 'Create and view galleries with your favorite items.'
+        search_history_subhead: 'View and re-run recent searches.'
