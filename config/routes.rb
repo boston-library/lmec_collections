@@ -75,6 +75,8 @@ Rails.application.routes.draw do
   resources :curriculum_materials, path: 'educators/curriculum-materials', to: redirect('https://www.leventhalmap.org/education/')
   resources :map_sets, path: 'map-sets', to: redirect('https://www.leventhalmap.org/education/')
   resources :reproductions, to: redirect('https://www.leventhalmap.org/collections/reproductions/')
+  get 'georeferencing', to: redirect('https://www.leventhalmap.org/projects/digital-projects/georeferencing/')
+  get 'georeferencing/map-layers', to: redirect('https://www.leventhalmap.org/projects/digital-projects/georeferencing/')
 
   # redirects for legacy routes from previous bpl-mapportal warper app (geo.leventhalmap.org)
   get 'maps', to: redirect('https://www.leventhalmap.org/projects/digital-projects/georeferencing/')
