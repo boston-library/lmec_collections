@@ -238,6 +238,11 @@
         display: none;
       }
 
+      @media (max-width: $screen-xs - 1) {
+        width: 50%;
+        max-width: 50%;
+      }
+
     }
 
   }

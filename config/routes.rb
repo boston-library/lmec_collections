@@ -63,9 +63,6 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get 'up' => 'rails/health#show', as: :rails_health_check
 
-  # Render dynamic PWA files from app/views/pwa/*
-  get 'service-worker' => 'rails/pwa#service_worker', as: :pwa_service_worker
-  get '/manifest.json', to: 'pwa#manifest', defaults: { format: :json }
   mount Blacklight::Allmaps::Engine => '/'
 
   # redirects for legacy routes from previous bpl-mapportal portal app
