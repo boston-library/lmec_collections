@@ -16,7 +16,6 @@ class CatalogController < ApplicationController
   # rescue_from Blacklight::Exceptions::InvalidRequest, with: :my_handling_method
 
   before_action :set_gallery_context
-  after_action :set_access_control_headers, only: [:index, :show]
 
   helper_method :default_image_id
 
@@ -247,13 +246,6 @@ class CatalogController < ApplicationController
   end
 
   private
-
-  # to allow apps to load JSON API requests from a remote server
-  def set_access_control_headers
-    return unless response.content_type =~ /application\/json/
-
-    headers['Access-Control-Allow-Origin'] = '*'
-  end
 
   def render_manifest_link?
     @document.iiif_manifest_url.present?
