@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/boston-library/commonwealth-vlr-engine.git
-  revision: c9693a3a46291b1eaef3b2931192b7357a8187f8
+  revision: 8da131b910f3618dc7e76b8fdf2de9109409b1b7
   branch: blacklight-8
   specs:
     commonwealth-vlr-engine (0.1.0)
@@ -11,6 +11,7 @@ GIT
       blacklight_range_limit (= 9.0.0)
       bootstrap (~> 5.3)
       font-awesome-sass (~> 6.5.2)
+      htmlentities (~> 4.4)
       iiif-presentation
       madison (~> 0.5.0)
       openseadragon (~> 1.0.17)
@@ -255,6 +256,7 @@ GEM
       guard-compat (~> 1.0)
       multi_json (~> 1.8)
     hashie (2.1.2)
+    htmlentities (4.4.2)
     http_parser.rb (0.8.0)
     httparty (0.23.1)
       csv
