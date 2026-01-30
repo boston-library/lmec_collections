@@ -9,6 +9,6 @@ RSpec.describe Allmaps::AllmapsLinksComponent, :vcr, type: :component do
   it 'renders the allmaps/sidebar/allmaps partial' do
     render_inline(described_class.new(document: document))
 
-    expect(page).to have_css("#allmaps-sidebar")
+    expect(page).to have_css('#allmaps-sidebar')
   end
 end

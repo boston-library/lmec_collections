@@ -11,7 +11,7 @@ RSpec.describe Allmaps::AllmapsTabbedViewerComponent, :vcr, type: :component do
   it 'renders the viewers in a tabbed interface' do
     render_inline(described_class.new(document: document, object_files: files_hash))
 
-    expect(page).to have_css("#item-viewer-tab-content #img_show_container")
-    expect(page).to have_css("#georeferenced-tab-content #blacklight-allmaps-map")
+    expect(page).to have_css('#item-viewer-tab-content #img_show_container')
+    expect(page).to have_css('#georeferenced-tab-content #blacklight-allmaps-map')
   end
 end

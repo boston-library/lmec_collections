@@ -1,0 +1,129 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://index-dc3dev.bpl.org/solr/curator_staging/select?defType=lucene&f.collection_name_ssim.facet.limit=9&f.collection_name_ssim.facet.sort=count&f.genre_basic_ssim.facet.limit=9&f.genre_basic_ssim.facet.sort=count&f.name_facet_ssim.facet.limit=9&f.name_facet_ssim.facet.sort=count&f.physical_location_ssim.facet.limit=9&f.physical_location_ssim.facet.sort=count&f.reuse_allowed_ssi.facet.excludeTerms=all%20rights%20reserved,contact%20host&f.reuse_allowed_ssi.facet.limit=9&f.reuse_allowed_ssi.facet.sort=count&f.subject_facet_ssim.facet.limit=9&f.subject_facet_ssim.facet.sort=count&f.subject_geographic_sim.facet.limit=9&f.subject_geographic_sim.facet.sort=count&facet=true&facet.field=reuse_allowed_ssi&facet.query=georeferenced_allmaps_bsi:false%20OR%20(*:*%20NOT%20georeferenced_allmaps_bsi:%5B*%20TO%20*%5D)&fl=*&fq=-processing_state_ssi:%22derivatives%22&q=%7B!lucene%7Did:(abc123)&qt=search&rows=10000&sort=score%20desc,%20title_info_primary_ssort%20asc&spellcheck=false&stats=true&stats.field=date_facet_yearly_itim&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 30 Jan 2026 20:57:33 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '2686'
+      Connection:
+      - keep-alive
+      Content-Security-Policy:
+      - default-src 'none'; base-uri 'none'; connect-src 'self'; form-action 'self';
+        font-src 'self'; frame-ancestors 'none'; img-src 'self'; media-src 'self';
+        style-src 'self' 'unsafe-inline'; script-src 'self'; worker-src 'self';
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Last-Modified:
+      - Fri, 30 Jan 2026 19:02:18 GMT
+      Etag:
+      - '"NjQyZTc4MDAwMDAwMDAwMFNvbHI=--gzip"'
+      Vary:
+      - Accept-Encoding, User-Agent
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "responseHeader":{
+            "status":0,
+            "QTime":1,
+            "params":{
+              "f.name_facet_ssim.facet.sort":"count",
+              "f.physical_location_ssim.facet.sort":"count",
+              "f.collection_name_ssim.facet.limit":"9",
+              "fl":"*",
+              "fq":["-curator_model_suffix_ssi:\"Institution\"",
+                "-curator_model_suffix_ssi:\"Collection\"",
+                "+destination_site_ssim:\"nblmc\"",
+                "-publishing_state_ssi:\"draft\"",
+                "-publishing_state_ssi:\"needs_review\"",
+                "-processing_state_ssi:\"derivatives\""],
+              "facet.query":["georeferenced_allmaps_bsi:true",
+                "georeferenced_allmaps_bsi:false OR (*:* NOT georeferenced_allmaps_bsi:[* TO *])"],
+              "f.subject_geographic_sim.facet.limit":"9",
+              "defType":"lucene",
+              "stats":"true",
+              "f.name_facet_ssim.facet.limit":"9",
+              "wt":"json",
+              "f.genre_basic_ssim.facet.limit":"9",
+              "stats.field":"date_facet_yearly_itim",
+              "facet.field":["physical_location_ssim",
+                "subject_geographic_sim",
+                "subject_facet_ssim",
+                "date_facet_yearly_itim",
+                "name_facet_ssim",
+                "genre_basic_ssim",
+                "collection_name_ssim",
+                "reuse_allowed_ssi"],
+              "qt":"search",
+              "f.collection_name_ssim.facet.sort":"count",
+              "f.genre_basic_ssim.facet.sort":"count",
+              "sort":"score desc, title_info_primary_ssort asc",
+              "f.reuse_allowed_ssi.facet.excludeTerms":"all rights reserved,contact host",
+              "rows":"10000",
+              "f.reuse_allowed_ssi.facet.limit":"9",
+              "q":"{!lucene}id:(abc123)",
+              "f.reuse_allowed_ssi.facet.sort":"count",
+              "f.subject_facet_ssim.facet.limit":"9",
+              "spellcheck":"false",
+              "f.physical_location_ssim.facet.limit":"9",
+              "f.subject_geographic_sim.facet.sort":"count",
+              "f.subject_facet_ssim.facet.sort":"count",
+              "facet":"true"}},
+          "response":{"numFound":0,"start":0,"numFoundExact":true,"docs":[]
+          },
+          "facet_counts":{
+            "facet_queries":{
+              "georeferenced_allmaps_bsi:true":0,
+              "georeferenced_allmaps_bsi:false OR (*:* NOT georeferenced_allmaps_bsi:[* TO *])":0},
+            "facet_fields":{
+              "physical_location_ssim":[],
+              "subject_geographic_sim":[],
+              "subject_facet_ssim":[],
+              "date_facet_yearly_itim":[],
+              "name_facet_ssim":[],
+              "genre_basic_ssim":[],
+              "collection_name_ssim":[],
+              "reuse_allowed_ssi":[]},
+            "facet_ranges":{},
+            "facet_intervals":{},
+            "facet_heatmaps":{}},
+          "stats":{
+            "stats_fields":{
+              "date_facet_yearly_itim":{
+                "min":null,
+                "max":null,
+                "count":0,
+                "missing":0,
+                "sum":0.0,
+                "sumOfSquares":0.0,
+                "mean":"NaN",
+                "stddev":0.0}}}}
+  recorded_at: Fri, 30 Jan 2026 20:57:33 GMT
+recorded_with: VCR 6.4.0

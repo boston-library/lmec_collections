@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe User do
   describe '#create_default_gallery' do
-    let(:user) { User.create!(email: 'mike@mike.com', password: '123456') }
+    let(:user) { described_class.create!(email: 'mike@mike.com', password: '123456') }
 
     it 'creates a default gallery when saving' do
       expect(user.galleries.size).to eq(1)

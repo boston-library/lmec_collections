@@ -9,6 +9,6 @@ RSpec.describe Allmaps::AllmapsViewerComponent, :vcr, type: :component do
   it 'renders the allmaps/show/blacklight partial' do
     render_inline(described_class.new(document: document))
 
-    expect(page).to have_css("#blacklight-allmaps-map", visible: true)
+    expect(page).to have_css('#blacklight-allmaps-map', visible: :visible)
   end
 end

@@ -22,13 +22,14 @@ RSpec.describe AdvancedSearchFormComponent, :vcr, type: :component do
 
   let(:view_context) { vc_test_controller.view_context }
 
-  before(:each) do
+  before do
     without_partial_double_verification do
       allow(view_context).to receive(:facet_limit_for).and_return(nil)
     end
   end
 
   it 'has search_index_select fields with the correct options' do
-    expect(rendered).to have_select 'clause_0_field', options: ['All Fields', 'Title', 'Subject', 'Place', 'Creator']
+    expect(rendered).to have_select 'clause_0_field',
+                                    options: ['All Fields', 'Title', 'Subject', 'Place', 'Creator']
   end
 end
