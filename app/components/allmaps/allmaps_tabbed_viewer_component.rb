@@ -12,9 +12,9 @@ module Allmaps
       CommonwealthVlrEngine::Document::MediaComponent.new(document: document, object_files: object_files)
     }
 
-    renders_one :allmaps_viewer, -> do
+    renders_one :allmaps_viewer, lambda {
       Allmaps::AllmapsViewerComponent.new(document: document)
-    end
+    }
 
     def render?
       document.georeferenced?

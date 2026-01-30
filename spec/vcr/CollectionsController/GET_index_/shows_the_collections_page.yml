@@ -1,0 +1,483 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://index-dc3dev.bpl.org/solr/curator_staging/select?defType=lucene&f.collection_name_ssim.facet.limit=9&f.collection_name_ssim.facet.sort=count&f.genre_basic_ssim.facet.limit=21&f.genre_basic_ssim.facet.sort=count&f.name_facet_ssim.facet.limit=9&f.name_facet_ssim.facet.sort=count&f.physical_location_ssim.facet.limit=9&f.physical_location_ssim.facet.sort=count&f.reuse_allowed_ssi.facet.excludeTerms=all%20rights%20reserved,contact%20host&f.reuse_allowed_ssi.facet.limit=9&f.reuse_allowed_ssi.facet.sort=count&f.subject_facet_ssim.facet.limit=9&f.subject_facet_ssim.facet.sort=count&f.subject_geographic_sim.facet.limit=9&f.subject_geographic_sim.facet.sort=count&facet=true&facet.field=reuse_allowed_ssi&facet.query=georeferenced_allmaps_bsi:false%20OR%20(*:*%20NOT%20georeferenced_allmaps_bsi:%5B*%20TO%20*%5D)&fl=*&fq=%2Bcurator_model_suffix_ssi:%22Collection%22&q=%7B!lucene%7DNOT%20*:*&qt=search&rows=100&sort=title_info_primary_ssort%20asc,%20date_start_dtsi%20asc&spellcheck=false&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 30 Jan 2026 20:57:32 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '2329'
+      Connection:
+      - keep-alive
+      Content-Security-Policy:
+      - default-src 'none'; base-uri 'none'; connect-src 'self'; form-action 'self';
+        font-src 'self'; frame-ancestors 'none'; img-src 'self'; media-src 'self';
+        style-src 'self' 'unsafe-inline'; script-src 'self'; worker-src 'self';
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Last-Modified:
+      - Fri, 30 Jan 2026 19:02:18 GMT
+      Etag:
+      - '"NjQyZTc4MDAwMDAwMDAwMFNvbHI=--gzip"'
+      Vary:
+      - Accept-Encoding, User-Agent
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "responseHeader":{
+            "status":0,
+            "QTime":2,
+            "params":{
+              "f.name_facet_ssim.facet.sort":"count",
+              "f.physical_location_ssim.facet.sort":"count",
+              "f.collection_name_ssim.facet.limit":"9",
+              "fl":"*",
+              "fq":["+destination_site_ssim:\"nblmc\"",
+                "-publishing_state_ssi:\"draft\"",
+                "-publishing_state_ssi:\"needs_review\"",
+                "-processing_state_ssi:\"derivatives\"",
+                "+curator_model_suffix_ssi:\"Collection\""],
+              "facet.query":["georeferenced_allmaps_bsi:true",
+                "georeferenced_allmaps_bsi:false OR (*:* NOT georeferenced_allmaps_bsi:[* TO *])"],
+              "f.subject_geographic_sim.facet.limit":"9",
+              "defType":"lucene",
+              "f.name_facet_ssim.facet.limit":"9",
+              "wt":"json",
+              "f.genre_basic_ssim.facet.limit":"21",
+              "facet.field":["physical_location_ssim",
+                "subject_geographic_sim",
+                "subject_facet_ssim",
+                "date_facet_yearly_itim",
+                "name_facet_ssim",
+                "genre_basic_ssim",
+                "collection_name_ssim",
+                "reuse_allowed_ssi"],
+              "qt":"search",
+              "f.collection_name_ssim.facet.sort":"count",
+              "f.genre_basic_ssim.facet.sort":"count",
+              "sort":"title_info_primary_ssort asc, date_start_dtsi asc",
+              "f.reuse_allowed_ssi.facet.excludeTerms":"all rights reserved,contact host",
+              "rows":"100",
+              "f.reuse_allowed_ssi.facet.limit":"9",
+              "q":"{!lucene}NOT *:*",
+              "f.reuse_allowed_ssi.facet.sort":"count",
+              "f.subject_facet_ssim.facet.limit":"9",
+              "spellcheck":"false",
+              "f.physical_location_ssim.facet.limit":"9",
+              "f.subject_geographic_sim.facet.sort":"count",
+              "f.subject_facet_ssim.facet.sort":"count",
+              "facet":"true"}},
+          "response":{"numFound":0,"start":0,"numFoundExact":true,"docs":[]
+          },
+          "facet_counts":{
+            "facet_queries":{
+              "georeferenced_allmaps_bsi:true":0,
+              "georeferenced_allmaps_bsi:false OR (*:* NOT georeferenced_allmaps_bsi:[* TO *])":0},
+            "facet_fields":{
+              "physical_location_ssim":[],
+              "subject_geographic_sim":[],
+              "subject_facet_ssim":[],
+              "date_facet_yearly_itim":[],
+              "name_facet_ssim":[],
+              "genre_basic_ssim":[],
+              "collection_name_ssim":[],
+              "reuse_allowed_ssi":[]},
+            "facet_ranges":{},
+            "facet_intervals":{},
+            "facet_heatmaps":{}}}
+  recorded_at: Fri, 30 Jan 2026 20:57:32 GMT
+- request:
+    method: get
+    uri: https://index-dc3dev.bpl.org/solr/curator_staging/select?f.collection_name_ssim.facet.limit=9&f.collection_name_ssim.facet.sort=count&f.genre_basic_ssim.facet.limit=21&f.genre_basic_ssim.facet.sort=count&f.name_facet_ssim.facet.limit=9&f.name_facet_ssim.facet.sort=count&f.physical_location_ssim.facet.limit=9&f.physical_location_ssim.facet.sort=count&f.reuse_allowed_ssi.facet.excludeTerms=all%20rights%20reserved,contact%20host&f.reuse_allowed_ssi.facet.limit=9&f.reuse_allowed_ssi.facet.sort=count&f.subject_facet_ssim.facet.limit=9&f.subject_facet_ssim.facet.sort=count&f.subject_geographic_sim.facet.limit=9&f.subject_geographic_sim.facet.sort=count&facet=true&facet.field=reuse_allowed_ssi&facet.query=georeferenced_allmaps_bsi:false%20OR%20(*:*%20NOT%20georeferenced_allmaps_bsi:%5B*%20TO%20*%5D)&fq=%2Bcurator_model_suffix_ssi:%22Collection%22&qt=search&rows=100&sort=title_info_primary_ssort%20asc,%20date_start_dtsi%20asc&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 30 Jan 2026 20:57:32 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '19270'
+      Connection:
+      - keep-alive
+      Content-Security-Policy:
+      - default-src 'none'; base-uri 'none'; connect-src 'self'; form-action 'self';
+        font-src 'self'; frame-ancestors 'none'; img-src 'self'; media-src 'self';
+        style-src 'self' 'unsafe-inline'; script-src 'self'; worker-src 'self';
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Last-Modified:
+      - Fri, 30 Jan 2026 19:02:18 GMT
+      Etag:
+      - '"NjQyZTc4MDAwMDAwMDAwMFNvbHI=--gzip"'
+      Vary:
+      - Accept-Encoding, User-Agent
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "responseHeader":{
+            "status":0,
+            "QTime":3,
+            "params":{
+              "f.name_facet_ssim.facet.sort":"count",
+              "facet.field":["physical_location_ssim",
+                "subject_geographic_sim",
+                "subject_facet_ssim",
+                "date_facet_yearly_itim",
+                "name_facet_ssim",
+                "genre_basic_ssim",
+                "collection_name_ssim",
+                "reuse_allowed_ssi"],
+              "f.physical_location_ssim.facet.sort":"count",
+              "qt":"search",
+              "f.collection_name_ssim.facet.limit":"9",
+              "f.collection_name_ssim.facet.sort":"count",
+              "f.genre_basic_ssim.facet.sort":"count",
+              "fq":["+destination_site_ssim:\"nblmc\"",
+                "-publishing_state_ssi:\"draft\"",
+                "-publishing_state_ssi:\"needs_review\"",
+                "-processing_state_ssi:\"derivatives\"",
+                "+curator_model_suffix_ssi:\"Collection\""],
+              "sort":"title_info_primary_ssort asc, date_start_dtsi asc",
+              "f.reuse_allowed_ssi.facet.excludeTerms":"all rights reserved,contact host",
+              "rows":"100",
+              "f.reuse_allowed_ssi.facet.limit":"9",
+              "facet.query":["georeferenced_allmaps_bsi:true",
+                "georeferenced_allmaps_bsi:false OR (*:* NOT georeferenced_allmaps_bsi:[* TO *])"],
+              "f.subject_geographic_sim.facet.limit":"9",
+              "f.reuse_allowed_ssi.facet.sort":"count",
+              "f.subject_facet_ssim.facet.limit":"9",
+              "f.physical_location_ssim.facet.limit":"9",
+              "f.subject_geographic_sim.facet.sort":"count",
+              "f.name_facet_ssim.facet.limit":"9",
+              "f.subject_facet_ssim.facet.sort":"count",
+              "facet":"true",
+              "wt":"json",
+              "f.genre_basic_ssim.facet.limit":"21"}},
+          "response":{"numFound":10,"start":0,"maxScore":1.0,"numFoundExact":true,"docs":[
+              {
+                "id":"oai-dev:5x21v472r",
+                "system_create_dtsi":"2025-06-25T20:24:45Z",
+                "system_modified_dtsi":"2025-06-25T20:24:45Z",
+                "curator_model_ssi":"Curator::Collection",
+                "curator_model_suffix_ssi":"Collection",
+                "publishing_state_ssi":"published",
+                "destination_site_ssim":["argo",
+                  "nblmc"],
+                "hosting_status_ssi":"harvested",
+                "harvesting_status_bsi":true,
+                "oai_header_id_ssi":"p16923coll1",
+                "exemplary_image_ssi":"oai-dev:rr172k52z",
+                "exemplary_image_key_base_ss":"metadata/oai-dev:rr172k52z",
+                "exemplary_image_iiif_bsi":false,
+                "exemplary_image_digobj_ss":"oai-dev:4f16cq626",
+                "title_info_primary_tsi":"American Revolution Institute of the Society of the Cincinnati Map Collection",
+                "title_info_primary_ssi":"American Revolution Institute of the Society of the Cincinnati Map Collection",
+                "abstract_tsi":"This collection consists of items from the American Revolution Institute of the Society of the Cincinnati Map collection hosted by American Revolution Institute of the Society of the Cincinnati. Information about the items has been provided by the holding institution so that they may be included in Digital Commonwealth.",
+                "physical_location_ssim":["Society of the Cincinnati"],
+                "institution_name_ssi":"Society of the Cincinnati",
+                "institution_ark_id_ssi":"bpl-dev:m900ph012",
+                "genre_basic_ssim":["Collections",
+                  "Maps"],
+                "_version_":1848706027778736128,
+                "timestamp":"2025-11-13T19:50:57.278Z",
+                "score":1.0},
+              {
+                "id":"bpl-dev:r207vc18w",
+                "system_create_dtsi":"2025-06-26T14:20:38Z",
+                "system_modified_dtsi":"2025-12-02T16:44:20Z",
+                "curator_model_ssi":"Curator::Collection",
+                "curator_model_suffix_ssi":"Collection",
+                "publishing_state_ssi":"published",
+                "destination_site_ssim":["commonwealth",
+                  "bpl",
+                  "nblmc",
+                  "argo"],
+                "hosting_status_ssi":"hosted",
+                "harvesting_status_bsi":true,
+                "exemplary_image_ssi":"bpl-dev:vx0224404",
+                "exemplary_image_key_base_ss":"images/bpl-dev:vx0224404",
+                "exemplary_image_digobj_ss":"bpl-dev:1c18f387q",
+                "title_info_primary_tsi":"American Revolutionary War-Era Maps",
+                "title_info_primary_ssi":"American Revolutionary War-Era Maps",
+                "abstract_tsi":"Duis pretium felis in purus varius dictum. Fusce ac lacinia mi. Integer eget eros non ligula facilisis suscipit. Pellentesque a tellus vitae velit mattis gravida quis quis sapien. Praesent non pharetra quam. Nunc nec elementum dolor. Nullam elementum justo sed mattis porta. Ut non mauris accumsan, pulvinar nulla in, tristique dui.",
+                "physical_location_ssim":["Boston Public Library"],
+                "institution_name_ssi":"Boston Public Library",
+                "institution_ark_id_ssi":"bpl-dev:4q77fr32b",
+                "genre_basic_ssim":["Collections"],
+                "_version_":1850415634527027200,
+                "timestamp":"2025-12-02T16:44:25.324Z",
+                "score":1.0},
+              {
+                "id":"bpl-dev:w9506g03s",
+                "system_create_dtsi":"2022-02-17T21:59:38Z",
+                "system_modified_dtsi":"2025-12-02T16:44:20Z",
+                "curator_model_ssi":"Curator::Collection",
+                "curator_model_suffix_ssi":"Collection",
+                "publishing_state_ssi":"published",
+                "destination_site_ssim":["commonwealth",
+                  "bpl",
+                  "nblmc"],
+                "hosting_status_ssi":"hosted",
+                "harvesting_status_bsi":true,
+                "exemplary_image_ssi":"bpl-dev:8049g5699",
+                "exemplary_image_key_base_ss":"images/bpl-dev:8049g5699",
+                "exemplary_image_digobj_ss":"bpl-dev:6q182k915",
+                "title_info_primary_tsi":"Boston and New England Maps",
+                "title_info_primary_ssi":"Boston and New England Maps",
+                "abstract_tsi":"Something shorter.",
+                "physical_location_ssim":["Boston Public Library"],
+                "institution_name_ssi":"Boston Public Library",
+                "institution_ark_id_ssi":"bpl-dev:4q77fr32b",
+                "genre_basic_ssim":["Collections"],
+                "_version_":1850415634394906624,
+                "timestamp":"2025-12-02T16:44:25.197Z",
+                "score":1.0},
+              {
+                "id":"bpl-dev:8910kg64c",
+                "system_create_dtsi":"2025-05-21T14:39:40Z",
+                "system_modified_dtsi":"2026-01-12T16:22:50Z",
+                "curator_model_ssi":"Curator::Collection",
+                "curator_model_suffix_ssi":"Collection",
+                "publishing_state_ssi":"published",
+                "destination_site_ssim":["nblmc",
+                  "argo"],
+                "hosting_status_ssi":"hosted",
+                "harvesting_status_bsi":true,
+                "exemplary_image_ssi":"bpl-dev:n8710d600",
+                "exemplary_image_key_base_ss":"images/bpl-dev:n8710d600",
+                "exemplary_image_digobj_ss":"bpl-dev:rv043f848",
+                "title_info_primary_tsi":"Filson Historical Society Collection",
+                "title_info_primary_ssi":"Filson Historical Society Collection",
+                "abstract_tsi":"<a href=\"https://filsonhistorical.org/\" target=\"_blank\">Filson Historical Society</a><br><br>The Filson Historical Society, founded in 1884, is a privately supported historical society dedicated to collecting, preserving, and sharing the significant history and culture of Kentucky and the Ohio Valley. They have served the public through their extensive and historic collections of original manuscripts, letters, diaries, photographs, architectural records, rare imprints, books, maps, newspapers, textiles, portraits, and other three dimensional items. Their collections form a regional educational resource that attracts national and international researchers.<br><br><a href=\"https://filsonhistorical.omeka.net/first-american-west\" target=\"_blank\">https://filsonhistorical.omeka.net/first-american-west</a>",
+                "physical_location_ssim":["Filson Historical Society"],
+                "institution_name_ssi":"Filson Historical Society",
+                "institution_ark_id_ssi":"bpl-dev:8g84n7922",
+                "genre_basic_ssim":["Collections",
+                  "Maps",
+                  "Books"],
+                "_version_":1854128757703442432,
+                "timestamp":"2026-01-12T16:22:55.528Z",
+                "score":1.0},
+              {
+                "id":"bpl-dev:jq086700k",
+                "system_create_dtsi":"2025-02-07T21:43:49Z",
+                "system_modified_dtsi":"2025-02-07T21:43:49Z",
+                "curator_model_ssi":"Curator::Collection",
+                "curator_model_suffix_ssi":"Collection",
+                "publishing_state_ssi":"published",
+                "destination_site_ssim":["commonwealth",
+                  "nblmc"],
+                "hosting_status_ssi":"hosted",
+                "harvesting_status_bsi":true,
+                "title_info_primary_tsi":"GIS Data Sets from the Leventhal Map & Education Center",
+                "title_info_primary_ssi":"GIS Data Sets from the Leventhal Map & Education Center",
+                "abstract_tsi":"TK",
+                "physical_location_ssim":["Boston Public Library"],
+                "institution_name_ssi":"Boston Public Library",
+                "institution_ark_id_ssi":"bpl-dev:4q77fr32b",
+                "genre_basic_ssim":["Collections",
+                  "Data sets"],
+                "_version_":1848706027381325824,
+                "timestamp":"2025-11-13T19:50:56.899Z",
+                "score":1.0},
+              {
+                "id":"bpl-dev:p2676v556",
+                "system_create_dtsi":"2025-05-21T20:03:01Z",
+                "system_modified_dtsi":"2025-05-21T20:03:01Z",
+                "curator_model_ssi":"Curator::Collection",
+                "curator_model_suffix_ssi":"Collection",
+                "publishing_state_ssi":"published",
+                "destination_site_ssim":["nblmc"],
+                "hosting_status_ssi":"hosted",
+                "harvesting_status_bsi":true,
+                "exemplary_image_ssi":"bpl-dev:7h14bb559",
+                "exemplary_image_key_base_ss":"images/bpl-dev:7h14bb559",
+                "exemplary_image_digobj_ss":"bpl-dev:sq87cg13w",
+                "title_info_primary_tsi":"MacLean Collection Map Library",
+                "title_info_primary_ssi":"MacLean Collection Map Library",
+                "physical_location_ssim":["MacLean Collection Map Library"],
+                "institution_name_ssi":"MacLean Collection Map Library",
+                "institution_ark_id_ssi":"bpl-dev:p2676v54x",
+                "genre_basic_ssim":["Collections",
+                  "Maps"],
+                "_version_":1848706027727355904,
+                "timestamp":"2025-11-13T19:50:57.229Z",
+                "score":1.0},
+              {
+                "id":"bpl-dev:vt1516559",
+                "system_create_dtsi":"2025-06-26T14:20:39Z",
+                "system_modified_dtsi":"2025-12-02T16:44:20Z",
+                "curator_model_ssi":"Curator::Collection",
+                "curator_model_suffix_ssi":"Collection",
+                "publishing_state_ssi":"published",
+                "destination_site_ssim":["commonwealth",
+                  "bpl",
+                  "nblmc"],
+                "hosting_status_ssi":"hosted",
+                "harvesting_status_bsi":true,
+                "exemplary_image_ssi":"bpl-dev:jh344f608",
+                "exemplary_image_key_base_ss":"images/bpl-dev:jh344f608",
+                "exemplary_image_digobj_ss":"bpl-dev:gq67kd15j",
+                "title_info_primary_tsi":"Maritime Charts and Atlases",
+                "title_info_primary_ssi":"Maritime Charts and Atlases",
+                "abstract_tsi":"Duis quis purus ac nulla pulvinar scelerisque sit amet interdum mi. Quisque a venenatis urna. In nisl turpis, commodo et quam in, dapibus rutrum mauris. Donec id malesuada ipsum. Nullam sed tortor non dolor mollis rutrum non vitae ex. Nullam lobortis mattis porta. Nullam dolor odio, feugiat et facilisis a, commodo porttitor velit. Suspendisse vitae condimentum purus. Suspendisse vitae quam sed dolor condimentum scelerisque sed id velit.",
+                "physical_location_ssim":["Boston Public Library"],
+                "institution_name_ssi":"Boston Public Library",
+                "institution_ark_id_ssi":"bpl-dev:4q77fr32b",
+                "genre_basic_ssim":["Collections"],
+                "_version_":1850415633763663872,
+                "timestamp":"2025-12-02T16:44:24.543Z",
+                "score":1.0},
+              {
+                "id":"bpl-dev:tx31r658k",
+                "system_create_dtsi":"2025-06-26T14:20:37Z",
+                "system_modified_dtsi":"2026-01-09T14:08:25Z",
+                "curator_model_ssi":"Curator::Collection",
+                "curator_model_suffix_ssi":"Collection",
+                "publishing_state_ssi":"published",
+                "destination_site_ssim":["commonwealth",
+                  "bpl",
+                  "nblmc",
+                  "argo"],
+                "hosting_status_ssi":"hosted",
+                "harvesting_status_bsi":true,
+                "exemplary_image_ssi":"bpl-dev:cz30qf84z",
+                "exemplary_image_key_base_ss":"images/bpl-dev:cz30qf84z",
+                "exemplary_image_digobj_ss":"bpl-dev:gf06gr50c",
+                "title_info_primary_tsi":"Norman B. Leventhal Map & Education Center Collection",
+                "title_info_primary_ssi":"Norman B. Leventhal Map & Education Center Collection",
+                "abstract_tsi":"The <a href=\"https://www.leventhalmap.org\" target=\"_blank\">Norman B. Leventhal Map & Education Center</a> at the Boston Public Library cares for more than a quarter million cartographic and geographic objects, ranging from the fifteenth century to the present, with a global scope and a focus on Boston and New England. Created in 2004 as a private-public partnership between the philanthropist Norman B. Leventhal and the Boston Public Library, the LMEC is located in the McKim Building at the BPL's Central Library in Copley Square. The LMEC features a permanent exhibition gallery and extensive educational, interpretive, and research programs focusing on the critical historical relationship between people and places. The LMEC has a particular focus on K-12 education, with school programs and resources that encourage young people's curiosity about the world through an understanding of geographic relationships and processes. Additionally, the LMEC is a leader in digital humanities initiatives, and many special interactive features and discovery tools built on digital collections are available at the Center's <a href=\"https://www.leventhalmap.org\" target=\"_blank\">website</a>. The LMEC's collections, exhibitions, lectures, research seminars, and public interpretive programs are all free and open to the public. In-person access to the collections are available by appointment at the LMEC Rare Maps Reading Room.",
+                "physical_location_ssim":["Boston Public Library"],
+                "institution_name_ssi":"Boston Public Library",
+                "institution_ark_id_ssi":"bpl-dev:4q77fr32b",
+                "genre_basic_ssim":["Collections",
+                  "Maps"],
+                "_version_":1853848522241081344,
+                "timestamp":"2026-01-09T14:08:42.150Z",
+                "score":1.0},
+              {
+                "id":"bpl-dev:000000000",
+                "system_create_dtsi":"2022-02-17T21:59:38Z",
+                "system_modified_dtsi":"2022-03-02T19:54:37Z",
+                "curator_model_ssi":"Curator::Collection",
+                "curator_model_suffix_ssi":"Collection",
+                "publishing_state_ssi":"published",
+                "destination_site_ssim":["commonwealth",
+                  "bpl",
+                  "nblmc"],
+                "hosting_status_ssi":"hosted",
+                "harvesting_status_bsi":true,
+                "exemplary_image_ssi":"bpl-dev:41687j14s",
+                "exemplary_image_key_base_ss":"images/bpl-dev:41687j14s",
+                "exemplary_image_digobj_ss":"bpl-dev:mc87pq96s",
+                "title_info_primary_tsi":"Norman B. Leventhal Map Center Collection",
+                "title_info_primary_ssi":"Norman B. Leventhal Map Center Collection",
+                "abstract_tsi":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diam quis enim lobortis scelerisque fermentum dui faucibus. Risus pretium quam vulputate dignissim suspendisse. Pellentesque habitant morbi tristique senectus et. Mauris augue neque gravida in fermentum et sollicitudin ac orci. Ac tortor dignissim convallis aenean et tortor. Donec massa sapien faucibus et molestie ac feugiat. Morbi tristique senectus et netus. Tristique sollicitudin nibh sit amet commodo nulla. Ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Vestibulum lectus mauris ultrices eros in cursus turpis massa. Magna eget est lorem ipsum dolor sit amet consectetur adipiscing. Pharetra diam sit amet nisl suscipit adipiscing. Sed tempus urna et pharetra. Turpis egestas sed tempus urna et pharetra pharetra.<br><br>Aliquet bibendum enim facilisis gravida neque. Vitae justo eget magna fermentum iaculis. Viverra accumsan in nisl nisi. Ipsum nunc aliquet bibendum enim facilisis gravida. Non quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor. Pellentesque dignissim enim sit amet venenatis urna cursus. Accumsan tortor posuere ac ut consequat. Eget nunc scelerisque viverra mauris in aliquam. In nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. In ornare quam viverra orci sagittis eu. Elementum facilisis leo vel fringilla est ullamcorper eget. Est sit amet facilisis magna etiam tempor orci eu lobortis. Blandit cursus risus at ultrices mi tempus. Diam quam nulla porttitor massa id neque aliquam. Hendrerit dolor magna eget est lorem ipsum dolor sit amet. Risus ultricies tristique nulla aliquet.",
+                "physical_location_ssim":["Boston Public Library"],
+                "institution_name_ssi":"Boston Public Library",
+                "institution_ark_id_ssi":"bpl-dev:4q77fr32b",
+                "genre_basic_ssim":["Collections",
+                  "Maps"],
+                "_version_":1848706026542465024,
+                "timestamp":"2025-11-13T19:50:56.099Z",
+                "score":1.0},
+              {
+                "id":"bpl-dev:w9506g042",
+                "system_create_dtsi":"2025-06-26T14:20:39Z",
+                "system_modified_dtsi":"2025-12-02T16:44:20Z",
+                "curator_model_ssi":"Curator::Collection",
+                "curator_model_suffix_ssi":"Collection",
+                "publishing_state_ssi":"published",
+                "destination_site_ssim":["commonwealth",
+                  "bpl",
+                  "nblmc"],
+                "hosting_status_ssi":"hosted",
+                "harvesting_status_bsi":true,
+                "exemplary_image_ssi":"bpl-dev:cz30qf84z",
+                "exemplary_image_key_base_ss":"images/bpl-dev:cz30qf84z",
+                "exemplary_image_digobj_ss":"bpl-dev:gf06gr50c",
+                "title_info_primary_tsi":"Urban Maps",
+                "title_info_primary_ssi":"Urban Maps",
+                "abstract_tsi":"Curabitur molestie nisi quam, a auctor lacus iaculis a. Praesent fringilla condimentum felis id vulputate. Sed lectus mi, tincidunt ut efficitur non, aliquam vel tortor. Etiam mollis ex sem, vel bibendum purus ultrices eu. Suspendisse at suscipit neque. In vehicula dictum diam, quis venenatis magna viverra id. Etiam pharetra tristique quam, in porttitor augue consectetur vitae.",
+                "physical_location_ssim":["Boston Public Library"],
+                "institution_name_ssi":"Boston Public Library",
+                "institution_ark_id_ssi":"bpl-dev:4q77fr32b",
+                "genre_basic_ssim":["Collections"],
+                "_version_":1850415633763663873,
+                "timestamp":"2025-12-02T16:44:24.594Z",
+                "score":1.0}]
+          },
+          "facet_counts":{
+            "facet_queries":{
+              "georeferenced_allmaps_bsi:true":0,
+              "georeferenced_allmaps_bsi:false OR (*:* NOT georeferenced_allmaps_bsi:[* TO *])":10},
+            "facet_fields":{
+              "physical_location_ssim":[
+                "Boston Public Library",7,
+                "Filson Historical Society",1,
+                "MacLean Collection Map Library",1,
+                "Society of the Cincinnati",1],
+              "subject_geographic_sim":[],
+              "subject_facet_ssim":[],
+              "date_facet_yearly_itim":[],
+              "name_facet_ssim":[],
+              "genre_basic_ssim":[
+                "Collections",10,
+                "Maps",5,
+                "Books",1,
+                "Data sets",1],
+              "collection_name_ssim":[],
+              "reuse_allowed_ssi":[]},
+            "facet_ranges":{},
+            "facet_intervals":{},
+            "facet_heatmaps":{}}}
+  recorded_at: Fri, 30 Jan 2026 20:57:32 GMT
+recorded_with: VCR 6.4.0

@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
-raise("The Rails environment is running in production mode!") if Rails.env.production?
+raise('The Rails environment is running in production mode!') if Rails.env.production?
+
 # Uncomment the line below in case you have `--require rails_helper` in the `.rspec` file
 # that will avoid rails generators crashing because migrations haven't been run yet
 # return unless Rails.env.test?
@@ -11,6 +14,20 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'rails-controller-testing'
 Rails::Controller::Testing.install
+
+require 'vcr'
+VCR.configure do |c|
+  # NOTE: uncomment this when updating existing specs wrapped in VCR.use_cassette
+  # This will update the yaml files for the specs.
+  # c.default_cassette_options = { record: :new_episodes }
+  c.cassette_library_dir = 'spec/vcr'
+  c.configure_rspec_metadata!
+  c.hook_into :webmock
+  c.ignore_localhost = true
+end
+
+require 'view_component/test_helpers'
+require 'view_component/system_test_helpers'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

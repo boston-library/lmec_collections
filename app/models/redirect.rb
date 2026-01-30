@@ -1,2 +1,4 @@
-class Redirect < ActiveRecord::Base
+# frozen_string_literal: true
+
+class Redirect < ApplicationRecord
 end

@@ -10,13 +10,12 @@ class GalleriesController < CatalogController
 
   copy_blacklight_config_from(CatalogController)
 
-  before_action :set_gallery, only: [:edit, :update, :destroy, :add_item, :remove_item]
-  before_action :set_galleries, only: [:index, :set_galleries_modal]
+  before_action :set_gallery, only: %i[edit update destroy add_item remove_item]
+  before_action :set_galleries, only: %i[index set_galleries_modal]
 
   # GET /galleries
   # GET /galleries.json
-  def index
-  end
+  def index; end
 
   # GET /galleries/1
   # GET /galleries/1.json
@@ -40,8 +39,7 @@ class GalleriesController < CatalogController
   end
 
   # GET /galleries/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /galleries
   # POST /galleries.json
@@ -51,7 +49,7 @@ class GalleriesController < CatalogController
 
     respond_to do |format|
       if @gallery.save
-        format.html { redirect_to @gallery, notice: 'Favorites list was successfully created.' }
+        format.html { redirect_to @gallery, notice: I18n.t('blacklight.gallery.create') }
         format.json { render :show, status: :created, location: @gallery }
       else
         format.html { render :new }
@@ -65,7 +63,7 @@ class GalleriesController < CatalogController
   def update
     respond_to do |format|
       if @gallery.update(gallery_params)
-        format.html { redirect_to @gallery, notice: 'Favorites list was successfully updated.' }
+        format.html { redirect_to @gallery, notice: I18n.t('blacklight.gallery.update') }
         format.json { render :show, status: :ok, location: @gallery }
       else
         format.html { render :edit }
@@ -79,7 +77,7 @@ class GalleriesController < CatalogController
   def destroy
     @gallery.destroy
     respond_to do |format|
-      format.html { redirect_to galleries_url, notice: 'Favorites list was successfully destroyed.' }
+      format.html { redirect_to galleries_url, notice: I18n.t('blacklight.gallery.destroy') }
       format.json { head :no_content }
     end
   end

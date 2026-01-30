@@ -1,4 +1,6 @@
-class Gallery < ActiveRecord::Base
+# frozen_string_literal: true
+
+class Gallery < ApplicationRecord
   belongs_to :user, inverse_of: :galleries
 
   validates :name, presence: true
@@ -25,8 +27,7 @@ class Gallery < ActiveRecord::Base
       # |= combines lists without creating duplicates
       self.repo_objects |= [item_id]
     else
-      raise ArgumentError, type.to_s +
-                           ' is not a valid item type. Valid types are: repo_object, curriculum_material'
+      raise ArgumentError, "#{type} is not a valid item type. Valid types are: repo_object, curriculum_material"
     end
   end
 
@@ -36,8 +37,7 @@ class Gallery < ActiveRecord::Base
       # -= will quietly succeed if item_id is not in the array, which is what we want.
       self.repo_objects -= [item_id]
     else
-      raise ArgumentError, type.to_s +
-                           ' is not a valid item type. Valid types are: repo_object, curriculum_material'
+      raise ArgumentError, "#{type} is not a valid item type. Valid types are: repo_object, curriculum_material"
     end
   end
 end

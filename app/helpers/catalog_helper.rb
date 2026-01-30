@@ -1,15 +1,16 @@
+# frozen_string_literal: true
+
 module CatalogHelper
   include Blacklight::CatalogHelperBehavior
   include CommonwealthVlrEngine::CatalogHelperBehavior
 
+  # rubocop:disable Metrics/CyclomaticComplexity
   def galleries_toggle(galleries, type, item_id, opts = {})
     return nil unless controller_name == 'catalog'
 
-    return nil unless galleries && !galleries.empty? && item_id
+    return nil unless galleries.present? && item_id
 
-    if galleries.length == 1
-      return gallery_toggle(galleries[0], type, item_id, opts)
-    end
+    return gallery_toggle(galleries[0], type, item_id, opts) if galleries.length == 1
 
     favorited = galleries.any? { |g| favorited?(g, type, item_id) }
     icon_class = icon_class_for favorited
@@ -18,14 +19,16 @@ module CatalogHelper
 
     dom_id_value = "#{item_id}_galleries_modal"
 
-    with_tooltip(opts[:show_tooltip], favorited, dom_id_value) do
+    with_tooltip(opts[:show_tooltip], dom_id_value, favorited: favorited) do
       content_tag :span, id: (dom_id_value unless opts[:show_tooltip]) do
-        link_to set_modal_galleries_path(params), data: { gallery_toggle: true, blacklight_modal: 'trigger' } do
+        link_to set_modal_galleries_path(params),
+                data: { gallery_toggle: true, blacklight_modal: 'trigger' } do
           content_tag(:span, opts[:text], class: icon_class, data: { item_id: item_id, type: type })
         end
       end
     end
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   def gallery_toggle(gallery, type, item_id, opts = {})
     return nil unless gallery && type && item_id
@@ -39,7 +42,7 @@ module CatalogHelper
 
     dom_id_value = "#{item_id}_#{context}_#{gallery.id}_button"
 
-    with_tooltip(opts[:show_tooltip], favorited, dom_id_value) do
+    with_tooltip(opts[:show_tooltip], dom_id_value, favorited: favorited) do
       content_tag :span, id: (dom_id_value unless opts[:show_tooltip]) do
         link_to(
           favorited ? remove_item_gallery_path(gallery, params) : add_item_gallery_path(gallery, params),
@@ -71,11 +74,9 @@ module CatalogHelper
   end
 
   def favorited?(gallery, type, item_id)
-    if type == 'repo_object'
-      gallery.repo_objects.include?(item_id)
-    else
-      raise
-    end
+    raise unless type == 'repo_object'
+
+    gallery.repo_objects.include?(item_id)
   end
 
   # override CommonwealthVlrEngine::ShowToolsHelperBehavior so we can customize sharing options
@@ -110,14 +111,14 @@ module CatalogHelper
     ]
   end
 
-  def with_tooltip(show, favorited = false, dom_id_value)
+  def with_tooltip(show, dom_id_value, favorited: false)
     link = yield
     if show
       title = if favorited
                 'Remove from favorites list'
-      else
+              else
                 'Add to favorites list'
-      end
+              end
       content_tag(:div, id: dom_id_value, class: ['favorite-document'], title: title,
                         'data-bs-toggle' => 'tooltip', 'data-bs-placement' => 'left') do
         link

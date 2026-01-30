@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 gem 'cssbundling-rails'
@@ -31,8 +33,8 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 gem 'bootsnap', require: false
 
 gem 'blacklight', '~> 8.11'
-gem 'commonwealth-vlr-engine', github: 'boston-library/commonwealth-vlr-engine', branch: 'blacklight-8'
 gem 'blacklight_allmaps', github: 'bplmaps/blacklight-allmaps', branch: 'importmaps-config'
+gem 'commonwealth-vlr-engine', github: 'boston-library/commonwealth-vlr-engine', branch: 'blacklight-8'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 2.6', '>= 2.6.1', group: :doc
@@ -42,7 +44,6 @@ group :development, :test do
   gem 'byebug'
   gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'
   gem 'dotenv', '~> 3.1', '>= 3.1.8'
-  gem 'rubocop-rails-omakase', require: false
   gem 'solr_wrapper', '>= 0.3'
   gem 'spring'
 
@@ -53,6 +54,10 @@ group :development, :test do
   gem 'rspec', '~> 3.13', '>= 3.13.1'
   gem 'rspec-rails', '~> 8.0'
   gem 'rubocop', '~> 1.76', '>= 1.76.2'
+  gem 'rubocop-capybara'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
+  gem 'rubocop-rspec_rails'
   gem 'simplecov', '~> 0.22.0'
 end
 
@@ -65,6 +70,8 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'selenium-webdriver'
   gem 'rails-controller-testing'
+  gem 'selenium-webdriver'
+  gem 'vcr', '~> 6.1'
+  gem 'webmock', '~> 3.18'
 end

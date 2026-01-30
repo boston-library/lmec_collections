@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AllmapsDocumentComponent < CommonwealthVlrEngine::DocumentComponent
   renders_one :argo_info, lambda {
     Document::ArgoComponent.new(document: @document)
@@ -7,9 +9,9 @@ class AllmapsDocumentComponent < CommonwealthVlrEngine::DocumentComponent
     Allmaps::AllmapsLinksComponent.new(document: @document)
   }
 
-  renders_one :allmaps_tabbed_viewer, -> do
+  renders_one :allmaps_tabbed_viewer, lambda {
     Allmaps::AllmapsTabbedViewerComponent.new(document: @document, object_files: @object_files)
-  end
+  }
 
   def before_render
     set_slot(:argo_info, nil)

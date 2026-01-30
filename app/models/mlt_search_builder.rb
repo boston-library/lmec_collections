@@ -8,7 +8,7 @@ class MltSearchBuilder < Blacklight::SearchBuilder
   # include BlacklightRangeLimit::RangeLimitBuilder
   include CommonwealthVlrEngine::SearchBuilderBehavior
 
-  self.default_processor_chain += [
-    :site_filter, :mlt_params, :exclude_unpublished_items, :exclude_institutions
+  self.default_processor_chain += %i[
+    site_filter mlt_params exclude_unpublished_items exclude_institutions
   ]
 end

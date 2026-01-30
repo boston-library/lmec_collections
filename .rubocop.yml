@@ -1,5 +1,8 @@
-inherit_gem:
-  rubocop-rails-omakase: rubocop.yml
+plugins:
+  - rubocop-capybara
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-rspec_rails
 
 AllCops:
   TargetRubyVersion: 3.4
@@ -10,15 +13,31 @@ AllCops:
     - 'config/**/*'
     - 'script/**/*'
 
+Capybara/SpecificMatcher:
+  Exclude:
+    - 'spec/components/search_button_component_spec.rb'
+
 Layout/LineLength:
-  Max: 110
+  Max: 125
+  Exclude:
+    - 'app/components/advanced_search_form_component.rb'
+    - 'app/controllers/catalog_controller.rb'
+    - 'app/controllers/collections_controller.rb'
+    - 'spec/components/document/downloads_component_spec.rb'
 
 Layout/SpaceInsideArrayLiteralBrackets:
   Enabled: true
   EnforcedStyle: no_space
 
+Lint/MissingSuper:
+  Enabled: false
+
 Metrics/AbcSize:
   Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'app/controllers/catalog_controller.rb'
 
 Metrics/MethodLength:
   Enabled: false
@@ -27,6 +46,26 @@ Metrics/ModuleLength:
   Max: 120
   Exclude:
     - 'app/helpers/catalog_helper.rb'
+
+Rails/HelperInstanceVariable:
+  Exclude:
+    - 'app/helpers/allmaps_helper.rb'
+    - 'app/helpers/application_helper.rb'
+
+Rails/OutputSafety:
+  Exclude:
+  - 'app/helpers/application_helper.rb'
+
+RSpec/ExampleLength:
+  Exclude:
+    - 'spec/controllers/galleries_controller_spec.rb'
+
+RSpec/MultipleExpectations:
+  Max: 5
+
+RSpec/MultipleMemoizedHelpers:
+  Exclude:
+    - 'spec/controllers/galleries_controller_spec.rb'
 
 Style/Documentation:
   Enabled: false

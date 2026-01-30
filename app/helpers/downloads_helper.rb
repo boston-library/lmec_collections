@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DownloadsHelper
   include CommonwealthVlrEngine::DownloadsHelperBehavior
 
@@ -6,7 +8,7 @@ module DownloadsHelper
     institutions = [document['institution_name_ssi']]
     download_restricted = Rails.application.config.download_restricted_institutions || []
     image_filestreams(attachments_json).select do |filestream_id|
-      filestream_id != 'image_primary' || (institutions & download_restricted).empty?
+      filestream_id != 'image_primary' || !institutions.intersect?(download_restricted)
     end
   end
 

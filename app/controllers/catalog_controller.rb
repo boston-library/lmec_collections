@@ -41,7 +41,6 @@ class CatalogController < ApplicationController
     # can't call SearchBuilder.institution_limit because it's an instance method, not a class method
     # config.advanced_search[:form_solr_parameters]['fq'] = '+institution_ark_id_ssi:"' + CommonwealthVlrEngine.config[:institution][:pid] + '"'
 
-
     # configuration for Blacklight IIIF Content Search
     config.iiif_search = {
       full_text_field: 'ocr_tsiv',
@@ -77,7 +76,6 @@ class CatalogController < ApplicationController
 
     ## Default parameters to send to solr for all search-like requests. See also SearchBuilder#processed_parameters
 
-
     # solr path which will be added to solr base url before the other solr params.
     # config.solr_path = 'select'
     # config.document_solr_path = 'get'
@@ -105,7 +103,8 @@ class CatalogController < ApplicationController
     # config.index.search_header_component = MyApp::SearchHeaderComponent
     # config.index.document_actions.delete(:bookmark)
 
-    config.add_results_document_tool(:bookmark, component: Blacklight::Document::BookmarkComponent, if: :render_bookmarks_control?)
+    config.add_results_document_tool(:bookmark, component: Blacklight::Document::BookmarkComponent,
+                                                if: :render_bookmarks_control?)
 
     config.add_results_collection_tool(:sort_widget)
     config.add_results_collection_tool(:per_page_widget)
@@ -182,14 +181,9 @@ class CatalogController < ApplicationController
     # case for a BL "search field", which is really a dismax aggregate
     # of Solr search fields.
 
-
-
-
-
     # Specifying a :qt only to show it's possible, and so our internal automated
     # tests can test it. In this case it's the same as
     # config[:default_solr_parameters][:qt], so isn't actually neccesary.
-
 
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the Solr field to sort by and
@@ -218,11 +212,11 @@ class CatalogController < ApplicationController
     config.facet_fields.delete('reuse_allowed_ssi')
 
     config.add_facet_field 'subject_geographic_sim',
-                           label: 'Place', limit: 8, sort: 'count', collapse:  false
-    config.add_facet_field 'subject_facet_ssim', label: 'Topic', limit: 8, sort: 'count', collapse:  false
+                           label: 'Place', limit: 8, sort: 'count', collapse: false
+    config.add_facet_field 'subject_facet_ssim', label: 'Topic', limit: 8, sort: 'count', collapse: false
     config.add_facet_field 'date_facet_yearly_itim',
                            label: 'Date', range: true, collapse: false
-    config.add_facet_field 'name_facet_ssim', label: 'Creator', limit: 8, sort: 'count', collapse:  false
+    config.add_facet_field 'name_facet_ssim', label: 'Creator', limit: 8, sort: 'count', collapse: false
     config.add_facet_field 'genre_basic_ssim',
                            label: 'Format', limit: 8, sort: 'count', helper_method: :render_format,
                            collapse: false
@@ -232,10 +226,11 @@ class CatalogController < ApplicationController
                            query: {
                              yes: { label: 'Yes',
                                     fq: 'georeferenced_allmaps_bsi:true' },
-                             no:  { label: 'No',
-                                    fq: 'georeferenced_allmaps_bsi:false OR (*:* NOT georeferenced_allmaps_bsi:[* TO *])' }
+                             no: { label: 'No',
+                                   fq: 'georeferenced_allmaps_bsi:false OR (*:* NOT georeferenced_allmaps_bsi:[* TO *])' }
                            }
-    config.add_facet_field 'collection_name_ssim', label: 'Collection', limit: 8, sort: 'count', collapse: false
+    config.add_facet_field 'collection_name_ssim', label: 'Collection', limit: 8, sort: 'count',
+                                                   collapse: false
     config.add_facet_field 'reuse_allowed_ssi',
                            label: 'Available to use', limit: 8, sort: 'count', helper_method: :render_reuse,
                            collapse: false,
@@ -257,7 +252,7 @@ class CatalogController < ApplicationController
     return unless controller_name == 'catalog'
 
     if params[:mlt_id] ||
-      (current_search_session && current_search_session.query_params[:mlt_id].present?)
+       (current_search_session && current_search_session.query_params[:mlt_id].present?)
       blacklight_config.search_builder_class = MltSearchBuilder
     end
   end
