@@ -7,6 +7,19 @@ require_relative 'config/application'
 
 Rails.application.load_tasks
 
-## Error comes during `deploy:assets:precompile` because of not loading `solr_wrapper/rake_task`
-## require 'solr_wrapper/rake_task' unless Rails.env.production?
 require 'blacklight/allmaps/rake_task'
+
+if %w[development test].member?(ENV.fetch('RAILS_ENV', 'development'))
+  task default: :ci
+  Rake::Task.define_task(:environment)
+
+  require 'rubocop/rake_task'
+  RuboCop::RakeTask.new(:rubocop) do |task|
+    task.requires << 'rubocop-rails'
+    task.requires << 'rubocop-rspec'
+    task.fail_on_error = true
+  end
+
+  desc 'Run linting and specs'
+  task ci: %i[spec rubocop]
+end
