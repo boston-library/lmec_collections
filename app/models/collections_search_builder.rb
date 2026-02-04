@@ -5,7 +5,7 @@ class CollectionsSearchBuilder < Blacklight::SearchBuilder
   include Blacklight::Solr::SearchBuilderBehavior
   include CommonwealthVlrEngine::SearchBuilderBehavior
 
-  self.default_processor_chain += [
-    :site_filter, :exclude_unpublished_items, :collections_filter, :starts_with
+  self.default_processor_chain += %i[
+    site_filter exclude_unpublished_items collections_filter starts_with
   ]
 end

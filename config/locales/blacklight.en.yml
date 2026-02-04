@@ -12,8 +12,7 @@ en:
     tagline: 'Discover the digital collections of the Leventhal Map & Education Center and partners'
     
     exhibitions: 'Exhibitions'
-    exhibitionsdesc: 'View over a dozen map-related exhibitions by the
-    Leventhal Map & Education Center, produced from 2004 to present.'
+    exhibitionsdesc: 'View over a dozen map-related exhibitions by the Leventhal Map & Education Center, produced from 2004 to present.'
     exhibitionslink: 'Go'
 
     georeferencing: 'Georeferencing'
@@ -55,6 +54,9 @@ en:
       togglenavigation: 'Toggle navigation'
 
   gallery:
+    create: 'Favorites list was successfully created.'
+    destroy: 'Favorites list was successfully deleted.'
+    update: 'Favorites list was successfully updated.'
     save: 'Add to My Favorites'
 
   pager:

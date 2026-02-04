@@ -6,8 +6,9 @@ module Document
     DOWNLOAD_RESTRICTED_INSTITUTIONS = ['Newberry Library', 'British Library'].freeze
 
     def image_filestreams(attachments_json)
-      super(attachments_json).select do |filestream_id|
-        filestream_id != 'image_primary' || DOWNLOAD_RESTRICTED_INSTITUTIONS.exclude?(document['institution_name_ssi'])
+      super.select do |filestream_id|
+        filestream_id != 'image_primary' ||
+          DOWNLOAD_RESTRICTED_INSTITUTIONS.exclude?(document['institution_name_ssi'])
       end
     end
   end

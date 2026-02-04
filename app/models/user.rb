@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
-  has_many :galleries, -> { order(:created_at) }
+  has_many :galleries, -> { order(:created_at) }, inverse_of: :user, dependent: :destroy
 
   before_create :create_default_gallery
 

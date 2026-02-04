@@ -1,0 +1,131 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://index-dc3dev.bpl.org/solr/curator_staging/get?ids=bpl-dev:rn301202h&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 27 Jan 2026 21:05:58 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '6422'
+      Connection:
+      - keep-alive
+      Content-Security-Policy:
+      - default-src 'none'; base-uri 'none'; connect-src 'self'; form-action 'self';
+        font-src 'self'; frame-ancestors 'none'; img-src 'self'; media-src 'self';
+        style-src 'self' 'unsafe-inline'; script-src 'self'; worker-src 'self';
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Last-Modified:
+      - Thu, 22 Jan 2026 14:36:22 GMT
+      Etag:
+      - '"MWFjZTc4MDAwMDAwMDAwMFNvbHI=--gzip"'
+      Vary:
+      - Accept-Encoding, User-Agent
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "response":{"numFound":1,"start":0,"numFoundExact":true,"docs":[
+              {
+                "id":"bpl-dev:rn301202h",
+                "system_create_dtsi":"2022-02-18T16:52:24Z",
+                "system_modified_dtsi":"2022-02-18T16:54:54Z",
+                "curator_model_ssi":"Curator::DigitalObject",
+                "curator_model_suffix_ssi":"DigitalObject",
+                "title_info_primary_tsi":"Base map of Illinois",
+                "genre_basic_ssim":["Maps"],
+                "date_tsim":["1924"],
+                "date_type_ssm":["dateCreated"],
+                "date_edtf_ssm":["1924"],
+                "date_start_dtsi":"1924-01-01T00:00:00Z",
+                "date_end_dtsi":"1924-12-31T23:59:59.999Z",
+                "name_tsim":["Geological Survey (U.S.)",
+                  "Illinois State Geological Survey"],
+                "name_role_tsim":["Cartographer",
+                  "Cartographer"],
+                "name_facet_ssim":["Geological Survey (U.S.)",
+                  "Illinois State Geological Survey"],
+                "related_item_host_ssim":["Norman B. Leventhal Map Center Collection"],
+                "subject_topic_tsim":["Illinois--Maps"],
+                "subject_facet_ssim":["Illinois--Maps"],
+                "subject_coordinates_geospatial":["40,-89",
+                  "ENVELOPE(-91.5, -87.5, 42.5, 37.0)"],
+                "subject_point_geospatial":["40,-89"],
+                "subject_bbox_geospatial":["ENVELOPE(-91.5, -87.5, 42.5, 37.0)"],
+                "subject_geojson_facet_ssim":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-89.0,40.0]},\"properties\":{\"placename\":\"Illinois\"}}",
+                  "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Polygon\",\"coordinates\":[[[-91.5,37.0],[-87.5,37.0],[-87.5,42.5],[-91.5,42.5],[-91.5,37.0]]]},\"bbox\":[-91.5,37.0,-87.5,42.5]}"],
+                "subject_hiergeo_geojson_ssm":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-89.0,40.0]},\"properties\":{\"continent\":\"North and Central America\",\"country\":\"United States\",\"state\":\"Illinois\"}}"],
+                "physical_location_ssim":["Boston Public Library"],
+                "sub_location_tsi":"Norman B. Leventhal Map Center",
+                "identifier_uri_ss":"https://ark-dc3dev.bpl.org/ark:/50959/rn301202h",
+                "identifier_iiif_manifest_ss":"https://ark-dc3dev.bpl.org/ark:/50959/rn301202h/manifest",
+                "identifier_local_other_tsim":["06_01_017009"],
+                "identifier_local_call_tsim":["G4101.A1 1924 .I45"],
+                "identifier_local_barcode_tsim":["39999065681304"],
+                "note_resp_tsim":["State Geological Survey Division, prepared in cooperation with the United States Geological Survey"],
+                "note_tsim":["Relief shown by spot heights."],
+                "scale_tsim":["Scale 1:500,000. Approx. 8 miles to 1 inch"],
+                "rights_ss":"No known copyright restrictions.",
+                "license_ss":"No known restrictions on use.",
+                "reuse_allowed_ssi":"no restrictions",
+                "digital_origin_ssi":"reformatted_digital",
+                "extent_tsi":"1 map : color ; 125 x 72 cm",
+                "publisher_tsi":"The Survey",
+                "pubplace_tsi":"[Urbana, Ill.]",
+                "resource_type_manuscript_bsi":false,
+                "type_of_resource_ssim":["Cartographic"],
+                "lang_term_ssim":["English"],
+                "publishing_state_ssi":"published",
+                "processing_state_ssi":"complete",
+                "destination_site_ssim":["commonwealth",
+                  "bpl",
+                  "nblmc"],
+                "hosting_status_ssi":"hosted",
+                "harvesting_status_bsi":true,
+                "exemplary_image_ssi":"bpl-dev:ns064667c",
+                "exemplary_image_key_base_ss":"images/bpl-dev:ns064667c",
+                "admin_set_name_ssi":"Norman B. Leventhal Map Center Collection",
+                "admin_set_ark_id_ssi":"bpl-dev:000000000",
+                "institution_name_ssi":"Boston Public Library",
+                "institution_ark_id_ssi":"bpl-dev:4q77fr32b",
+                "collection_name_ssim":["Norman B. Leventhal Map Center Collection"],
+                "collection_ark_id_ssim":["bpl-dev:000000000"],
+                "filenames_ssim":["06_01_017009"],
+                "mods_xml_ss":"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",
+                "has_searchable_pages_bsi":false,
+                "georeferenced_bsi":false,
+                "georeferenced_allmaps_bsi":true,
+                "_version_":1848706137729269760,
+                "timestamp":"2025-11-13T19:52:42.134Z",
+                "subject_geographic_sim":["Illinois",
+                  "North and Central America",
+                  "United States"],
+                "date_facet_yearly_itim":[1924]}]
+          }}
+  recorded_at: Tue, 27 Jan 2026 21:05:58 GMT
+recorded_with: VCR 6.4.0
