@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/boston-library/commonwealth-vlr-engine.git
-  revision: d5ab9562d4207687aabe2cb9b2d6be66426e2dfc
+  revision: efcf15b6bf3f810ab8e2017cf43747ec111fbf37
   branch: blacklight-8
   specs:
     commonwealth-vlr-engine (0.1.0)
@@ -404,6 +404,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.1.16)
+    rack-attack (6.8.0)
+      rack (>= 1.0, < 4)
     rack-livereload (0.6.1)
       rack (>= 3.0, < 3.2)
     rack-session (2.1.1)
@@ -657,6 +659,7 @@ DEPENDENCIES
   pg (~> 1.5, >= 1.5.9)
   propshaft
   puma (>= 5.0)
+  rack-attack (~> 6.8)
   rack-livereload (~> 0.6.1)
   rails (~> 7.2.2, >= 7.2.2.1)
   rails-controller-testing
