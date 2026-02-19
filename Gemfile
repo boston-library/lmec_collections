@@ -39,6 +39,8 @@ gem 'commonwealth-vlr-engine', github: 'boston-library/commonwealth-vlr-engine',
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 2.6', '>= 2.6.1', group: :doc
 
+gem 'rack-attack', '~> 6.8'
+
 group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug'
