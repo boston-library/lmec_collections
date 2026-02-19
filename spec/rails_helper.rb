@@ -6,6 +6,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
 raise('The Rails environment is running in production mode!') if Rails.env.production?
+
 Rack::Attack.enabled = false
 
 # Uncomment the line below in case you have `--require rails_helper` in the `.rspec` file
