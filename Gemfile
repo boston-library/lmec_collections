@@ -21,7 +21,7 @@ gem 'coffee-rails', '~> 5.0'
 gem 'deep_cloneable', '~> 3.2', '>= 3.2.1'
 
 gem 'activerecord-session_store', '~> 2.2'
-gem 'omniauth-polaris', '~> 1.0'
+gem 'omniauth-polaris', '~> 1.2'
 
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem 'logger', '~> 1.7'
