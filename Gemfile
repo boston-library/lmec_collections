@@ -49,7 +49,7 @@ group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
   gem 'spring'
 
-  gem 'capistrano', '~> 3.19.2', require: false
+  gem 'capistrano', '~> 3.20.0', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
   gem 'capistrano-rvm'
 
