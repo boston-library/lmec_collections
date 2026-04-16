@@ -65,7 +65,7 @@ end
 
 group :development do
   gem 'guard-livereload', require: false
-  gem 'listen', '~> 3.9'
+  gem 'listen', '~> 3.10'
   gem 'rack-livereload', '~> 0.6.1'
   gem 'web-console'
 end
