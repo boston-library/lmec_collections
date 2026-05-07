@@ -53,7 +53,7 @@ class GalleriesController < CatalogController
         format.json { render :show, status: :created, location: @gallery }
       else
         format.html { render :new }
-        format.json { render json: @gallery.errors, status: :unprocessable_entity }
+        format.json { render json: @gallery.errors, status: :unprocessable_content }
       end
     end
   end
@@ -67,7 +67,7 @@ class GalleriesController < CatalogController
         format.json { render :show, status: :ok, location: @gallery }
       else
         format.html { render :edit }
-        format.json { render json: @gallery.errors, status: :unprocessable_entity }
+        format.json { render json: @gallery.errors, status: :unprocessable_content }
       end
     end
   end

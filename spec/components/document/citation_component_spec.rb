@@ -9,6 +9,6 @@ RSpec.describe Document::CitationComponent, :vcr, type: :component do
   it 'renders the citation content using the local URL' do
     render_inline(described_class.new(document: document))
 
-    expect(page).to have_content("test.host/search/#{item_pid}")
+    expect(page).to have_text("test.host/search/#{item_pid}")
   end
 end
