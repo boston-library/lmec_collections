@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'cssbundling-rails'
-gem 'devise', '~> 4.9.4'
+gem 'devise', '~> 5.0.4'
 gem 'devise-guests', '~> 0.8'
 gem 'importmap-rails'
 gem 'jbuilder'
