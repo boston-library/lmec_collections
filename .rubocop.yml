@@ -47,6 +47,10 @@ Metrics/ModuleLength:
   Exclude:
     - 'app/helpers/catalog_helper.rb'
 
+Rails/Exit:
+  Exclude:
+    - 'spec/rails_helper.rb'
+
 Rails/HelperInstanceVariable:
   Exclude:
     - 'app/helpers/allmaps_helper.rb'
