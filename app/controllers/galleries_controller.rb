@@ -49,11 +49,11 @@ class GalleriesController < CatalogController
 
     respond_to do |format|
       if @gallery.save
-        format.html { redirect_to @gallery, notice: I18n.t('blacklight.gallery.create') }
+        format.html { redirect_to @gallery, notice: I18n.t('gallery.create') }
         format.json { render :show, status: :created, location: @gallery }
       else
         format.html { render :new }
-        format.json { render json: @gallery.errors, status: :unprocessable_entity }
+        format.json { render json: @gallery.errors, status: :unprocessable_content }
       end
     end
   end
@@ -63,11 +63,11 @@ class GalleriesController < CatalogController
   def update
     respond_to do |format|
       if @gallery.update(gallery_params)
-        format.html { redirect_to @gallery, notice: I18n.t('blacklight.gallery.update') }
+        format.html { redirect_to @gallery, notice: I18n.t('gallery.update') }
         format.json { render :show, status: :ok, location: @gallery }
       else
         format.html { render :edit }
-        format.json { render json: @gallery.errors, status: :unprocessable_entity }
+        format.json { render json: @gallery.errors, status: :unprocessable_content }
       end
     end
   end
@@ -77,7 +77,7 @@ class GalleriesController < CatalogController
   def destroy
     @gallery.destroy
     respond_to do |format|
-      format.html { redirect_to galleries_url, notice: I18n.t('blacklight.gallery.destroy') }
+      format.html { redirect_to galleries_url, notice: I18n.t('gallery.destroy') }
       format.json { head :no_content }
     end
   end

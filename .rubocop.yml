@@ -13,7 +13,7 @@ AllCops:
     - 'config/**/*'
     - 'script/**/*'
 
-Capybara/SpecificMatcher:
+Capybara/RSpec/SpecificMatcher:
   Exclude:
     - 'spec/components/search_button_component_spec.rb'
 
@@ -46,6 +46,10 @@ Metrics/ModuleLength:
   Max: 120
   Exclude:
     - 'app/helpers/catalog_helper.rb'
+
+Rails/Exit:
+  Exclude:
+    - 'spec/rails_helper.rb'
 
 Rails/HelperInstanceVariable:
   Exclude:
