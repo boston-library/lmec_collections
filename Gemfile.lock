@@ -154,7 +154,7 @@ GEM
     builder (3.3.0)
     byebug (13.0.0)
       reline (>= 0.6.0)
-    capistrano (3.19.2)
+    capistrano (3.20.1)
       airbrussh (>= 1.0.0)
       i18n
       rake (>= 10.0.0)
@@ -674,7 +674,7 @@ DEPENDENCIES
   bootsnap
   brakeman
   byebug
-  capistrano (~> 3.19.2)
+  capistrano (~> 3.20.1)
   capistrano-rails (~> 1.4)
   capistrano-rvm
   capybara
