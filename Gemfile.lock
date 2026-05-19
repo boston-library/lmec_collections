@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/boston-library/commonwealth-vlr-engine.git
-  revision: a7e882499d79e29e0384b98c1fb9923f6bf6f5a9
+  revision: 0dc0f799ed81f1c8018e8d8ded94ac9c98d483ab
   branch: blacklight-8
   specs:
     commonwealth-vlr-engine (0.1.0)
@@ -224,7 +224,7 @@ GEM
       logger
     eventmachine (1.2.7)
     execjs (2.10.1)
-    faraday (2.14.1)
+    faraday (2.14.2)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
@@ -649,7 +649,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.7.5)
+    zeitwerk (2.8.0)
     zip_kit (6.3.4)
     zipline (2.2.0)
       actionpack (>= 6.0, < 8.2)
