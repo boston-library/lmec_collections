@@ -17,16 +17,20 @@ workers ENV.fetch('WEB_CONCURRENCY') { 2 }
 # Specifies the `worker_timeout` threshold that Puma will use to wait before
 # terminating a worker in development environments.
 #
-worker_timeout 3600 if rails_env == 'development'
+worker_timeout rails_env == 'development' ? 3600 : 60
 
 environment rails_env
 
-wait_for_less_busy_worker
-
 preload_app!
 
-on_worker_boot do
-  ActiveRecord::Base.establish_connection
+wait_for_less_busy_worker
+
+before_worker_boot do
+  ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
+end
+
+before_fork do
+  ActiveRecord::Base.connection_pool.disconnect! if defined?(ActiveRecord)
 end
 
 if %w(staging production).member?(rails_env)
@@ -36,6 +40,7 @@ if %w(staging production).member?(rails_env)
   state_path "#{app_dir}/tmp/pids/lmec_collections_puma_server.state"
 else
   port ENV.fetch('PORT') { 3000 }
+  stdout_redirect('/dev/stdout', '/dev/stderr')
   pidfile "#{app_dir}/tmp/pids/server.pid"
   state_path "#{app_dir}/tmp/pids/server.state"
   plugin :tmp_restart
