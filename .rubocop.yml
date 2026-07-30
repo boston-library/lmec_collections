@@ -3,6 +3,7 @@ plugins:
   - rubocop-rails
   - rubocop-rspec
   - rubocop-rspec_rails
+  - rubocop-performance
 
 AllCops:
   TargetRubyVersion: 3.4

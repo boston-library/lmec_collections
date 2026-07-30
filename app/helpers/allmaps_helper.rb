@@ -12,7 +12,7 @@ module AllmapsHelper
   def allmaps_id(document = @document)
     return document.sidecar_allmaps.allmaps_id if document.sidecar_allmaps.allmaps_id.present?
 
-    return Digest::SHA1.hexdigest(document.iiif_manifest_url)[0..15] if document.iiif_manifest_url&.match?(/ark:/)
+    return Digest::SHA1.hexdigest(document.iiif_manifest_url)[0..15] if document.iiif_manifest_url&.include?('ark:')
 
     nil
   end
