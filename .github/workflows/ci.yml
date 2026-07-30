@@ -48,6 +48,7 @@ jobs:
       VLR_SITE_ID: nblmc
       VLR_INSTITUTION_PID: nblmc
       SOLR_URL: ${{ secrets.SOLR_URL }}
+      IIIF_URL: ${{ secrets.IIIF_URL }}
 
     services:
       postgres:
