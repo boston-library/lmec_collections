@@ -11,8 +11,12 @@ AllCops:
   Exclude:
     - 'db/**/*'
     - 'bin/**/*'
-    - 'config/**/*'
+    - 'config/deploy.rb'
+    - 'config/deploy/*'
+    - 'config/puma.rb'
+    - 'node_modules/**/*'
     - 'script/**/*'
+    - 'vendor/**/*'
 
 Capybara/RSpec/SpecificMatcher:
   Exclude:
@@ -24,6 +28,8 @@ Layout/LineLength:
     - 'app/components/advanced_search_form_component.rb'
     - 'app/controllers/catalog_controller.rb'
     - 'app/controllers/collections_controller.rb'
+    - 'config/initializers/devise.rb'
+    - 'config/initializers/rack_attack.rb'
     - 'spec/components/document/downloads_component_spec.rb'
 
 Layout/SpaceInsideArrayLiteralBrackets:
@@ -39,6 +45,8 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Exclude:
     - 'app/controllers/catalog_controller.rb'
+    - 'config/environments/*'
+    - 'config/routes.rb'
 
 Metrics/MethodLength:
   Enabled: false

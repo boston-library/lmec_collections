@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root to: 'pages#home'
 
@@ -77,10 +79,10 @@ Rails.application.routes.draw do
 
   # redirects for legacy routes from previous bpl-mapportal warper app (geo.leventhalmap.org)
   get 'maps', to: redirect('https://www.leventhalmap.org/projects/digital-projects/georeferencing/')
-  get 'maps/:id', to: redirect("/warper_redirects/%{id}")
-  get 'maps/:id/export', to: redirect("/warper_redirects/%{id}")
-  get 'maps/:id/warped', to: redirect("/warper_redirects/%{id}")
-  get 'maps/from_uuid/:ark_id', to: redirect("/search/%{ark_id}")
-  get 'maps/wms/:id', to: redirect("/warper_redirects/%{id}")
-  get 'maps/tile/:id/:z/:x/:y.png', to: redirect("/warper_redirects/%{id}")
+  get 'maps/:id', to: redirect('/warper_redirects/%{id}')
+  get 'maps/:id/export', to: redirect('/warper_redirects/%{id}')
+  get 'maps/:id/warped', to: redirect('/warper_redirects/%{id}')
+  get 'maps/from_uuid/:ark_id', to: redirect('/search/%{ark_id}')
+  get 'maps/wms/:id', to: redirect('/warper_redirects/%{id}')
+  get 'maps/tile/:id/:z/:x/:y.png', to: redirect('/warper_redirects/%{id}')
 end

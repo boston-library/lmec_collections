@@ -94,7 +94,7 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
   file_logger = ActiveSupport::Logger.new('log/staging.log')
-                                     .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
+                                     .tap  { |logger| logger.formatter = Logger::Formatter.new }
                                      .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
 
   config.logger = file_logger
