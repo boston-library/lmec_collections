@@ -38,6 +38,17 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    # Define environment variables globally for the job
+    env:
+      RAILS_ENV: test
+      LMEC_COLLECTIONS_DB_HOST: localhost
+      LMEC_COLLECTIONS_DB_USER: postgres
+      LMEC_COLLECTIONS_DB_PASSWORD: postgres
+      LMEC_COLLECTIONS_DB_PORT: 5432
+      VLR_SITE_ID: nblmc
+      VLR_INSTITUTION_PID: nblmc
+      SOLR_URL: ${{ secrets.SOLR_URL }}
+
     services:
       postgres:
         image: postgres:15
