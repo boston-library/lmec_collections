@@ -38,15 +38,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    # services:
-    #  redis:
-    #    image: redis
-    #    ports:
-    #      - 6379:6379
-    #    options: --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
     services:
       postgres:
         image: postgres:15
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
         ports:
           - 5432:5432
         # Health check ensures Postgres is ready before the script runs
@@ -70,7 +67,6 @@ jobs:
           bundler-cache: true
 
       - name: Database setup
-          # REDIS_URL: redis://localhost:6379/0
         run: RAILS_ENV=test bundle exec rails db:prepare
 
       - name: Run Tests
