@@ -16,7 +16,7 @@ end
 # GET requests to /favorites/:id/add-item are likely bots
 # (this route doesn't exist, clicks from browser produce POST request)
 Rack::Attack.blocklist('block ips going to GET /favorites/:id/add-item') do |req|
-  if req.get? && req.path.match?(/favorites\/[0-9]*\/add-item/)
+  if req.get? && req.path.match?(%r{favorites/[0-9]*/add-item})
     Rails.cache.write("favorites-add-item-bot:#{req.ip}", true, expires_in: 30.days)
     File.write(Rails.root.join('log/favorites-add-item-bot_blocked-ips.log').to_s, "#{req.ip} - [#{DateTime.now.strftime('%Y-%m-%dT%H:%M:%S')}] - #{req.path} - #{req.user_agent.inspect}\n", mode: 'a')
     true

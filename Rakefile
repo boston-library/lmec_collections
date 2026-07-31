@@ -15,11 +15,9 @@ if %w[development test].member?(ENV.fetch('RAILS_ENV', 'development'))
 
   require 'rubocop/rake_task'
   RuboCop::RakeTask.new(:rubocop) do |task|
-    task.requires << 'rubocop-rails'
-    task.requires << 'rubocop-rspec'
     task.fail_on_error = true
   end
 
   desc 'Run linting and specs'
-  task ci: %i[spec rubocop]
+  task ci: %i[rubocop spec]
 end

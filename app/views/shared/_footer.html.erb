@@ -10,42 +10,44 @@
         </p>
         <ul class="social-links">
           <li>
-            <%= link_to 'https://www.facebook.com/bplmaps/', target: '_blank', title: 'Leventhal Map & Education Center Facebook' do %>
-              <%= icon('fa-brands', 'facebook', aria: { hidden: true }) %>
+            <%= link_to 'https://www.facebook.com/bplmaps/', target: '_blank' do %>
+              <%= icon('fa-brands', 'facebook', aria: { label: 'Leventhal Map & Education Center Facebook' }) %>
             <% end %>
           </li>
           <li>
-            <%= link_to 'https://bsky.app/profile/bplmaps.bsky.social', target: '_blank', title: 'Leventhal Map & Education Center BlueSky' do %>
-              <%= icon('fa-brands', 'bluesky', aria: { hidden: true }) %>
+            <%= link_to 'https://bsky.app/profile/bplmaps.bsky.social', target: '_blank' do %>
+              <%= icon('fa-brands', 'bluesky', aria: { label: 'Leventhal Map & Education Center BlueSky' }) %>
             <% end %>
           </li>
           <li>
-            <%= link_to 'http://instagram.com/bplmaps/', target: '_blank', title: 'Leventhal Map & Education Center Instagram' do %>
-              <%= icon('fa-brands', 'instagram', aria: { hidden: true }) %>
+            <%= link_to 'http://instagram.com/bplmaps/', target: '_blank' do %>
+              <%= icon('fa-brands', 'instagram', aria: { label: 'Leventhal Map & Education Center Instagram' }) %>
             <% end %>
           </li>
           <li>
-            <%= link_to 'https://www.youtube.com/c/LeventhalMapEducationCenter', target: '_blank', title: 'Leventhal Map & Education Center YouTube' do %>
-              <%= icon('fa-brands', 'youtube', aria: { hidden: true }) %>
+            <%= link_to 'https://www.youtube.com/c/LeventhalMapEducationCenter', target: '_blank' do %>
+              <%= icon('fa-brands', 'youtube', aria: { label: 'Leventhal Map & Education Center YouTube' }) %>
             <% end %>
           </li>
           <li>
-            <%= link_to 'https://www.flickr.com/photos/normanbleventhalmapcenter', target: '_blank', title: 'Leventhal Map & Education Center Flickr' do %>
-              <%= icon('fa-brands', 'flickr', aria: { hidden: true }) %>
+            <%= link_to 'https://www.flickr.com/photos/normanbleventhalmapcenter', target: '_blank' do %>
+              <%= icon('fa-brands', 'flickr', aria: { label: 'Leventhal Map & Education Center Flickr' }) %>
             <% end %>
           </li>
           <li>
-            <%= link_to 'https://github.com/bplmaps', target: '_blank', title: 'Leventhal Map & Education Center GitHub' do %>
+            <%= link_to 'https://github.com/bplmaps', target: '_blank' do %>
               <!-- <i class="icon-github-squared" aria-hidden="true"></i> -->
-              <%= icon('fa-brands', 'github', aria: { hidden: true }) %>
+              <%= icon('fa-brands', 'github', aria: { label: 'Leventhal Map & Education Center GitHub' }) %>
             <% end %>
           </li>
           <li>
-            <%= link_to 'https://mapstodon.space/@bplmaps', target: '_blank', title: 'Leventhal Map & Education Center Mastodon' do %>
-              <%= icon('fa-brands', 'mastodon', aria: { hidden: true }) %>
+            <%= link_to 'https://mapstodon.space/@bplmaps', target: '_blank' do %>
+              <%= icon('fa-brands', 'mastodon', aria: { label: 'Leventhal Map & Education Center Mastodon' }) %>
             <% end %>
           </li>
-          <li class="pull-right-desktop"><%= link_to 'Donate', 'https://www.leventhalmap.org/donate/', class: 'btn btn-primary btn-sm', target: '_blank', title: 'Donate to Leventhal Map & Education Center' %></li>
+          <li class="pull-right-desktop">
+            <%= link_to 'Donate', 'https://www.leventhalmap.org/donate/', class: 'btn btn-primary btn-sm', target: '_blank', aria: { label: 'Donate to Leventhal Map & Education Center' } %>
+          </li>
         </ul>
       </div>
       <div class="footer-column">
