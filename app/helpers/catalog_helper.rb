@@ -4,7 +4,7 @@ module CatalogHelper
   include Blacklight::CatalogHelperBehavior
   include CommonwealthVlrEngine::CatalogHelperBehavior
 
-  # rubocop:disable Metrics/CyclomaticComplexity
+  # rubocop:disable-next Metrics/CyclomaticComplexity
   def galleries_toggle(galleries, type, item_id, opts = {})
     return nil unless controller_name == 'catalog'
 
@@ -28,7 +28,6 @@ module CatalogHelper
       end
     end
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
 
   def gallery_toggle(gallery, type, item_id, opts = {})
     return nil unless gallery && type && item_id
