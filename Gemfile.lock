@@ -145,7 +145,7 @@ GEM
     blacklight_range_limit (9.0.0)
       blacklight (>= 7.25.2, < 9)
       view_component (>= 2.54, < 4)
-    bootsnap (1.25.0)
+    bootsnap (1.26.0)
       msgpack (~> 1.5)
     bootstrap (5.3.8)
       popper_js (>= 2.11.8, < 3)
@@ -750,7 +750,7 @@ CHECKSUMS
   blacklight_allmaps (0.4.0)
   blacklight_iiif_search (3.1.0) sha256=5d30a973918751a178c9eec62282653508ccd123feaf2046db246a9576bff10e
   blacklight_range_limit (9.0.0) sha256=d995a4fe81c5f4eeee6cc24a9701cf2bdcb5255d44486f65f340c7071572da52
-  bootsnap (1.25.0) sha256=41059e7d0f9cb4023a33465d095f64b913fc9d1b808d6524c307da945fbcffcf
+  bootsnap (1.26.0) sha256=ca96237015e6cd74a02963d5821cf00ac5ea134653b323e8cd6d702a7718bf1b
   bootstrap (5.3.8) sha256=1c23b06df24ec28a0058ad90a0da93e260d2c0a5c453d7087f6bad428464742f
   brakeman (8.0.6) sha256=759cc69341115e6c2dcd47b6fd8649a0b9bd540e3585ac8a0a94e31c66fee386
   builder (3.3.0) sha256=497918d2f9dca528fdca4b88d84e4ef4387256d984b8154e9d5d3fe5a9c8835f
