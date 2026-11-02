@@ -23,7 +23,7 @@ gem 'deep_cloneable', '~> 3.2', '>= 3.2.1'
 gem 'activerecord-session_store', '~> 2.2'
 gem 'omniauth-polaris', '~> 1.0'
 
-gem 'kaminari', '~> 1.2', '>= 1.2.2'
+gem 'kaminari', '~> 1.3'
 gem 'logger', '~> 1.7'
 gem 'mimemagic', '~> 0.4.3'
 gem 'smt_rails', '~> 0.3.0'
