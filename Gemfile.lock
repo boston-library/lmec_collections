@@ -623,7 +623,7 @@ GEM
     unicode-emoji (4.3.0)
     uri (1.1.1)
     useragent (0.16.11)
-    vcr (6.4.0)
+    vcr (6.4.1)
     view_component (3.25.0)
       activesupport (>= 5.2.0, < 8.2)
       concurrent-ruby (~> 1)
@@ -718,7 +718,7 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   uglifier (~> 4.2, >= 4.2.1)
-  vcr (~> 6.1)
+  vcr (~> 6.4)
   web-console
   webmock (~> 3.18)
 
@@ -954,7 +954,7 @@ CHECKSUMS
   unicode-emoji (4.3.0) sha256=11c02fa73290378c066bb0562cd4c87d8e1b706fbbe0059ca12746a4244de8ce
   uri (1.1.1) sha256=379fa58d27ffb1387eaada68c749d1426738bd0f654d812fcc07e7568f5c57c6
   useragent (0.16.11) sha256=700e6413ad4bb954bb63547fa098dddf7b0ebe75b40cc6f93b8d54255b173844
-  vcr (6.4.0) sha256=077ac92cc16efc5904eb90492a18153b5e6ca5398046d8a249a7c96a9ea24ae6
+  vcr (6.4.1) sha256=74870fc87d1bdf1f24e847f57977ac9a5e55cde681f56f1172c7c82dc9f006aa
   view_component (3.25.0) sha256=30f83eb2ecbb2b9da2e706814d3b8145c1417869dc8351647a6a941df1f2e293
   warden (1.2.9) sha256=46684f885d35a69dbb883deabf85a222c8e427a957804719e143005df7a1efd0
   web-console (4.2.1) sha256=e7bcf37a10ea2b4ec4281649d1cee461b32232d0a447e82c786e6841fd22fe20

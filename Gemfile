@@ -75,6 +75,6 @@ group :test do
   gem 'capybara'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
-  gem 'vcr', '~> 6.1'
+  gem 'vcr', '~> 6.4'
   gem 'webmock', '~> 3.18'
 end
