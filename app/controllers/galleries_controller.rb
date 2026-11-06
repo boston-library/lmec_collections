@@ -127,7 +127,7 @@ class GalleriesController < CatalogController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_gallery
-    @gallery = Gallery.owned_by(current_or_guest_user).find(params[:id])
+    @gallery = Gallery.owned_by(current_or_guest_user).find(params.expect(:id))
     @document_list = search_service.fetch(@gallery.repo_objects, rows: GALLERY_ITEM_LIMIT)
   end
 
