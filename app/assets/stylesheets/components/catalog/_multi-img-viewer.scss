@@ -11,23 +11,22 @@
 }
 
 .show-document {
-    #multi_img_show_container {
-        margin-bottom: 2rem;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+    #media_display_wrapper {
+        #multi_img_show_container {
+            margin-bottom: 1rem;
+            background-color: black;
 
-        #multi_img_viewer_osd {
-            padding: 1rem;
-            border-radius: .5rem;
+            #multi_img_viewer_osd {
+                padding: 1rem;
+                border-radius: .5rem;
+                height: 600px;
+            }
+        }
+
+        #uv_container {
+            margin-bottom: 1rem;
             height: 600px;
         }
-    }
-
-    #uv_container {
-        margin-bottom: 2rem;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        height: 600px;
     }
 }
 

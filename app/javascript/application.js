@@ -18,11 +18,6 @@ import "main"
 import "tooltip"
 import "carousel"
 
-Blacklight.onLoad(function() {
-  $('.documents-masonry').BlacklightMasonry();
-  $('.documents-slideshow').slideshow();
-});
-
 import BlacklightRangeLimit from "blacklight-range-limit";
 BlacklightRangeLimit.init({onLoadHandler: Blacklight.onLoad });
 

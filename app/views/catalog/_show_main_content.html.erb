@@ -5,7 +5,6 @@
       <% @page_title = t('blacklight.search.show.title', document_title: document_presenter(@document).html_title, application_name: application_name).html_safe %>
 
       <% content_for(:head) do %>
-        <%= javascript_import_module_tag "universalviewer" if include_uv?(@document, @object_files) %>
         <%= render_link_rel_alternates %>
       <% end %>
 

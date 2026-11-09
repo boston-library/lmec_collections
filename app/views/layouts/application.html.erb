@@ -20,8 +20,8 @@
     <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=PT+Serif:400,700,700i", media: "all" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
-    <%= yield :head %>
     <%= javascript_importmap_tags %>
+    <%= yield :head %>
   </head>
 
   <body class="<%= render_body_class if defined?(render_body_class) %>">

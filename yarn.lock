@@ -337,7 +337,7 @@
     "@types/jquery" "3.3.14"
     manifesto.js "4.*"
 
-"@iiif/iiif-metadata-component@^1.2.1":
+"@iiif/iiif-metadata-component@^1.2.2":
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/@iiif/iiif-metadata-component/-/iiif-metadata-component-1.2.2.tgz#032571637b235d67f0f4b9171e1b3a23031e2e13"
   integrity sha512-5Ut+zjlmHlBh64t8qBT7kp465WbZ8cV5+DFi6RQibW9dt1rcSjoHywToOcLxSyV2Uq8DSu9FNZ3Fm+a8SNLaQw==
@@ -3961,10 +3961,10 @@ universalify@^2.0.0:
   resolved "https://registry.yarnpkg.com/universalify/-/universalify-2.0.1.tgz#168efc2180964e6386d061e094df61afe239b18d"
   integrity sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==
 
-universalviewer@4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/universalviewer/-/universalviewer-4.2.0.tgz#43828fee0fa82004b7453bf98049cf0bdc5b0ac3"
-  integrity sha512-DSDKu3QIY4D5nYWu/GVE2mZdsbYBCw8JU/8rmuNPpKyeUJxfIHn3ffiHD4X74Fon9I+t4DaVX1JTvbIo63VHOA==
+universalviewer@4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/universalviewer/-/universalviewer-4.2.1.tgz#acd91482106d8966b1dfb75b79119ffbf7b3e7ac"
+  integrity sha512-jUVhMhxtKFuL7u/pLVtU57LabcNpaFubN9iV258ijLSWzZFdho8R7CjFkwjH71QDSTZnbJh55SBdDhkUNTvSJw==
   dependencies:
     "@edsilv/http-status-codes" "1.0.3"
     "@edsilv/key-codes" "1.0.0"
@@ -3973,7 +3973,7 @@ universalviewer@4.2.0:
     "@iiif/base-component" "2.0.1"
     "@iiif/iiif-av-component" "1.2.4"
     "@iiif/iiif-gallery-component" "^1.1.23"
-    "@iiif/iiif-metadata-component" "^1.2.1"
+    "@iiif/iiif-metadata-component" "^1.2.2"
     "@iiif/iiif-tree-component" "^2.0.7"
     "@iiif/manifold" "^2.1.1"
     "@iiif/presentation-3" "^1.0.5"
