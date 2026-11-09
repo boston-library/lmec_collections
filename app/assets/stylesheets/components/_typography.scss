@@ -27,19 +27,25 @@ ul.check-list {
   }
 }
 
-ul .download_list_item {
-  padding: 7px 15px 7px 0;
-  display: list-item;
-  margin-left: 15px;
-  line-height: 1.2;
-  list-style: none;
+ul.dropdown-menu {
+  .downloads-dropdown-menu-header {
+    display: none;
+  }
 
-  a {
-    padding: 0;
+  .download_list_item {
+    padding: 7px 15px 7px 0;
+    display: list-item;
+    margin-left: 15px;
+    line-height: 1.2;
+    list-style: none;
 
-    &:hover {
-      background: none;
-      text-decoration: underline;
+    a {
+      padding: 0;
+
+      &:hover {
+        background: none;
+        text-decoration: underline;
+      }
     }
   }
 }

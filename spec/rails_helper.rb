@@ -56,6 +56,10 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
+  # Force routes to load before the suite runs so Devise registers its
+  # controller helpers (e.g. current_user) before any spec references them.
+  config.before(:suite) { Rails.application.reload_routes! }
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')
