@@ -54,7 +54,7 @@ group :development, :test do
 
   gem 'rspec', '~> 3.13', '>= 3.13.1'
   gem 'rspec-rails', '~> 8.0'
-  gem 'rubocop', '~> 1.76', '>= 1.76.2'
+  gem 'rubocop', '~> 1.92'
   gem 'rubocop-capybara'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
